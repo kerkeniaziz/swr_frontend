@@ -6,7 +6,8 @@ const ls = new SecureLS({
   isCompression: false,
   encryptionSecret: '12345678901234567890123456789012'
 });
-const baseUrl = 'http://localhost:8000/';
+// const baseUrl = 'http://localhost:8000/';
+const baseUrl = 'https://swrbackend.azurewebsites.net/';
 
 const store = createStore({
   state: {
@@ -20,7 +21,7 @@ const store = createStore({
     imageUrl: `${baseUrl}image/`,
     categories: {},
     jobs: {},
-    defaultImage: 'http://localhost:8000/image/default.png',
+    defaultImage: `${baseUrl}image/default.png`,
     socialMediaLinks: {}
   },
 
