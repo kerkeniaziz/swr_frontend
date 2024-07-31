@@ -18,10 +18,9 @@ pipeline {
         stage('Build Frontend') { 
             steps {
                 script { 
-                    // Build the frontend Docker image
-                    dir('frontend') {
+                    
                         powershell 'docker build -t kerkeniaziz/frontend:lts .'
-                    }
+                    
                 }
             }
         }
