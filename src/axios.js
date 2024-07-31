@@ -3,7 +3,8 @@ import { toast } from "vue3-toastify";
 import store from './store/Store';
 import Swal from 'sweetalert2';
 
-axios.defaults.baseURL = "http://localhost:8000/";
+// axios.defaults.baseURL = "http://localhost:8000/";
+axios.defaults.baseURL = "https://swrbackend.azurewebsites.net/";
 const fallbackBaseURL = "https://swrbackend.azurewebsites.net/";
 
 // Request interceptor to add the Authorization header with JWT token from cookies
