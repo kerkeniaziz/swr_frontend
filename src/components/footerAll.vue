@@ -11,16 +11,16 @@
                   
                   <div class="mb-3 fs-6 text-light">
                     <img src="../assets/img/2_white.png" alt="swr" class="w-50">
-                    <p class="me-5 mt-4"><b>SW CONSULTING is a Tunisian company, we have been an IT service provider for more than 4 years. 
-                      We meet almost all the needs of VSEs, SMEs, as well as large groups, regardless of their sector of activity.</b></p>
+                    <p class="me-5 mt-4">SW CONSULTING is a Tunisian company, we have been an IT service provider for more than 4 years. 
+                      We meet almost all the needs of VSEs, SMEs, as well as large groups, regardless of their sector of activity.</p>
                   </div>
 
                 </div>
               </div>
-              <div class="col-6 col-md-2 ">
+              <div class="col-6 col-md-3 ms-5">
                 <div class="link-wrapper">
-                  <h4 class="fs-5 fw-bold text-light mb-5">
-                     
+                  <h4 class="mb-4 fs-5 fw-bold text-light">
+                    JOB SEEKER
                   </h4>
                   <ul class="m-0 list-unstyled">
                     <li class="mb-4">
@@ -31,22 +31,64 @@
                       
                     </li>
                     <li class="mb-4">
+                      <router-link to="/findjob" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                      Find a job
+                      </router-link>
+                      
+                    </li>
+                    <li class="mb-4">
                       <router-link to="/contact" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Contact
+                      Contact Us
                       </router-link>
                     </li>
                     <li class="mb-4">
                       <router-link to="/about" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      About
+                      About Us
                       </router-link>
                     </li>
                    
                   </ul>
                 </div>
               </div>
-              <div class="col-6 col-md-2">
+              <div class="col-6 col-md-2" >
+                <div class="link-wrapper">
+                  <h4 class="mb-4 fs-5 fw-bold text-light ">
+                    JOB TYPE
+                  </h4>
+                  <ul class="m-0 list-unstyled">
+                    <li class="mb-4">
+                      <router-link to="/findjob?jobType=full-time" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                      Full-time
+                      </router-link>
+                    </li>
+                    <li class="mb-4">
+                      <router-link to="/findjob?jobType=part-time" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                      Part-time
+                      </router-link>
+                    </li>
+                    <li class="mb-4">
+                      <router-link to="/findjob?jobType=freelance" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                      Freelance
+                      </router-link>
+                    </li>
+                    <li class="mb-4">
+                      <router-link to="/findjob?jobType=internship" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                      Internship
+                      </router-link>
+                    </li>
+
+                   
+                  </ul>
+                </div>
+              </div>
+              <div class="col-6 col-md-2" hidden >
                 <div class="link-wrapper">
                   <h4 class="mb-4 fs-5 fw-bold text-light ">
                     EMPLOYER
@@ -75,35 +117,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="col-6 col-md-2">
-                <div class="link-wrapper">
-                  <h4 class="mb-3 fs-5 fw-bold text-light">
-                    JOB SEEKER
-                  </h4>
-                  <ul class="m-0 list-unstyled">
-                    <li class="mb-4">
-                      <router-link to="/findjob" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
-                      >
-                      Find a job
-                      </router-link>
-                      
-                    </li>
-                    <li class="mb-4">
-                      <router-link to="/findjob?jobType=internship" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
-                      >
-                      Find an internship
-                      </router-link>
-                    </li>
-                    <li class="mb-4">
-                      <router-link to="/" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
-                      >
-                      Upload CV
-                      </router-link>
-                    </li>
-                   
-                  </ul>
-                </div>
-              </div>
+
 
             </div>
           </section>

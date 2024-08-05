@@ -14,7 +14,7 @@
     
     <button
       type="button"
-      class="navbar-toggler me-4"
+      class="navbar-toggler"
       data-bs-toggle="collapse"
       data-bs-target="#navbarCollapse"
     >
@@ -57,6 +57,14 @@
             About Us
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link
+            to="/contact"
+            class="nav-link"
+          >
+            Contact Us
+          </router-link>
+        </li>
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -67,7 +75,7 @@
             Login
           </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item me-5">
           <router-link
             to="/signup"
             class="nav-link"
@@ -75,12 +83,7 @@
             Sign Up
           </router-link>
         </li>
-        <li class="nav-item">
-          <a
-            href=""
-            class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
-          >Upload CV<i class="fa fa-arrow-right ms-3" /></a>
-        </li>
+
       </ul>
     </div>
   </nav>
@@ -93,43 +96,6 @@ export default {
 </script>
 
 <style scoped>
-/*** Button ***/
-.btn {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  transition: .5s;
-}
-
-.btn.btn-primary,
-.btn.btn-secondary {
-  color: #FFFFFF;
-}
-
-.btn-square {
-  width: 38px;
-  height: 38px;
-}
-
-.btn-sm-square {
-  width: 32px;
-  height: 32px;
-}
-
-.btn-lg-square {
-  width: 48px;
-  height: 48px;
-}
-
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: normal;
-  border-radius: 2px;
-}
 
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
@@ -184,7 +150,8 @@ export default {
 
 .navbar-light .navbar-nav .nav-link {
   color: var(--dark);
-  font-weight: 500;
+  font-weight: 600;
+
 }
 
 .navbar-light.sticky-top {
@@ -213,4 +180,5 @@ export default {
     opacity: 1;
   }
 }
+
 </style>

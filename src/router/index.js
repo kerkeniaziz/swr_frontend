@@ -32,9 +32,44 @@ const routes = [
     },
 
     {
+        path: '/jobs/application',
+        name: 'JobApplication',
+        component: () => import('../components/application/jobApplication.vue')
+    },
+    {
         path: '/setting',
         name: 'SettingProfile',
         component: () => import('../components/user/settingProfile.vue')
+    },
+    {
+        path: '/jobs/application/review',
+        name: 'ReviewPage',
+        component: () => import('../components/application/reviewPage.vue')
+    },
+    {
+        path: '/user',
+        name: 'ProfilePage',
+        component: () => import('../components/user/profilePage.vue')
+    },
+    {
+        path: '/contact',
+        name: 'ContactPage',
+        component: () => import('../views/ContactPage.vue')
+    },
+    {
+        path: '/dashboard/jobapplied',
+        name: 'JobApplied',
+        component: () => import('../components/job/jobApplied.vue')
+    },
+    {
+        path: '/notification-center',
+        name: 'NotificationCenter',
+        component: () => import('../components/notificationCenter.vue')
+    },
+    {
+        path: '/dashboard/notification',
+        name: 'NotificationPage',
+        component: () => import('../components/notificationPage.vue')
     },
     {
         path: '/dashboard/savedjobs',

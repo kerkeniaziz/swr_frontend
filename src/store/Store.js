@@ -6,8 +6,8 @@ const ls = new SecureLS({
   isCompression: false,
   encryptionSecret: '12345678901234567890123456789012'
 });
-// const baseUrl = 'http://localhost:8000/';
-const baseUrl = 'https://swrbackend.azurewebsites.net/';
+ //const baseUrl = 'http://localhost:8000/';
+ const baseUrl = process.env.VUE_APP_API_URL;
 
 const store = createStore({
   state: {

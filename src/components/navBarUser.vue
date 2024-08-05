@@ -67,10 +67,10 @@
             <hr class="dropdown-divider mb-0">
           </div>
           <div class="list-group list-group-flush">
-            <a
+            <button
               href="#"
               class="list-group-item list-group-item-action"
-              aria-current="true"
+              disabled
             >
               <div class="row g-0 align-items-center">
                     
@@ -80,11 +80,11 @@
                   </div>
                 </div>
               </div>
-            </a>
-            <a
+            </button>
+            <button
               href="#"
               class="list-group-item list-group-item-action"
-              aria-current="true"
+              disabled
             >
               <div class="row g-0 align-items-center">
                     
@@ -94,7 +94,7 @@
                   </div>
                 </div>
               </div>
-            </a>
+            </button>
             <a
               href="#"
               class="list-group-item list-group-item-action active"
@@ -109,9 +109,6 @@
                 </div>
               </div>
             </a>
-          </div>
-          <div>
-            <hr class="dropdown-divider mt-0">
           </div>
         </div>
       </li>
@@ -134,62 +131,60 @@
         <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
           <li>
             <h6 class="dropdown-header fs-7 text-center">
-              18 Notifications
+              {{count}} Notifications
             </h6>
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li>
-            <a
+          <div v-for="notification in notifications" :key="notification.id">
+            <li>
+            <router-link
               class="dropdown-item d-flex align-items-center"
-              href="#!"
+              to="/dashboard/notification"
             >
               <span>
                 <i class="bi bi-envelope-fill me-2" />
-                <span class="fs-7">New Messages</span>
+                <span class="fs-7 text-truncate"  :class="notification.status === 'notviewed' ? 'fw-bold' : ''">{{notification.title}}</span>
               </span>
-              <span class="fs-7 ms-auto text-secondary">5 mins</span>
-            </a>
+            </router-link>
+            
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li>
-            <a
+
+          </div>
+          <div v-if="count===0">
+            <li>
+            <span
               class="dropdown-item d-flex align-items-center"
-              href="#!"
+              to="/dashboard/notification"
             >
               <span>
-                <i class="bi bi-person-fill me-2" />
-                <span class="fs-7">Friend Requests</span>
+                <i class="bi bi-envelope-fill me-2" />
+                <span class="fs-7 text-truncate"  >No Notification</span>
               </span>
-              <span class="fs-7 ms-auto text-secondary">17 hours</span>
-            </a>
+            </span>
+            
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
+
+          </div>
+
           <li>
-            <a
-              class="dropdown-item d-flex align-items-center"
-              href="#!"
-            >
-              <span>
-                <i class="bi bi-file-earmark-fill me-2" />
-                <span class="fs-7">New Reports</span>
-              </span>
-              <span class="fs-7 ms-auto text-secondary">3 days</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a
+            <router-link
+            
+              to="/dashboard/notification"
               class="dropdown-item fs-7 text-center"
-              href="#"
-            >See All Notifications</a>
+            >
+              <span>
+                <i class="bi bi-bell-fill me-2" />
+                <span class="fs-7">See All Notifications</span>
+              </span>
+            </router-link>
           </li>
         </ul>
       </li>
@@ -207,7 +202,7 @@
             width="35"
             height="35"
             class="img-fluid rounded-circle"
-            alt="Luke Reeves"
+            alt="img"
           >
         </a>
         <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn me-5 ">
@@ -224,7 +219,7 @@
                     width="55"
                     height="55"
                     class="img-fluid rounded-circle"
-                    alt="Luke Reeves"
+                    alt="img"
                   >
                 </div>
                 <div class="col-9">
@@ -253,15 +248,16 @@
             </router-link>
           </li>
           <li>
-            <a
-              class="dropdown-item "
-              href="#!"
+            <router-link
+            
+              to="/dashboard/notification"
+              class="dropdown-item"
             >
               <span>
                 <i class="bi bi-bell-fill me-2" />
                 <span class="fs-7">Notifications</span>
               </span>
-            </a>
+            </router-link>
           </li>
           <li>
             <hr class="dropdown-divider">
@@ -278,15 +274,15 @@
             </router-link>
           </li>
           <li>
-            <a
+            <button
               class="dropdown-item"
-              href="#!"
+              disabled
             >
               <span>
                 <i class="bi bi-question-circle-fill me-2" />
                 <span class="fs-7">Help Center</span>
               </span>
-            </a>
+            </button>
           </li>
           <li>
             <hr class="dropdown-divider">
@@ -314,13 +310,27 @@ export default {
     data(){
         return{
           ProfileData: {},
-          search:""
+          search:"",
+          notifications:{},
+          count:0
         }
     },
         beforeCreate () {
           this.profileData = this.$store.state.profileData;
         },    
+        mounted() {
+      this.fetchNotification();
+    },
     methods: {
+      async fetchNotification() {
+        try {
+          const response = await axios.get('/notification?pageSize=3');
+          this.notifications = response.data.notifications;
+          this.count = response.data.count;
+        } catch (e) {
+          console.error(e);
+        }
+      },
       async Search() {
         window.location.href = `/findjob?search=${this.search}`;
             

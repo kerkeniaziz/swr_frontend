@@ -433,7 +433,8 @@ import skillSelectorVue from '../skill/skillSelector.vue';
           async editJob() {
       try {
         await axios.put(`job/${this.job._id}`, this.job);
-
+        if (this.imagePreview)
+              {await this.handleImageUpload(this.job._id)}
       } catch (error) {
         console.error(error);
       }

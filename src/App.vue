@@ -47,6 +47,7 @@ import { useRoute } from 'vue-router';
 
 import SpinnerPage from './components/spinnerPage.vue';
 
+
 export default {
   name: 'App',
   components: {
@@ -58,6 +59,7 @@ export default {
     SpinnerPage
 
   },
+
   setup() {
     const route = useRoute();
     const formattedPath = computed(() => {
@@ -68,6 +70,7 @@ export default {
       formattedPath,
     };
   },
+
   
 }
 </script>
@@ -268,6 +271,14 @@ font-weight: 700;
 .pagination span {
   font-size: 16px;
   margin: 0 10px;
+}
+
+.job-item:hover{
+  background-color:white !important;
+  box-shadow: 0 0 5px rgba(133, 133, 133, 0.255) !important;
+}
+.job-item{
+  background-color:white !important;
 }
 
 </style>

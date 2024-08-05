@@ -19,8 +19,7 @@
           <thead>
             <tr>  
               <th>Title</th>
-              <th>Category</th>
-              <th>Job Type</th>
+              <th>Application</th>
               <th>Job Status</th>
               <th class="w-200">
                 Action
@@ -36,8 +35,15 @@
               <th class="p-3">
                 {{ job.title }}
               </th>
-              <th>{{ job.categoryName }}</th>
-              <th>{{ job.jobType }}</th>
+
+              <th> 
+                <router-link class="text-decoration-none text-primary d-block" :to="`jobs/application?JobId=${job._id}`" v-if="job.applications.length>0">
+                <span> {{ job.applications.length }}</span>
+                <i class="bi bi-box-arrow-up-right ms-2 fw-bold" ></i>
+                </router-link>
+                <span v-else> {{ job.applications.length }}</span>
+
+              </th>
               <th> 
                 <div class="form-check form-switch d-flex align-items-center justify-content-center">
                   <input 

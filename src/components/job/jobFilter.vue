@@ -6,11 +6,11 @@
           Filter
         </h6>
         <button
-          class="my-auto resetButton text-primary"
+          class="my-auto  text-primary border-0 bg-white btn"
           @click="reset"
         >
-          reset
-        </button>
+        <i class="bi bi-arrow-counterclockwise fs-4"></i>        
+      </button>
       </div>
       
       <hr>

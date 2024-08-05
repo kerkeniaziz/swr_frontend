@@ -221,7 +221,7 @@ import { toast } from "vue3-toastify";
  import axios from 'axios';
 
 export default {
-    name : 'DashboardCandidate',  
+    name : 'OverView',  
 
     data() {
       return {
@@ -293,8 +293,7 @@ export default {
                     coverLetter: this.coverLetter
                 }
                 await axios.post(`/application?jobId=${JobId}`,data)
-                    this.$router.push(`/job/${JobId}`);
-              
+
             }catch (e) {
                 toast(e.response.data.message , {
           "type": e.response.data.success ? "success" : "error"

@@ -13,7 +13,7 @@
               <router-link to="/dashboard/jobapplied">
                 <div class="card-body p-4 text-center">
                   <div class="lh-1 d-flex align-items-center justify-content-center">
-                    <i class="bi bi-people fs-3 p-3 text-white bg-primary rounded-circle" />
+                    <i class="bi bi-send fs-3 p-3 text-white bg-primary rounded-circle" />
                   </div>
                   <br>
                   <h3 class="card-title widget-card-title mb-3">

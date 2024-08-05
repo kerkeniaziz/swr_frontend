@@ -243,9 +243,9 @@ export default {
         }
     },
     mounted() {
-        this.fetchJobDetail();
-      this.isSavedJob();
       this.isCandidate = this.$store.state.userRole === "candidate";
+      this.isSavedJob();
+      this.fetchJobDetail();
     },
 
     methods: {
@@ -254,8 +254,13 @@ export default {
   },
       async isSavedJob(){
         if (this.isCandidate){
-        const response =await axios.get(`candidate/${this.$store.state.profileData._id}`);
+          try{
+            const response =await axios.get(`candidate/${this.$store.state.profileData._id}`);
+        console.log("dqsfqsdfsdf",response);
           this.isSaved = response.data.candidate.savedJobs.includes(this.$route.params.id)
+          }catch(e) {
+            console.error(e);
+          }
         }
       },
       async saveJob() {

@@ -57,19 +57,7 @@
                 >
                   Password
                 </button>
-                <!-- Language Tab Button -->
-                <button
-                  id="language-tab"
-                  class="nav-link"
-                  data-bs-toggle="pill"
-                  data-bs-target="#language-tab-pane"
-                  type="button"
-                  role="tab"
-                  aria-controls="language-tab-pane"
-                  aria-selected="false"
-                >
-                  Language
-                </button>
+                
                 <!-- Account Tab Button -->
                 <button
                   id="account-tab"
@@ -124,15 +112,7 @@
             >
               <ChangePassword />
             </div>
-            <!-- Language Tab Pane -->
-            <div
-              id="language-tab-pane"
-              class="tab-pane fade"
-              role="tabpanel"
-              aria-labelledby="language-tab"
-            >
-              <LanguageSelector />
-            </div>
+            
             <!-- Account Tab Pane -->
             <div
               id="account-tab-pane"
@@ -153,7 +133,6 @@
 import ProfileEdite from './profileEdite.vue';
 import ResourcePage from './resourcePage.vue';
 import ChangePassword from './changePassword.vue';
-import LanguageSelector from './languageSelector.vue';
 import AccountSetting from './accountSetting.vue';
 
 export default {
@@ -162,7 +141,6 @@ export default {
     ProfileEdite,
     ResourcePage,
     ChangePassword,
-    LanguageSelector,
     AccountSetting,
   },
 };

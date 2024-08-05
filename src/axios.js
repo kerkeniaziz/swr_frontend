@@ -2,14 +2,18 @@ import axios from "axios";
 import { toast } from "vue3-toastify";
 import store from './store/Store';
 import Swal from 'sweetalert2';
+import Cookies from 'vue-cookies'
+
 
 // axios.defaults.baseURL = "http://localhost:8000/";
-axios.defaults.baseURL = "https://swrbackend.azurewebsites.net/";
-const fallbackBaseURL = "https://swrbackend.azurewebsites.net/";
+ axios.defaults.baseURL = process.env.VUE_APP_API_URL; 
+
+let firstRequestMade = false;
 
 // Request interceptor to add the Authorization header with JWT token from cookies
 axios.interceptors.request.use(
   async (config) => {
+    
     const token = getCookie('token'); // Replace with your function to get the token from cookies
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -62,6 +66,11 @@ axios.interceptors.response.use(
     return response;
   },
   async (error) => {
+    if (!firstRequestMade) {
+      console.log('First request error detected:', error);
+      firstRequestMade = true;
+      // You can perform any actions needed for the first request here
+    }
     const originalRequest = error.config;
     const token = getCookie('token');
     const refreshToken = getCookie('refreshToken');
@@ -94,13 +103,9 @@ axios.interceptors.response.use(
         sessionExpired();
         handleSwalError(error);
       }
-    } else if (!originalRequest._retry && error.request && !error.response) {
-      // Fallback logic for base URL
-      originalRequest._retry = true;
-      originalRequest.baseURL = fallbackBaseURL;
-      return axios(originalRequest);
+   
     } else {
-      console.error('Request error:', error);
+      console.error('Request error:',process.env, error);
       handleSwalError(error);
     }
     store.commit('setLoading', false);
@@ -110,16 +115,23 @@ axios.interceptors.response.use(
 
 function sessionExpired() {
   store.commit("removeUserData");
-  Swal.fire({
-    title: "Your session has expired",
-    text: "Please Login again",
-    confirmButtonColor: "#3085d6",
-    confirmButtonText: "Login"
-  }).then((result) => {
-    if (result.isConfirmed) {
-      window.location.href = "/login";
+  localStorage.clear();
+    Cookies.remove('token');
+    Cookies.remove('refreshToken');
+    if (!firstRequestMade){
+      Swal.fire({
+        title: "Your session has expired",
+        text: "Please Login again",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Login"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "/login";
+    
+        }
+      });
     }
-  });
+  
 }
 
 // Helper functions to get and set cookies

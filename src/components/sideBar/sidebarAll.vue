@@ -93,6 +93,16 @@
           <i class="bi bi-bookmark" />
           <span class="sidebar-text">Saved Jobs</span>
         </router-link>
+        <router-link
+          v-if="userRole ==='admin'"
+          to="/notification-center"
+          class="sidebar-link"
+          :class="{ 'active': isLinkActive('/notification-center') }"
+          @click="toggleSidebar" 
+        >
+          <i class="bi bi-bell" />
+          <span class="sidebar-text">Notification center</span>
+        </router-link>
 
         <router-link
           to="/setting"

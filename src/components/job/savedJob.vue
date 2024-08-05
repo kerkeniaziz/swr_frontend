@@ -166,7 +166,7 @@
   <script>
   import axios from 'axios';
   export default {
-    name: 'JobListing',
+    name: 'SavedJobs',
     data() {
       return {
         noJob: false,
