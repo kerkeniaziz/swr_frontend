@@ -219,8 +219,10 @@ export default {
     }
   },
   methods: {
+    
     changePage(newPage) {
     if (newPage > 0 && newPage <= this.pages) {
+      // eslint-disable-next-line 
       this.$emit('update:filterjobs', newPage);
     }
   },

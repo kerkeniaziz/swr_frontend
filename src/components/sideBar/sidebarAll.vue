@@ -73,7 +73,7 @@
           <span class="sidebar-text">Find Job</span>
         </router-link>
         <router-link
-        v-if="userRole ==='candidate'"
+          v-if="userRole ==='candidate'"
           to="/profile"
           class="sidebar-link"
           :class="{ 'active': isLinkActive('/profile') }"
@@ -84,7 +84,7 @@
         </router-link>
         
         <router-link
-        v-if="userRole ==='candidate'"
+          v-if="userRole ==='candidate'"
           to="/dashboard/savedjobs"
           class="sidebar-link"
           :class="{ 'active': isLinkActive('/dashboard/savedjobs') }"

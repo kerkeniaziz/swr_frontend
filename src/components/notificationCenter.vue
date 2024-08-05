@@ -1,52 +1,77 @@
 <template>
-    <div>
-        <section class="py-3 d-flex justify-content-center align-items-center">
+  <div>
+    <section class="py-3 d-flex justify-content-center align-items-center">
       <div class="container">
         <div class="row">
           <div class="col-12 bg-white shadow rounded pb-5">
             <h3 class="h2 mb-2 my-4 text-center">
               System Notifications
             </h3>
-            <form @submit.prevent="submitForm" class="w-50 mx-auto">
-                <div class="mb-3">
-        <label for="status" class="form-label fw-bold">Users :</label>
-        <select
-          class="form-select mb-4"
-          id="status"
-          v-model="formData.users"
-        >
-        <option value="" selected>All</option>
-          <option value="admin">Admins</option>
-          <option value="candidate">Candidates</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="title" class="form-label fw-bold">Title :</label>
-        <input
-          type="text"
-          class="form-control mb-4"
-          id="title"
-          v-model="formData.title"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label fw-bold">Message : (CLASSIC / HTML)</label>
-        <textarea
-          class="form-control"
-          id="message"
-          v-model="formData.message"
-          rows="5"
-          required
-        ></textarea>
-      </div>
+            <form
+              class="w-50 mx-auto"
+              @submit.prevent="submitForm"
+            >
+              <div class="mb-3">
+                <label
+                  for="status"
+                  class="form-label fw-bold"
+                >Users :</label>
+                <select
+                  id="status"
+                  v-model="formData.users"
+                  class="form-select mb-4"
+                >
+                  <option
+                    value=""
+                    selected
+                  >
+                    All
+                  </option>
+                  <option value="admin">
+                    Admins
+                  </option>
+                  <option value="candidate">
+                    Candidates
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label
+                  for="title"
+                  class="form-label fw-bold"
+                >Title :</label>
+                <input
+                  id="title"
+                  v-model="formData.title"
+                  type="text"
+                  class="form-control mb-4"
+                  required
+                >
+              </div>
+              <div class="mb-3">
+                <label
+                  for="message"
+                  class="form-label fw-bold"
+                >Message : (CLASSIC / HTML)</label>
+                <textarea
+                  id="message"
+                  v-model="formData.message"
+                  class="form-control"
+                  rows="5"
+                  required
+                />
+              </div>
 
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>
-
     </section>
     <section class="py-3 d-flex justify-content-center align-items-center">
       <div class="container">
@@ -55,7 +80,10 @@
             <h3 class="h2 mb-2 my-4 text-center">
               Notifications
             </h3>
-            <div v-for="notification in notifications" :key="notification.id">
+            <div
+              v-for="notification in notifications"
+              :key="notification.id"
+            >
               <div
                 class="m-4 bg-white shadow rounded d-flex" 
                 data-bs-toggle="modal" 
@@ -69,51 +97,58 @@
                 >
                   {{ notification?.title }}
                 </p>
-                <i class="bi fs-5 ms-auto my-auto me-3" :class="notification.status === 'notviewed' ? 'bi-eye-slash' : 'bi-eye-fill text-success'"></i>
-           
+                <i
+                  class="bi fs-5 ms-auto my-auto me-3"
+                  :class="notification.status === 'notviewed' ? 'bi-eye-slash' : 'bi-eye-fill text-success'"
+                />
               </div>
-                    <!-- Modal -->
-      <div
-        class="modal fade"
-        id="notificationModal"
-        tabindex="-1"
-        aria-labelledby="notificationModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="notificationModalLabel">{{ notification?.title }}</h5>
-              <button
-                type="button"
-                class="btn-close text-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+              <!-- Modal -->
+              <div
+                id="notificationModal"
+                class="modal fade"
+                tabindex="-1"
+                aria-labelledby="notificationModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5
+                        id="notificationModalLabel"
+                        class="modal-title"
+                      >
+                        {{ notification?.title }}
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close text-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      />
+                    </div>
+                    <div class="modal-body">
+                      <div v-html="notification?.message" />
+                      <!-- Add more details if needed -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-              
-              <div v-html="notification?.message"></div>
-              <!-- Add more details if needed -->
-            </div>
-          </div>
-        </div>
-      </div>
-            </div>
-            <div v-if="count===0" class="mt-5 text-center">
-            
-              <span >
+            <div
+              v-if="count===0"
+              class="mt-5 text-center"
+            >
+              <span>
                 <i class="bi bi-envelope-fill me-4 fs-4 " />
-                <span class="fs-4 text-truncate"  >No Notification</span>
+                <span class="fs-4 text-truncate">No Notification</span>
               </span>
-          </div>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
-    </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import axios from 'axios';

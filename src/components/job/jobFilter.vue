@@ -9,8 +9,8 @@
           class="my-auto  text-primary border-0 bg-white btn"
           @click="reset"
         >
-        <i class="bi bi-arrow-counterclockwise fs-4"></i>        
-      </button>
+          <i class="bi bi-arrow-counterclockwise fs-4" />        
+        </button>
       </div>
       
       <hr>

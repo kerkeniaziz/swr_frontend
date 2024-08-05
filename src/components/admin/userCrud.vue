@@ -359,7 +359,6 @@ export default{
     
     mounted(){
     this.fetchUsers()
-    console.log(this.$store.state.defaultImage)
 
     },
     methods:{

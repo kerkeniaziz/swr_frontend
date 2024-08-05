@@ -15,23 +15,24 @@
             <div class="row justify-content-start">
               <div class="col-10 col-lg-8">
                 <h1 class="display-3 text-white animated slideInDown mb-4">
-  Discover the Job You Truly Deserve
-</h1>
-<p class="fs-5 fw-medium text-white mb-4 pb-2">
-  Unlock opportunities tailored to your skills and aspirations. Our platform connects you with roles that match your unique talents, empowering your career journey.
-</p>
-<router-link
-    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft fs-5"
-    to="/findjob"
-  >
-  Search A Job
-  </router-link>
-  <router-link
-    class="btn btn-secondary py-md-3 px-md-5 animated slideInRight fs-5"
-    to="/findjob" hidden
-  >
-  Find A Talent
-  </router-link>
+                  Discover the Job You Truly Deserve
+                </h1>
+                <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                  Unlock opportunities tailored to your skills and aspirations. Our platform connects you with roles that match your unique talents, empowering your career journey.
+                </p>
+                <router-link
+                  class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft fs-5"
+                  to="/findjob"
+                >
+                  Search A Job
+                </router-link>
+                <router-link
+                  class="btn btn-secondary py-md-3 px-md-5 animated slideInRight fs-5"
+                  to="/findjob"
+                  hidden
+                >
+                  Find A Talent
+                </router-link>
               </div>
             </div>
           </div>

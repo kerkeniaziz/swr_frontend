@@ -66,26 +66,25 @@
             </div>
           </div>
           <div
-  class="col-lg-6 wow fadeIn"
-  data-wow-delay="0.5s"
->
-  <h1 class="mb-4">
-    We Connect You with Top Employers and Talented Candidates
-  </h1>
-  <p class="mb-4">
-    Our platform is dedicated to bridging the gap between job seekers and employers. We provide resources and tools to help you find the right job or discover the best talent to join your team.
-  </p>
-  <p><i class="bi bi-check-lg text-primary me-3"></i>Access to thousands of job listings</p>
-  <p><i class="bi bi-check-lg text-primary me-3"></i>Find candidates that match your criteria</p>
-  <p><i class="bi bi-check-lg text-primary me-3"></i>Enhance your career opportunities</p>
-  <router-link
-    class="btn btn-primary py-3 px-5 mt-3"
-    to="/signup"
-  >
-    Sign Up
-  </router-link>
-</div>
-
+            class="col-lg-6 wow fadeIn"
+            data-wow-delay="0.5s"
+          >
+            <h1 class="mb-4">
+              We Connect You with Top Employers and Talented Candidates
+            </h1>
+            <p class="mb-4">
+              Our platform is dedicated to bridging the gap between job seekers and employers. We provide resources and tools to help you find the right job or discover the best talent to join your team.
+            </p>
+            <p><i class="bi bi-check-lg text-primary me-3" />Access to thousands of job listings</p>
+            <p><i class="bi bi-check-lg text-primary me-3" />Find candidates that match your criteria</p>
+            <p><i class="bi bi-check-lg text-primary me-3" />Enhance your career opportunities</p>
+            <router-link
+              class="btn btn-primary py-3 px-5 mt-3"
+              to="/signup"
+            >
+              Sign Up
+            </router-link>
+          </div>
         </div>
       </div>
     </div>

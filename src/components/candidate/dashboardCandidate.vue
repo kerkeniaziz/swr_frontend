@@ -258,7 +258,6 @@ export default {
         }
         else{
           const response = await axios.get('job/?pageSize=0');
-          console.log(response)
           this.jobs = response.data.jobs.map(job => ({
           ...job,
           address: job.location?.address ,

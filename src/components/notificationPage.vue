@@ -1,69 +1,79 @@
-  <template>
-    <section class="py-3 d-flex justify-content-center align-items-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 bg-white shadow rounded pb-5">
-            <h3 class="h2 mb-2 my-4 text-center">
-              Notifications
-            </h3>
-            <div v-for="notification in notifications" :key="notification.id">
-              <div
-                class="m-4 bg-white shadow rounded d-flex" 
-                data-bs-toggle="modal" 
-                data-bs-target="#notificationModal"
-                style="cursor: pointer;"
-                @click="viewNotification(notification)"
+<template>
+  <section class="py-3 d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 bg-white shadow rounded pb-5">
+          <h3 class="h2 mb-2 my-4 text-center">
+            Notifications
+          </h3>
+          <div
+            v-for="notification in notifications"
+            :key="notification.id"
+          >
+            <div
+              class="m-4 bg-white shadow rounded d-flex" 
+              data-bs-toggle="modal" 
+              data-bs-target="#notificationModal"
+              style="cursor: pointer;"
+              @click="viewNotification(notification)"
+            >
+              <p
+                class="mb-3 p-3"
+                :class="notification.status === 'notviewed' ? 'fw-bold' : ''"
               >
-                <p
-                  class="mb-3 p-3"
-                  :class="notification.status === 'notviewed' ? 'fw-bold' : ''"
-                >
-                  {{ notification?.title }}
-                </p>
-                <i class="bi fs-5 ms-auto my-auto me-3" :class="notification.status === 'notviewed' ? 'bi-eye-slash' : 'bi-eye-fill text-success'"></i>
-           
+                {{ notification?.title }}
+              </p>
+              <i
+                class="bi fs-5 ms-auto my-auto me-3"
+                :class="notification.status === 'notviewed' ? 'bi-eye-slash' : 'bi-eye-fill text-success'"
+              />
+            </div>
+            <!-- Modal -->
+            <div
+              id="notificationModal"
+              class="modal fade"
+              tabindex="-1"
+              aria-labelledby="notificationModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      id="notificationModalLabel"
+                      class="modal-title"
+                    >
+                      {{ notification?.title }}
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close text-white"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    />
+                  </div>
+                  <div class="modal-body">
+                    <div v-html="notification?.message" />
+                    <!-- Add more details if needed -->
+                  </div>
+                </div>
               </div>
-                    <!-- Modal -->
-      <div
-        class="modal fade"
-        id="notificationModal"
-        tabindex="-1"
-        aria-labelledby="notificationModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="notificationModalLabel">{{ notification?.title }}</h5>
-              <button
-                type="button"
-                class="btn-close text-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
             </div>
-            <div class="modal-body">
-              
-              <div v-html="notification?.message"></div>
-              <!-- Add more details if needed -->
-            </div>
+          </div>
+          <div
+            v-if="count===0"
+            class="mt-5 text-center"
+          >
+            <span>
+              <i class="bi bi-envelope-fill me-4 fs-4 " />
+              <span class="fs-4 text-truncate">No Notification</span>
+            </span>
           </div>
         </div>
       </div>
-            </div>
-            <div v-if="count===0" class="mt-5 text-center">
-            
-              <span >
-                <i class="bi bi-envelope-fill me-4 fs-4 " />
-                <span class="fs-4 text-truncate"  >No Notification</span>
-              </span>
-          </div>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </template>
+    </div>
+  </section>
+</template>
   
   <script>
   import axios from 'axios';

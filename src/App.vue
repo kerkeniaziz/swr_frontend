@@ -47,7 +47,6 @@ import { useRoute } from 'vue-router';
 
 import SpinnerPage from './components/spinnerPage.vue';
 
-
 export default {
   name: 'App',
   components: {
@@ -70,7 +69,6 @@ export default {
       formattedPath,
     };
   },
-
   
 }
 </script>

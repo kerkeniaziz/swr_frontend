@@ -73,10 +73,11 @@
               disabled
             >
               <div class="row g-0 align-items-center">
-                    
                 <div class="col-12">
                   <div class="ps-3">
-                    <div class="fs-7">Arabic</div>
+                    <div class="fs-7">
+                      Arabic
+                    </div>
                   </div>
                 </div>
               </div>
@@ -87,10 +88,11 @@
               disabled
             >
               <div class="row g-0 align-items-center">
-                    
                 <div class="col-12">
                   <div class="ps-3">
-                    <div class="fs-7">French</div>
+                    <div class="fs-7">
+                      French
+                    </div>
                   </div>
                 </div>
               </div>
@@ -131,47 +133,49 @@
         <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
           <li>
             <h6 class="dropdown-header fs-7 text-center">
-              {{count}} Notifications
+              {{ count }} Notifications
             </h6>
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
-          <div v-for="notification in notifications" :key="notification.id">
+          <div
+            v-for="notification in notifications"
+            :key="notification.id"
+          >
             <li>
-            <router-link
-              class="dropdown-item d-flex align-items-center"
-              to="/dashboard/notification"
-            >
-              <span>
-                <i class="bi bi-envelope-fill me-2" />
-                <span class="fs-7 text-truncate"  :class="notification.status === 'notviewed' ? 'fw-bold' : ''">{{notification.title}}</span>
-              </span>
-            </router-link>
-            
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
+              <router-link
+                class="dropdown-item d-flex align-items-center"
+                to="/dashboard/notification"
+              >
+                <span>
+                  <i class="bi bi-envelope-fill me-2" />
+                  <span
+                    class="fs-7 text-truncate"
+                    :class="notification.status === 'notviewed' ? 'fw-bold' : ''"
+                  >{{ notification.title }}</span>
+                </span>
+              </router-link>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
           </div>
           <div v-if="count===0">
             <li>
-            <span
-              class="dropdown-item d-flex align-items-center"
-              to="/dashboard/notification"
-            >
-              <span>
-                <i class="bi bi-envelope-fill me-2" />
-                <span class="fs-7 text-truncate"  >No Notification</span>
+              <span
+                class="dropdown-item d-flex align-items-center"
+                to="/dashboard/notification"
+              >
+                <span>
+                  <i class="bi bi-envelope-fill me-2" />
+                  <span class="fs-7 text-truncate">No Notification</span>
+                </span>
               </span>
-            </span>
-            
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
           </div>
 
           <li>
@@ -235,7 +239,7 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li v-if="this.$store.state.userRole !=='admin'">
+          <li v-if="$store.state.userRole !=='admin'">
             <router-link
             
               to="profile"

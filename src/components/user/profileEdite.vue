@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 " >
+  <div class="col-12 ">
     <div class="card widget-card border-light shadow-sm">
       <div class="card-body p-4">
         <div class="mb-5">
@@ -341,7 +341,6 @@ export default{
           location : this.location
           
         })
-        console.log(response)
          this.$store.commit("setUser", response.data.user) 
            this.$store.commit("setProfile", response.data.candidate)
 

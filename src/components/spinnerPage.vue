@@ -1,6 +1,9 @@
 <template>
-  <div v-show="isVisible" class="spinner-container">
-    <div class="spinner"></div>
+  <div
+    v-show="isVisible"
+    class="spinner-container"
+  >
+    <div class="spinner" />
   </div>
 </template>
 

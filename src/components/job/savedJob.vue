@@ -186,7 +186,6 @@
         async savedJobs() {
             try {
             const response = await axios.get("/job/savedjobs?pageSize=5")
-            console.log(response.data)
             this.jobs = response.data.jobs.map(job => ({
           ...job,
           categoryName: job.category?.categoryName || 'Uncategorized',
@@ -204,10 +203,10 @@
             }
         },
       changePage(newPage) {
-      if (newPage > 0 && newPage <= this.pages) {
-        this.$emit('update:filterjobs', newPage);
-      }
-    },
+    if (newPage > 0 && newPage <= this.pages) {
+      this.page = newPage;
+      this.savedJobs();
+    }},
       formatDate(dateToFormat) {
         const date = new Date(dateToFormat);
         if (isNaN(date)) {

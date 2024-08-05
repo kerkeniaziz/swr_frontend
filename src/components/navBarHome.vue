@@ -83,7 +83,6 @@
             Sign Up
           </router-link>
         </li>
-
       </ul>
     </div>
   </nav>

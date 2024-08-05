@@ -8,13 +8,17 @@
             <div class="row gy-4 gy-md-0">
               <div class="col-12 col-md-6">
                 <div class="link-wrapper">
-                  
                   <div class="mb-3 fs-6 text-light">
-                    <img src="../assets/img/2_white.png" alt="swr" class="w-50">
-                    <p class="me-5 mt-4">SW CONSULTING is a Tunisian company, we have been an IT service provider for more than 4 years. 
-                      We meet almost all the needs of VSEs, SMEs, as well as large groups, regardless of their sector of activity.</p>
+                    <img
+                      src="../assets/img/2_white.png"
+                      alt="swr"
+                      class="w-50"
+                    >
+                    <p class="me-5 mt-4">
+                      SW CONSULTING is a Tunisian company, we have been an IT service provider for more than 4 years. 
+                      We meet almost all the needs of VSEs, SMEs, as well as large groups, regardless of their sector of activity.
+                    </p>
                   </div>
-
                 </div>
               </div>
               <div class="col-6 col-md-3 ms-5">
@@ -24,101 +28,117 @@
                   </h4>
                   <ul class="m-0 list-unstyled">
                     <li class="mb-4">
-                      <router-link to="/" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Welcome
-                      </router-link>
-                      
-                    </li>
-                    <li class="mb-4">
-                      <router-link to="/findjob" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
-                      >
-                      Find a job
-                      </router-link>
-                      
-                    </li>
-                    <li class="mb-4">
-                      <router-link to="/contact" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
-                      >
-                      Contact Us
+                        Welcome
                       </router-link>
                     </li>
                     <li class="mb-4">
-                      <router-link to="/about" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/findjob"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      About Us
+                        Find a job
                       </router-link>
                     </li>
-                   
+                    <li class="mb-4">
+                      <router-link
+                        to="/contact"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                        Contact Us
+                      </router-link>
+                    </li>
+                    <li class="mb-4">
+                      <router-link
+                        to="/about"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                        About Us
+                      </router-link>
+                    </li>
                   </ul>
                 </div>
               </div>
-              <div class="col-6 col-md-2" >
+              <div class="col-6 col-md-2">
                 <div class="link-wrapper">
                   <h4 class="mb-4 fs-5 fw-bold text-light ">
                     JOB TYPE
                   </h4>
                   <ul class="m-0 list-unstyled">
                     <li class="mb-4">
-                      <router-link to="/findjob?jobType=full-time" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/findjob?jobType=full-time"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Full-time
+                        Full-time
                       </router-link>
                     </li>
                     <li class="mb-4">
-                      <router-link to="/findjob?jobType=part-time" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/findjob?jobType=part-time"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Part-time
+                        Part-time
                       </router-link>
                     </li>
                     <li class="mb-4">
-                      <router-link to="/findjob?jobType=freelance" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/findjob?jobType=freelance"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Freelance
+                        Freelance
                       </router-link>
                     </li>
                     <li class="mb-4">
-                      <router-link to="/findjob?jobType=internship" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/findjob?jobType=internship"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Internship
+                        Internship
                       </router-link>
                     </li>
-
-                   
                   </ul>
                 </div>
               </div>
-              <div class="col-6 col-md-2" hidden >
+              <div
+                class="col-6 col-md-2"
+                hidden
+              >
                 <div class="link-wrapper">
                   <h4 class="mb-4 fs-5 fw-bold text-light ">
                     EMPLOYER
                   </h4>
                   <ul class="m-0 list-unstyled">
                     <li class="mb-4">
-                      <router-link to="/jobs" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/jobs"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Post an ad
-                      </router-link>
-                      
-                    </li>
-                    <li class="mb-4">
-                      <router-link to="/users" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
-                      >
-                      find CV
+                        Post an ad
                       </router-link>
                     </li>
                     <li class="mb-4">
-                      <router-link to="/about" class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      <router-link
+                        to="/users"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                      Login
+                        find CV
                       </router-link>
                     </li>
-                   
+                    <li class="mb-4">
+                      <router-link
+                        to="/about"
+                        class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
+                      >
+                        Login
+                      </router-link>
+                    </li>
                   </ul>
                 </div>
               </div>
-
-
             </div>
           </section>
 
@@ -157,7 +177,6 @@
                 <div class="copyright-wrapper d-block mb-1 fs-8 text-light text-center text-md-start">
                   &copy; 2024. All Rights Reserved.
                 </div>
-
               </div>
               <div class="col-12 col-md-6">
                 <div class="social-media-wrapper">

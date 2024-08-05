@@ -59,7 +59,6 @@
         }
       },
       mounted (){
-        console.log(this.$store.state.userData)
       },
       methods : {
         async verifyPassword(){
@@ -75,7 +74,6 @@
   title: "Oops...",
   text: "Your password is incorrect!",
 });
-console.log("qdsfqsfqssqdf",response.data)
                     return false;
                 }
 

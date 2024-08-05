@@ -14,37 +14,36 @@
                 
         <form @submit.prevent="updateRessource()">
           <div class="row gy-3 gy-xxl-4">
+            <div v-if="$store.state.userRole ==='candidate'">
+              <div class="col-12 ">
+                <h3>Files</h3>
+              </div>
 
-            <div v-if="this.$store.state.userRole ==='candidate'">
-            <div class="col-12 ">
-              <h3>Files</h3>
-            </div>
+              <div class="d-flex mt-3">
+                <label
+                  for="github"
+                  class="form-label me-5 my-auto col-1"
+                >Resume :</label>
+                <div class="custom-file-input-wrapper ">
+                  <input
+                    id="cvInput"
+                    ref="cvInput"
+                    type="file"
+                    accept=".pdf, .doc, .docx"
+                    class="custom-file-input"
 
-            <div class="d-flex mt-3">
-              <label
-                for="github"
-                class="form-label me-5 my-auto col-1"
-              >Resume :</label>
-              <div class="custom-file-input-wrapper ">
-                <input
-                  id="cvInput"
-                  ref="cvInput"
-                  type="file"
-                  accept=".pdf, .doc, .docx"
-                  class="custom-file-input"
-
-                  @change="handleCVUpload"
-                >
-                <button
-                  class="btn btn-outline-secondary file-name-display"
-                  :class="{ selected: fileName }"
-                  @click="selectFile"
-                >
-                  {{ fileName || 'Choose File' }}
-                </button>
+                    @change="handleCVUpload"
+                  >
+                  <button
+                    class="btn btn-outline-secondary file-name-display"
+                    :class="{ selected: fileName }"
+                    @click="selectFile"
+                  >
+                    {{ fileName || 'Choose File' }}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
             <div class="col-12 ">
               <h3>Links</h3>
             </div>

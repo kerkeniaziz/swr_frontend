@@ -16,25 +16,24 @@
               >
                 <!-- Profile Tab Button -->
                 <button
-                v-if="this.$store.state.userRole ==='candidate'"
-  :class="{ active: this.$store.state.userRole === 'candidate' }"
-  :aria-selected="this.$store.state.userRole === 'candidate'"
+                  v-if="$store.state.userRole ==='candidate'"
                   id="profile-tab"
+                  :class="{ active: $store.state.userRole === 'candidate' }"
+                  :aria-selected="$store.state.userRole === 'candidate'"
                   class="nav-link"
                   data-bs-toggle="pill"
                   data-bs-target="#profile-tab-pane"
                   type="button"
                   role="tab"
                   aria-controls="profile-tab-pane"
-                  
                 >
                   Profile
                 </button>
                 <!-- Resource Tab Button -->
                 <button
-                  :class="{ active: this.$store.state.userRole !== 'candidate' }"
-  :aria-selected="this.$store.state.userRole !== 'candidate'"
                   id="resource-tab"
+                  :class="{ active: $store.state.userRole !== 'candidate' }"
+                  :aria-selected="$store.state.userRole !== 'candidate'"
                   class="nav-link"
                   data-bs-toggle="pill"
                   data-bs-target="#resource-tab-pane"
@@ -84,9 +83,9 @@
           >
             <!-- Profile Tab Pane -->
             <div
-            v-if="this.$store.state.userRole ==='candidate'"
-              :class="{ 'show active': this.$store.state.userRole === 'candidate' }"
+              v-if="$store.state.userRole ==='candidate'"
               id="profile-tab-pane"
+              :class="{ 'show active': $store.state.userRole === 'candidate' }"
               class="tab-pane fade "
               role="tabpanel"
               aria-labelledby="profile-tab"
@@ -95,8 +94,8 @@
             </div>
             <!-- Resource Tab Pane -->
             <div
-              :class="{ 'show active': this.$store.state.userRole !== 'candidate' }"
               id="resource-tab-pane"
+              :class="{ 'show active': $store.state.userRole !== 'candidate' }"
               class="tab-pane fade"
               role="tabpanel"
               aria-labelledby="resource-tab"

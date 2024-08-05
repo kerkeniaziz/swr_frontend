@@ -1,105 +1,119 @@
 <template>
-    <div>
-      <!-- Jobs Start  -->
-      <div class="container-xxl pb-5 ">
-        <div class="container">
-          <h1
+  <div>
+    <!-- Jobs Start  -->
+    <div class="container-xxl pb-5 ">
+      <div class="container">
+        <h1
              
-            class="text-center mb-5 wow fadeInUp"
-            data-wow-delay="0.1s"
-          >
-         Job Applied          </h1>
+          class="text-center mb-5 wow fadeInUp"
+          data-wow-delay="0.1s"
+        >
+          Job Applied
+        </h1>
             
-          <div
-            class="tab-class text-center wow fadeInUp"
-            data-wow-delay="0.3s"
-          >
-    
-            <div class="tab-content">
-              
+        <div
+          class="tab-class text-center wow fadeInUp"
+          data-wow-delay="0.3s"
+        >
+          <div class="tab-content">
+            <div
+              v-for="(job, index) in jobs"
+              id="tab-1"
+              :key="index"
+              class="tab-pane fade show p-0 active"
+            >
+              <router-link
+                :to="'/job/' + job._id"
+              >
                 <div
-                  v-for="(job, index) in jobs"
-                  id="tab-1"
-                  :key="index"
-                  class="tab-pane fade show p-0 active"
+                  v-show="index < showedJob && job.isActive"
+                  class="job-item"
+                  :style="{ 'margin-bottom' : job.isActive ? '24px' : '0', padding: job.isActive ? '24px' : '0' }"
                 >
-                <router-link
-                            :to="'/job/' + job._id"
-                          >
-                  <div
-                    v-show="index < showedJob && job.isActive"
-                    class="job-item"
-                    :style="{ 'margin-bottom' : job.isActive ? '24px' : '0', padding: job.isActive ? '24px' : '0' }"
-                  >
-                    <div class="row g-4">
-                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                        <img
-                          class="flex-shrink-0 img-fluid border rounded"
-                          :src="$store.state.imageUrl + job.profileImage"
-                          alt=""
-                          style="width: 80px; height: 80px;"
-                        >
-                        <div class="text-start ps-4">
-                          <div>
-                            <h5 class="mb-3 text-truncate">
-                              {{ job.title }}
-                            </h5>
-                            <span class="text-truncate me-3"><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
-                            <span class="text-truncate me-3"><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
-                            <span class="text-truncate me-0"><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
-                          </div>
+                  <div class="row g-4">
+                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                      <img
+                        class="flex-shrink-0 img-fluid border rounded"
+                        :src="$store.state.imageUrl + job.profileImage"
+                        alt=""
+                        style="width: 80px; height: 80px;"
+                      >
+                      <div class="text-start ps-4">
+                        <div>
+                          <h5 class="mb-3 text-truncate">
+                            {{ job.title }}
+                          </h5>
+                          <span class="text-truncate me-3"><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
+                          <span class="text-truncate me-3"><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
+                          <span class="text-truncate me-0"><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
                         </div>
                       </div>
-                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                    </div>
+                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                       <div class=" mb-3">
-                        <div class="fw-bold mb-3">Application Status </div>
-                        <div v-if="job.applicationStatus ==='Submitted'" class="text-warning  fw-bold" >{{job.applicationStatus}}</div>
-                        <div v-if="job.applicationStatus ==='Rejected'" class="text-danger  fw-bold" >{{job.applicationStatus}}</div>
-                        <div v-if="job.applicationStatus ==='Accepted'" class="text-success  fw-bold" >{{job.applicationStatus}}</div>
-
+                        <div class="fw-bold mb-3">
+                          Application Status
+                        </div>
+                        <div
+                          v-if="job.applicationStatus ==='Submitted'"
+                          class="text-warning  fw-bold"
+                        >
+                          {{ job.applicationStatus }}
+                        </div>
+                        <div
+                          v-if="job.applicationStatus ==='Rejected'"
+                          class="text-danger  fw-bold"
+                        >
+                          {{ job.applicationStatus }}
+                        </div>
+                        <div
+                          v-if="job.applicationStatus ==='Accepted'"
+                          class="text-success  fw-bold"
+                        >
+                          {{ job.applicationStatus }}
+                        </div>
                       </div>
                     </div>
-                      </div>
-                    </div>
-                </router-link>
                   </div>
                 </div>
-              </div>
-    
-              <div
-                v-show="noJob"
-                class="mb-4 p-4"
-              >
-                <div class="row g-4">
-                  <h5 class="mb-3">
-                    No Job Application Available 
-                  </h5>
-                </div>
-              </div>
-    
-              <div
-                v-show="pagination "
-                class="pagination"
-              > 
-                <button
-                  :disabled="page === 1"
-                  @click="changePage(page - 1)"
-                >
-                  &lt;
-                </button>
-                <span>Page {{ page }} of {{ pages }}</span>
-                <button
-                  :disabled="page === pages"
-                  @click="changePage(page + 1)"
-                >
-                  >
-                </button>
-              </div>
+              </router-link>
             </div>
           </div>
         </div>
-
-  </template>
+    
+        <div
+          v-show="noJob"
+          class="mb-4 p-4"
+        >
+          <div class="row g-4">
+            <h5 class="mb-3">
+              No Job Application Available 
+            </h5>
+          </div>
+        </div>
+    
+        <div
+          v-show="pagination "
+          class="pagination"
+        > 
+          <button
+            :disabled="page === 1"
+            @click="changePage(page - 1)"
+          >
+            &lt;
+          </button>
+          <span>Page {{ page }} of {{ pages }}</span>
+          <button
+            :disabled="page === pages"
+            @click="changePage(page + 1)"
+          >
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
     
     <script>
     import axios from 'axios';
@@ -147,7 +161,8 @@ this.jobs = jobs.map(job => {
           },
         changePage(newPage) {
         if (newPage > 0 && newPage <= this.pages) {
-          this.$emit('update:filterjobs', newPage);
+          this.page = newPage;
+      this.jobApplied();
         }
       },
       }

@@ -4,7 +4,6 @@ import store from './store/Store';
 import Swal from 'sweetalert2';
 import Cookies from 'vue-cookies'
 
-
 // axios.defaults.baseURL = "http://localhost:8000/";
  axios.defaults.baseURL = process.env.VUE_APP_API_URL; 
 
@@ -54,7 +53,9 @@ const handleSwalError = (error) => {
 // Axios response interceptor for handling token refresh, error handling, and fallback logic
 axios.interceptors.response.use(
   (response) => {
+    // eslint-disable-next-line
     console.log(response.request.responseURL);
+    // eslint-disable-next-line
     console.log("This is axios message:", response.data.message, ":", response);
 
     if (response.data.message !== undefined) {
@@ -67,7 +68,7 @@ axios.interceptors.response.use(
   },
   async (error) => {
     if (!firstRequestMade) {
-      console.log('First request error detected:', error);
+      console.error('First request error detected:', error);
       firstRequestMade = true;
       // You can perform any actions needed for the first request here
     }

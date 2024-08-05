@@ -45,7 +45,7 @@
               <div class="d-flex align-items-center mb-5">
                 <img
                   class="flex-shrink-0 img-fluid border rounded"
-                  :src="this.$store.state.imageUrl + job.jobImage "
+                  :src="$store.state.imageUrl + job.jobImage "
                   alt="jobImage"
                   style="width: 80px; height: 80px;"
                 >
@@ -58,7 +58,10 @@
                   <span class="text-truncate me-0"><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
                 </div>
               </div>
-              <div v-if="isCandidate" class="w-30">
+              <div
+                v-if="isCandidate"
+                class="w-30"
+              >
                 <span class="my-auto fw-bold me-2"> {{ isSaved ? 'The job is saved :' :'Save the job :' }}</span>
                 <button
                   class=" p-1 px-2  "
@@ -79,13 +82,19 @@
               </h4>
               <!-- <pre>{{ job.description }}</pre> -->
 
-              <div v-html="jobDescription" style="white-space: pre-wrap;"></div>
+              <div
+                style="white-space: pre-wrap;"
+                v-html="jobDescription"
+              />
               <hr class="border-3 col-11 mx-auto my-5">
               <h4 class="mb-3">
                 Job Requirements
               </h4>
           
-              <div v-html="jobRequirement" style="white-space: pre-wrap;"></div>
+              <div
+                style="white-space: pre-wrap;"
+                v-html="jobRequirement"
+              />
               <hr class="border-3 col-11 mx-auto my-5">
             </div>
             
@@ -134,14 +143,21 @@
                 Company Detail
               </h4>
               <h5>{{ company.companyName }}</h5>
-              <div class="m-0" v-html="companyDescription" style="white-space: pre-wrap;"></div>
+              <div
+                class="m-0"
+                style="white-space: pre-wrap;"
+                v-html="companyDescription"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Job Detail End -->
-    <div class="details-footer sticky-footer bg-light border-top py-2" v-if="isCandidate">
+    <div
+      v-if="isCandidate"
+      class="details-footer sticky-footer bg-light border-top py-2"
+    >
       <div class="container d-flex justify-content-between align-items-center">
         <div class="col-md-4 d-flex justify-content-center align-items-center">
           <button class="btn btn-apply btn-primary btn-lg btn-block my-2">
@@ -256,7 +272,6 @@ export default {
         if (this.isCandidate){
           try{
             const response =await axios.get(`candidate/${this.$store.state.profileData._id}`);
-        console.log("dqsfqsdfsdf",response);
           this.isSaved = response.data.candidate.savedJobs.includes(this.$route.params.id)
           }catch(e) {
             console.error(e);
@@ -289,7 +304,6 @@ export default {
         async fetchJobDetail(){
             try {
                 const response = await axios.get(`job/${this.$route.params.id}`);
-                console.log(response)
                 const job = response.data.job;
                 this.skills = response.data.job.skills;
                 this.language = response.data.job.language;
