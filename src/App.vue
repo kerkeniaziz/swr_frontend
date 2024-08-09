@@ -9,7 +9,7 @@
       class="d-flex"
     >
       <div class="main">
-        <navBarUser class="sticky" />
+        <navBarUser class="" />
         <div class="d-flex">
           <div class="flex-shrink-0 p-3 bg-light">
             <sidebarAll class="sticky" />

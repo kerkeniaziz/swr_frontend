@@ -17,6 +17,9 @@
       class="navbar-toggler"
       data-bs-toggle="collapse"
       data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon" />
     </button>
@@ -151,12 +154,6 @@ export default {
   color: var(--dark);
   font-weight: 600;
 
-}
-
-.navbar-light.sticky-top {
-  top: -100px;
-  transition: .5s;
-  position: sticky !important;
 }
 
 @media (min-width: 992px) {

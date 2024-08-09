@@ -1,7 +1,7 @@
 <template>
   <!-- Header -->
 
-  <nav class="navbar navbar-expand col bg-white shadow-sm end-0 z-3">
+  <nav class="navbar navbar-expand bg-white shadow-sm end-0 z-3 fixed-top">
     <ul class="navbar-nav align-items-center justify-content-start col-12 d.xs ">
       <li class="nav-item col-md-2 d-md-flex justify-content-center ">  
         <router-link
