@@ -19,6 +19,11 @@ const routes = [
         name: 'Signup',
         component: () => import('../components/auth/signupCandidate.vue')
     },
+    {
+        path: '/signupComapny',
+        name: 'SignupCompany',
+        component: () => import('../components/auth/signupCompany.vue')
+    },
 
     {
         path: '/forgotpassword',
@@ -46,11 +51,16 @@ const routes = [
         name: 'ReviewPage',
         component: () => import('../components/application/reviewPage.vue')
     },
+
+
     {
-        path: '/user',
-        name: 'ProfilePage',
-        component: () => import('../components/user/profilePage.vue')
+        path: '/user/:id',
+        name: 'UserProfile',
+        component: () => import('../views/userProfile.vue')
     },
+
+
+
     {
         path: '/contact',
         name: 'ContactPage',
@@ -94,11 +104,6 @@ const routes = [
         path: '/dashboard',
         name: 'MainDashboard',
         component: () => import('../views/mainDashboard.vue'),
-    },
-    {
-        path: '/profile',
-        name: 'MainProfile',
-        component: () => import('../views/mainProfile.vue'),
     },
     {
         path: '/users',

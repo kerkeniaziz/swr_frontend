@@ -102,12 +102,14 @@
               </th>
               <th class="w-200 ">
                 <div class="mx-2 d-inline">
-                  <i class="bi bi-eye pointerIcon h5" />
+                  <router-link :to=" `/user/${user._id}` ">
+                  <i class="bi bi-eye-fill text-success pointerIcon h5" />
+                </router-link>
                 </div>
                 
                 <div class="mx-2 d-inline">
                   <i
-                    class="bi bi-trash3 deleteIcon h5"
+                    class="bi bi-trash3-fill deleteIcon h5"
                     @click="deleteUser(user.role,user._id)"
                   />
                 </div>

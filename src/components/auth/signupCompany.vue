@@ -1,22 +1,22 @@
 <template>
-  <div class="container mt-5">
+  <div class="container my-5">
     <div class="card border-light-subtle shadow-sm">
       <div class="row g-0">
         <div class="col-12 col-md-6 text-bg-primary">
           <div class="d-flex align-items-center justify-content-center h-100">
             <div class="col-10 col-xl-8 py-3">
               <img
-                class="img-fluid rounded mb-4"
+                class="img-fluid rounded "
                 loading="lazy"
                 src="../../assets/img/2_white.png"
                 alt="BootstrapBrain Logo"
               >
-              <hr class="border-primary-subtle mb-4">
+              <hr class="border-3  mb-4">
               <h2 class="h1 mb-4">
                 Create your employer space
               </h2>
               <p class="lead m-0">
-                We write words, take photos, make videos, and interact with artificial intelligence.
+                Save time by contacting the right candidates, and interact with artificial intelligence.
               </p>
             </div>
           </div>

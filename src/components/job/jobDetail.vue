@@ -315,7 +315,7 @@ export default {
           state: response.data.job?.location?.state,
         }
         this.jobRequirement = this.formattedJobDescription(response.data.job?.requirement)
-        this.companyDescription = this.formattedJobDescription(this.company.description)
+        this.companyDescription = this.formattedJobDescription(this.company?.description)
         this.jobDescription = this.formattedJobDescription(response.data.job?.description)
         this.backgroundStyle = {
         background: `linear-gradient(rgba(43, 57, 64, .5), rgba(43, 57, 64, .5)), url(${this.$store.state.imageUrl + job.cover }) center center no-repeat`,

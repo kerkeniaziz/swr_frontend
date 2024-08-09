@@ -15,7 +15,7 @@
             <sidebarAll class="sticky" />
           </div>
           <div class="flex-grow-1 container ps-0">
-            <breadCrumbsPage class="ms-4 border-light mt-4 mb-3" />
+            <breadCrumbsPage class="ms-4 border-light mt-4 mb-3" v-if= "!(this.$store.state.userRole !=='candidate' && this.$store.state.userData._id === this.$route.params.id)"/>
             <router-view class="ms-4" />
           </div>
         </div>

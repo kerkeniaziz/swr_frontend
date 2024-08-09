@@ -11,9 +11,9 @@ module.exports = {
     rules: {
         'vue/jsx-uses-vars': 'off',
         'vue/valid-template-root': 'off',
-         'no-console': ['error', { allow: ['warn', 'error'] }],
+        //  'no-console': ['error', { allow: ['warn', 'error'] }],
       // "max-len": ["error", { "code": 160 }],
-         'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }]
+        //  'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }]
     },
     env: {
         browser: true,

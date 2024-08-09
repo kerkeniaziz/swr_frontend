@@ -24,7 +24,7 @@
             <div class="row g-4 shadow border-ligth rounded m-3">
               <div class="col-sm-12 col-md-6 d-flex align-items-center">
                 <router-link
-                  :to="`/user?userId=${application.userId?._id}`"
+                  :to="`/user/${application.userId?._id}`"
                   class="text-black text-decoration-none d-flex flex-column"
                 >
                   <div class="d-flex align-items-start">

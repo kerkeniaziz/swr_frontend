@@ -118,63 +118,104 @@
             <div class="card widget-card border-light shadow-sm h-100">
               <div class="card-body p-4">
                 <h5 class="card-title widget-card-title mb-2 text-center fw-bold">
-                  Cover Letter
+                  Application Details
                 </h5>
-                
+                <hr class=" w-100 border-2 border-dark mx-auto mb-5">
+
                 <div class="row gy-4 ">
-                  <div class="col-12 d-flex">
+                  <div class="col-12 d-flex flex-column mt-2">
+                    <span class="mb-2 fw-bold">Current Work Situation :</span>
+                    <span class="text-muted">Please select the option that best describes your current employment status. <br>
+                      This information helps us understand your availability and professional context.</span>
+                    
+                      <div class="form-check mt-3 d-flex flex-wrap">
+          <div class="d-flex align-items-center me-4">
+            <input
+              class="form-check-input my-auto"
+              type="radio"
+              value="Unemployed"
+              v-model="workingSituation"
+            />
+            <label class="form-check-label me-4">Unemployed</label>
+          </div>
+
+          <div class="d-flex align-items-center me-4">
+            <input
+              class="form-check-input my-auto"
+              type="radio"
+              value="Employed"
+              v-model="workingSituation"
+            />
+            <label class="form-check-label me-4">Employed</label>
+          </div>
+
+          <div class="d-flex align-items-center me-4">
+            <input
+              class="form-check-input my-auto"
+              type="radio"
+              value="Student"
+              v-model="workingSituation"
+            />
+            <label class="form-check-label me-4">Student</label>
+          </div>
+
+          <div class="d-flex align-items-center me-4">
+            <input
+              class="form-check-input my-auto"
+              type="radio"
+              value="Freelancer"
+              v-model="workingSituation"
+            />
+            <label class="form-check-label me-4">Freelancer</label>
+          </div>
+        </div>
+                
+                  </div>
+
+                  <div class="col-12 d-flex flex-column mt-5">
+                    <span class="mb-2 fw-bold">Remote Work Situation :</span>
+                    <span class="text-muted">Are you willing to work remotely if needed? Please select one of the options below.</span>
+                    
+                    <div class="form-check mt-3 d-flex flex-wrap">
+          <div class="d-flex align-items-center me-4">
+            <input
+              class="form-check-input my-auto"
+              type="radio"
+              value="true"
+              v-model="remoteSituation"
+            />
+            <label class="form-check-label me-4">Yes</label>
+          </div>
+
+          <div class="d-flex align-items-center me-4">
+            <input
+              class="form-check-input my-auto"
+              type="radio"
+              value="false"
+              v-model="remoteSituation"
+            />
+            <label class="form-check-label me-4">No</label>
+          </div>
+        </div>
+                
+                  </div>
+                  <div class="col-12 d-flex flex-column">
+                    <span class="mb-2 fw-bold">Cover Letter :</span>
                     <textarea
                       v-model="coverLetter"
                       class="w-100 border-ligth rounded shadow"
-                      rows="8"
+                      rows="5"
                     />
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section
-      class="pb-3 pb-md-4 pb-xl-5 bg-light"
-      hidden
-    >
-      <div class="container">
-        <div class="row gy-3 gy-md-4">
-          <div class="col-12 ">
-            <!-- Card 2 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <h5 class="card-title widget-card-title mb-2 text-center fw-bold">
-                  Job View
-                </h5>
-                
-                <div class="row gy-4 ">
-                  <div class="col-12 d-flex" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section
-      class="pb-3 pb-md-4 pb-xl-5 bg-light"
-      hidden
-    >
-      <div class="container">
-        <div class="row gy-3 gy-md-4">
-          <div class="col-12 ">
-            <!-- Card 2 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <h5 class="card-title widget-card-title mb-2 text-center fw-bold">
-                  Resume Viewer
-                </h5>
-                
-                <div class="row gy-4 ">
-                  <div class="col-12 d-flex" />
+                  <div class="col-12 d-flex flex-column">
+                    <span class="mb-2 fw-bold">motivation Letter :</span>
+                    <textarea
+                      v-model="motivation"
+                      class="w-100 border-ligth rounded shadow"
+                      rows="5"
+                    />
+                    
+                  </div>
                 </div>
               </div>
             </div>
@@ -225,15 +266,15 @@ export default {
 
     data() {
       return {
-        file: null,
         coverLetter:"",
-        application:{}
+        application:{},
+        motivation:"",
+        workingSituation:"" ,
+        remoteSituation:false ,
       };
     },
     mounted() {
-    //   this.file = `http://localhost:8000/file/${this.$store.state.profileData.CV}`
     this.loadApplication()
-  
     },
 
     methods:{
@@ -280,6 +321,9 @@ export default {
           const response = await axios.get(`/application/showOne?jobId=${this.$route.query.JobId}`)
           this.application = response.data?.application
           this.coverLetter = response.data.application?.coverLetter
+          this.motivation= response.data.application?.motivation
+          this.workingSituation= response.data.application?.workingSituation
+          this.remoteSituation= response.data.application?.remoteSituation
 
         }catch(e)
         {
@@ -290,7 +334,10 @@ export default {
             try {
               const JobId = this.$route.query.JobId
                 const data={ 
-                    coverLetter: this.coverLetter
+                    coverLetter: this.coverLetter,
+                    motivation: this.motivation,
+                    workingSituation: this.workingSituation,
+                    remoteSituation: this.remoteSituation,
                 }
                 await axios.post(`/application?jobId=${JobId}`,data)
 
@@ -307,6 +354,10 @@ export default {
 </script>
 
 <style scoped>
+.form-check-input{
+  width: 20px !important;
+  height: 20px ;
+}
 .card a {
   text-decoration: none;
   color: inherit;

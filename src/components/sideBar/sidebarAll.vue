@@ -72,16 +72,6 @@
           <i class="bi bi-search" />
           <span class="sidebar-text">Find Job</span>
         </router-link>
-        <router-link
-          v-if="userRole ==='candidate'"
-          to="/profile"
-          class="sidebar-link"
-          :class="{ 'active': isLinkActive('/profile') }"
-          @click="toggleSidebar"
-        >
-          <i class="bi bi-person" />
-          <span class="sidebar-text">Profile</span>
-        </router-link>
         
         <router-link
           v-if="userRole ==='candidate'"
@@ -102,6 +92,16 @@
         >
           <i class="bi bi-bell" />
           <span class="sidebar-text">Notification center</span>
+        </router-link>
+        <router-link
+          
+          :to="`/user/${this.$store.state.userData._id}`"
+          class="sidebar-link"
+          :class="{ 'active': isLinkActive(`/user/${this.$store.state.userData._id}`) }"
+          @click="toggleSidebar"
+        >
+          <i class="bi bi-person" />
+          <span class="sidebar-text">Profile</span>
         </router-link>
 
         <router-link

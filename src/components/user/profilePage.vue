@@ -245,7 +245,7 @@ import axios from 'axios';
       },
       methods:{
         async getProfile(){
-            const response = await axios.get(`candidate/${this.$route.query.userId}`)
+            const response = await axios.get(`candidate/${this.$route.params.id}`)
             this.profileImage= this.$store.state.imageUrl + response.data.candidate.userId.profileImage,
             this.ProfileData = response.data.candidate;
         this.location = response.data.candidate.userId.location;
