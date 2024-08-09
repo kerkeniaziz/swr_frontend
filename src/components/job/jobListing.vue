@@ -63,11 +63,10 @@
                             {{ job.title }}
                           </h5>
                           <div class="d-flex flex-md-row flex-column col-12">
-                          <span class="text-truncate me-3 "><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
-                          <span class="text-truncate me-3 "><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
-                          <span class="text-truncate me-0 "><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
+                            <span class="text-truncate me-3 "><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
+                            <span class="text-truncate me-3 "><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
+                            <span class="text-truncate me-0 "><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
                           </div>
-                          
                         </div>
                       </div>
                     </div>

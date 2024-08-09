@@ -128,48 +128,47 @@
                     <span class="text-muted">Please select the option that best describes your current employment status. <br>
                       This information helps us understand your availability and professional context.</span>
                     
-                      <div class="form-check mt-3 d-flex flex-wrap">
-          <div class="d-flex align-items-center me-4">
-            <input
-              class="form-check-input my-auto"
-              type="radio"
-              value="Unemployed"
-              v-model="workingSituation"
-            />
-            <label class="form-check-label me-4">Unemployed</label>
-          </div>
+                    <div class="form-check mt-3 d-flex flex-wrap">
+                      <div class="d-flex align-items-center me-4">
+                        <input
+                          v-model="workingSituation"
+                          class="form-check-input my-auto"
+                          type="radio"
+                          value="Unemployed"
+                        >
+                        <label class="form-check-label me-4">Unemployed</label>
+                      </div>
 
-          <div class="d-flex align-items-center me-4">
-            <input
-              class="form-check-input my-auto"
-              type="radio"
-              value="Employed"
-              v-model="workingSituation"
-            />
-            <label class="form-check-label me-4">Employed</label>
-          </div>
+                      <div class="d-flex align-items-center me-4">
+                        <input
+                          v-model="workingSituation"
+                          class="form-check-input my-auto"
+                          type="radio"
+                          value="Employed"
+                        >
+                        <label class="form-check-label me-4">Employed</label>
+                      </div>
 
-          <div class="d-flex align-items-center me-4">
-            <input
-              class="form-check-input my-auto"
-              type="radio"
-              value="Student"
-              v-model="workingSituation"
-            />
-            <label class="form-check-label me-4">Student</label>
-          </div>
+                      <div class="d-flex align-items-center me-4">
+                        <input
+                          v-model="workingSituation"
+                          class="form-check-input my-auto"
+                          type="radio"
+                          value="Student"
+                        >
+                        <label class="form-check-label me-4">Student</label>
+                      </div>
 
-          <div class="d-flex align-items-center me-4">
-            <input
-              class="form-check-input my-auto"
-              type="radio"
-              value="Freelancer"
-              v-model="workingSituation"
-            />
-            <label class="form-check-label me-4">Freelancer</label>
-          </div>
-        </div>
-                
+                      <div class="d-flex align-items-center me-4">
+                        <input
+                          v-model="workingSituation"
+                          class="form-check-input my-auto"
+                          type="radio"
+                          value="Freelancer"
+                        >
+                        <label class="form-check-label me-4">Freelancer</label>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="col-12 d-flex flex-column mt-5">
@@ -177,27 +176,26 @@
                     <span class="text-muted">Are you willing to work remotely if needed? Please select one of the options below.</span>
                     
                     <div class="form-check mt-3 d-flex flex-wrap">
-          <div class="d-flex align-items-center me-4">
-            <input
-              class="form-check-input my-auto"
-              type="radio"
-              value="true"
-              v-model="remoteSituation"
-            />
-            <label class="form-check-label me-4">Yes</label>
-          </div>
+                      <div class="d-flex align-items-center me-4">
+                        <input
+                          v-model="remoteSituation"
+                          class="form-check-input my-auto"
+                          type="radio"
+                          value="true"
+                        >
+                        <label class="form-check-label me-4">Yes</label>
+                      </div>
 
-          <div class="d-flex align-items-center me-4">
-            <input
-              class="form-check-input my-auto"
-              type="radio"
-              value="false"
-              v-model="remoteSituation"
-            />
-            <label class="form-check-label me-4">No</label>
-          </div>
-        </div>
-                
+                      <div class="d-flex align-items-center me-4">
+                        <input
+                          v-model="remoteSituation"
+                          class="form-check-input my-auto"
+                          type="radio"
+                          value="false"
+                        >
+                        <label class="form-check-label me-4">No</label>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-12 d-flex flex-column">
                     <span class="mb-2 fw-bold">Cover Letter :</span>
@@ -214,7 +212,6 @@
                       class="w-100 border-ligth rounded shadow"
                       rows="5"
                     />
-                    
                   </div>
                 </div>
               </div>

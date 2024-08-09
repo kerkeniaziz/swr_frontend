@@ -52,14 +52,11 @@ const routes = [
         component: () => import('../components/application/reviewPage.vue')
     },
 
-
     {
         path: '/user/:id',
         name: 'UserProfile',
         component: () => import('../views/userProfile.vue')
     },
-
-
 
     {
         path: '/contact',

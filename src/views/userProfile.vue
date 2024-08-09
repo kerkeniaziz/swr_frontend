@@ -26,7 +26,6 @@ import ProfilePage from '../components/user/profilePage.vue'
     created(){
        this.fetchUser()
 
-
     },
     methods: {
       async fetchUser(){

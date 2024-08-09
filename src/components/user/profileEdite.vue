@@ -9,8 +9,9 @@
           <hr class="my-4 w-75 border-3 border-dark mx-auto">
         </div>
         <form
+          v-if="$store.state.userRole ==='candidate'"
           class="row gy-3 gy-xxl-4"
-          @submit.prevent="updateProfile()" v-if="$store.state.userRole ==='candidate'"
+          @submit.prevent="updateProfile()"
         >
           <div class="col-12 ">
             <div class="row gy-2 ">
@@ -260,8 +261,9 @@
         </form>
 
         <form
+          v-else
           class="row gy-3 gy-xxl-4"
-          @submit.prevent="updateCompany()" v-else
+          @submit.prevent="updateCompany()"
         >
           <div class="col-12 col-md-4 ">
             <div class="row gy-2 ">
@@ -299,70 +301,68 @@
           </div>
           <div class="col-8">
             <div class="d-flex mb-4">
-            <label
-              for="inputFirstName"
-              class="form-label fw-bold my-auto col-3"
-            >Company Name :</label>
-            <input
-              id="inputFirstName"
-              v-model="company.companyName"
-              type="text"
-              class="form-control-company form-control  ms-3"
-            >
-          </div>
-          <div class="d-flex mb-4">
-            <label
-              for="inputFirstName"
-              class="form-label fw-bold my-auto col-3"
-            >Industry :</label>
-            <input
-              id="inputFirstName"
-              v-model="company.industry"
-              type="text"
-              class="form-control-company form-control  ms-3"
-            >
-          </div>
-          <div class="d-flex mb-4">
-            <label
-              for="inputFirstName"
-              class="form-label fw-bold my-auto col-3"
-            >Culture :</label>
-            <input
-              id="inputFirstName"
-              v-model="company.culture"
-              type="text"
-              class="form-control-company form-control  ms-3"
-            >
-          </div>
-          <div class="d-flex mb-4">
-            <label
-              for="inputexperinece"
-              class="form-label fw-bold my-auto col-3"
-            >Company Size :</label>
-            <select
-              id="inputexperinece"
-              v-model="company.companySize"
-              class="form-select form-control-company ms-3"
-            >
-              <option
-                value=""
-                disabled
+              <label
+                for="inputFirstName"
+                class="form-label fw-bold my-auto col-3"
+              >Company Name :</label>
+              <input
+                id="inputFirstName"
+                v-model="company.companyName"
+                type="text"
+                class="form-control-company form-control  ms-3"
               >
-                Select The Company Size
-              </option>
-              <option value="small">
-                small
-              </option>
-              <option value="medium">
-                medium
-              </option>
-              <option value="large">
-                large
-              </option>
-              
-            </select>
-          </div>
-
+            </div>
+            <div class="d-flex mb-4">
+              <label
+                for="inputFirstName"
+                class="form-label fw-bold my-auto col-3"
+              >Industry :</label>
+              <input
+                id="inputFirstName"
+                v-model="company.industry"
+                type="text"
+                class="form-control-company form-control  ms-3"
+              >
+            </div>
+            <div class="d-flex mb-4">
+              <label
+                for="inputFirstName"
+                class="form-label fw-bold my-auto col-3"
+              >Culture :</label>
+              <input
+                id="inputFirstName"
+                v-model="company.culture"
+                type="text"
+                class="form-control-company form-control  ms-3"
+              >
+            </div>
+            <div class="d-flex mb-4">
+              <label
+                for="inputexperinece"
+                class="form-label fw-bold my-auto col-3"
+              >Company Size :</label>
+              <select
+                id="inputexperinece"
+                v-model="company.companySize"
+                class="form-select form-control-company ms-3"
+              >
+                <option
+                  value=""
+                  disabled
+                >
+                  Select The Company Size
+                </option>
+                <option value="small">
+                  small
+                </option>
+                <option value="medium">
+                  medium
+                </option>
+                <option value="large">
+                  large
+                </option>
+              </select>
+            </div>
           </div>
           <div class="col-12">
             <label

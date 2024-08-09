@@ -212,7 +212,7 @@
         <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn me-5 ">
           <li>
             <router-link
-              :to="`/user/${this.$store.state.userData._id}`"
+              :to="`/user/${$store.state.userData._id}`"
               class="dropdown-item"
               aria-current="true"
             >
@@ -229,7 +229,9 @@
                 <div class="col-9">
                   <div class="ps-3">
                     <div class="text-secondary mt-1 fs-7 ">
-                     <p class="text-truncate my-auto"> welcome {{ ProfileData?.firstName || ProfileData.companyId?.companyName }}</p>
+                      <p class="text-truncate my-auto">
+                        welcome {{ ProfileData?.firstName || ProfileData.companyId?.companyName }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -239,10 +241,10 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li >
+          <li>
             <router-link
             
-              :to="`/user/${this.$store.state.userData._id}`"
+              :to="`/user/${$store.state.userData._id}`"
               class="dropdown-item"
             >
               <span>
@@ -322,7 +324,6 @@ export default {
         mounted() {
           this.ProfileData = this.$store.state.profileData;
       this.fetchNotification(); 
-      console.log(this.ProfileData)
     },
     methods: {
       async fetchNotification() {

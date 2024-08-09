@@ -95,9 +95,9 @@
         </router-link>
         <router-link
           
-          :to="`/user/${this.$store.state.userData._id}`"
+          :to="`/user/${$store.state.userData._id}`"
           class="sidebar-link"
-          :class="{ 'active': isLinkActive(`/user/${this.$store.state.userData._id}`) }"
+          :class="{ 'active': isLinkActive(`/user/${$store.state.userData._id}`) }"
           @click="toggleSidebar"
         >
           <i class="bi bi-person" />

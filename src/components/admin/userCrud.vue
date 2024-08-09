@@ -103,8 +103,8 @@
               <th class="w-200 ">
                 <div class="mx-2 d-inline">
                   <router-link :to=" `/user/${user._id}` ">
-                  <i class="bi bi-eye-fill text-success pointerIcon h5" />
-                </router-link>
+                    <i class="bi bi-eye-fill text-success pointerIcon h5" />
+                  </router-link>
                 </div>
                 
                 <div class="mx-2 d-inline">

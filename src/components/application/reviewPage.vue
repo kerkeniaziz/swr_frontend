@@ -32,93 +32,96 @@
               <div class="container">
                 <div class="row gy-3 gy-md-4">
                   <div class="col-12 ">
-
                     <div class="card widget-card border-light shadow  mx-2">
-              <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="card-title widget-card-title mb-2 fw-bold text-center flex-grow-1">
-                    Candidate Profile
-                  </h5>
-                  <router-link :to="`/user?userId=${application.userId?._id}`">
-                    <i class="bi bi-box-arrow-up-right text-black" />
-                  </router-link>
-                </div>
-                <hr class=" w-100 border-2 border-dark mx-auto mb-5">
-                <div class="row gy-4 ">
-                  <div class="col-12 d-flex">
-                    <div class="col-3 pe-4 mx-5">
-                      <router-link :to="`/user/${application.userId?._id}`">
-                        <img
-                          :src="$store.state.imageUrl + application.userId?.profileImage"
-                          class="img-fluid rounded-circle m-auto "
-                          alt="img"
-                        >
-                      </router-link>
-                    </div>
-                    <div class="w-75 ">
-                      <div class="d-flex">
-                        <p class="w-35">
-                          First Name :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.candidateId?.firstName }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Last Name :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.candidateId?.lastName }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Email :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.userId?.email }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Phone :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.userId?.phone }}
-                        </p>
-                      </div>                     
+                      <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <h5 class="card-title widget-card-title mb-2 fw-bold text-center flex-grow-1">
+                            Candidate Profile
+                          </h5>
+                          <router-link :to="`/user?userId=${application.userId?._id}`">
+                            <i class="bi bi-box-arrow-up-right text-black" />
+                          </router-link>
+                        </div>
+                        <hr class=" w-100 border-2 border-dark mx-auto mb-5">
+                        <div class="row gy-4 ">
+                          <div class="col-12 d-flex">
+                            <div class="col-3 pe-4 mx-5">
+                              <router-link :to="`/user/${application.userId?._id}`">
+                                <img
+                                  :src="$store.state.imageUrl + application.userId?.profileImage"
+                                  class="img-fluid rounded-circle m-auto "
+                                  alt="img"
+                                >
+                              </router-link>
+                            </div>
+                            <div class="w-75 ">
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  First Name :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.candidateId?.firstName }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Last Name :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.candidateId?.lastName }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Email :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.userId?.email }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Phone :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.userId?.phone }}
+                                </p>
+                              </div>                     
                       
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Profile title :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.candidateId?.jobTitle }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Gender :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.candidateId?.gender || "none" }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Resume :
-                        </p> <p class="fw-bold text-primary text-truncate w-69">
-                          {{ application.candidateId?.CV }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Experience :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.candidateId?.experience || "none" }}
-                        </p>
-                      </div>
-                      <div class="d-flex">
-                        <p class="w-35">
-                          Currently Position :
-                        </p> <p class="fw-bold text-primary text-truncate">
-                          {{ application.candidateId?.currentPosition || "none" }}
-                        </p>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Profile title :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.candidateId?.jobTitle }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Gender :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.candidateId?.gender || "none" }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Resume :
+                                </p> <p class="fw-bold text-primary text-truncate w-69">
+                                  {{ application.candidateId?.CV }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Experience :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.candidateId?.experience || "none" }}
+                                </p>
+                              </div>
+                              <div class="d-flex">
+                                <p class="w-35">
+                                  Currently Position :
+                                </p> <p class="fw-bold text-primary text-truncate">
+                                  {{ application.candidateId?.currentPosition || "none" }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -126,14 +129,8 @@
               </div>
             </div>
 
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-                    <!-- Card 2 - Bootstrap Brain Component -->
-                    <div class="card widget-card border-light shadow mx-3 mb-5">
+            <!-- Card 2 - Bootstrap Brain Component -->
+            <div class="card widget-card border-light shadow mx-3 mb-5">
               <div class="card-body p-4">
                 <h5 class="card-title widget-card-title mb-2 text-center fw-bold">
                   Application Details
@@ -142,21 +139,26 @@
 
                 <div class="row gy-4 ">
                   <div class="col-12 d-flex mt-2">
-                    <p class=" fw-bold ">Current Work Situation :<span class="fw-normal ms-4">  {{ application?.workingSituation }}</span> </p>                    
+                    <p class=" fw-bold ">
+                      Current Work Situation :<span class="fw-normal ms-4">  {{ application?.workingSituation }}</span>
+                    </p>                    
                   </div>
 
                   <div class="col-12 d-flex  mt-2">
                     <span class="mb-2 fw-bold">Remote Work Situation :</span>
-                    <span class="ms-4 ">{{ application?.remoteSituation ? 'Candidate is willing to work remotely':'Candidate is not willing to work remotely'}}</span>
-               
+                    <span class="ms-4 ">{{ application?.remoteSituation ? 'Candidate is willing to work remotely':'Candidate is not willing to work remotely' }}</span>
                   </div>
                   <div class="col-12 d-flex">
                     <span class="mb-2 fw-bold my-auto col-2">Cover Letter :</span>
-                    <p class="bg-light p-3 rounded shadow-sm w-100 ms-4">{{application?.coverLetter}}</p>
+                    <p class="bg-light p-3 rounded shadow-sm w-100 ms-4">
+                      {{ application?.coverLetter }}
+                    </p>
                   </div>
                   <div class="col-12 d-flex">
                     <span class="mb-2 fw-bold my-auto col-2">motivation Letter :</span>
-                    <p class="bg-light p-3 rounded shadow-sm w-100 ms-4">{{application?.motivation}}</p>
+                    <p class="bg-light p-3 rounded shadow-sm w-100 ms-4">
+                      {{ application?.motivation }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -189,7 +191,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
