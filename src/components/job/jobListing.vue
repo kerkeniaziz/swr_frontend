@@ -57,14 +57,17 @@
                         alt=""
                         style="width: 80px; height: 80px;"
                       >
-                      <div class="text-start ps-4">
+                      <div class="text-start ps-4 col-12">
                         <div>
-                          <h5 class="mb-3 text-truncate">
+                          <h5 class="mb-3 text-truncate w-75">
                             {{ job.title }}
                           </h5>
-                          <span class="text-truncate me-3"><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
-                          <span class="text-truncate me-3"><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
-                          <span class="text-truncate me-0"><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
+                          <div class="d-flex flex-md-row flex-column col-12">
+                          <span class="text-truncate me-3 "><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
+                          <span class="text-truncate me-3 "><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
+                          <span class="text-truncate me-0 "><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
+                          </div>
+                          
                         </div>
                       </div>
                     </div>

@@ -96,7 +96,6 @@ import jobListing from "../job/jobListing.vue";
               this.companyData = response.data.company;
               this.userId = response.data.company.userId;
               this.location = response.data.company.userId.location;
-              this.socialMediaLinks = response.data.company.userId.socialMediaLinks;
               this.companyDescription = this.formattedJobDescription(this.companyData?.description)
 
              this.fetchjobs(this.companyData._id)

@@ -119,6 +119,7 @@ function sessionExpired() {
   localStorage.clear();
     Cookies.remove('token');
     Cookies.remove('refreshToken');
+    window.location.href = "/";
     if (!firstRequestMade){
       Swal.fire({
         title: "Your session has expired",

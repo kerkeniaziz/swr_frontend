@@ -21,7 +21,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-3 ms-5">
+              <div class="col-6 col-md-3">
                 <div class="link-wrapper">
                   <h4 class="mb-4 fs-5 fw-bold text-light">
                     JOB SEEKER

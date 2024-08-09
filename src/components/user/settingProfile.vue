@@ -16,11 +16,9 @@
               >
                 <!-- Profile Tab Button -->
                 <button
-                  v-if="$store.state.userRole ==='candidate'"
                   id="profile-tab"
-                  :class="{ active: $store.state.userRole === 'candidate' }"
-                  :aria-selected="$store.state.userRole === 'candidate'"
-                  class="nav-link"
+                  aria-selected
+                  class="nav-link active"
                   data-bs-toggle="pill"
                   data-bs-target="#profile-tab-pane"
                   type="button"
@@ -32,8 +30,7 @@
                 <!-- Resource Tab Button -->
                 <button
                   id="resource-tab"
-                  :class="{ active: $store.state.userRole !== 'candidate' }"
-                  :aria-selected="$store.state.userRole !== 'candidate'"
+                  
                   class="nav-link"
                   data-bs-toggle="pill"
                   data-bs-target="#resource-tab-pane"
@@ -83,10 +80,8 @@
           >
             <!-- Profile Tab Pane -->
             <div
-              v-if="$store.state.userRole ==='candidate'"
               id="profile-tab-pane"
-              :class="{ 'show active': $store.state.userRole === 'candidate' }"
-              class="tab-pane fade "
+              class="tab-pane fade show active "
               role="tabpanel"
               aria-labelledby="profile-tab"
             >
@@ -95,7 +90,6 @@
             <!-- Resource Tab Pane -->
             <div
               id="resource-tab-pane"
-              :class="{ 'show active': $store.state.userRole !== 'candidate' }"
               class="tab-pane fade"
               role="tabpanel"
               aria-labelledby="resource-tab"
