@@ -176,13 +176,3 @@ function Router() {
     });
     return router;
 }
-
-// router.beforeEach((to, from, next) => {
-//     const token = Cookies.get('token');
-  
-//     if (to.path === '/' && token) {
-//       next('/dashboard');
-//     } else {
-//       next();
-//     }
-//   });
