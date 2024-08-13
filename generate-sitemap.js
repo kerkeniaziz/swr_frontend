@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const baseUrl = 'https://swrbackend.azurewebsites.net';  // Replace with your domain
+const baseUrl = 'https://swrfrontend.azurewebsites.net';  // Replace with your domain
 
 const routes = [
   '/',

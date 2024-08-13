@@ -2,182 +2,182 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>https://swrbackend.azurewebsites.net/</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/</loc>
+      <lastmod>2024-08-13T02:02:43.687Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/login</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/login</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/signup</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/signup</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/signupComapny</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/signupComapny</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/forgotpassword</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/forgotpassword</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/resetPassword/example-resetCode</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/resetPassword/example-resetCode</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/jobs/application</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/jobs/application</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/setting</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/setting</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/jobs/application/review</loc>
-      <lastmod>2024-08-10T11:41:24.549Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/jobs/application/review</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/user/example-id</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/user/example-id</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/contact</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/contact</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/dashboard/jobapplied</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/dashboard/jobapplied</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/notification-center</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/notification-center</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/dashboard/notification</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/dashboard/notification</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/dashboard/savedjobs</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/dashboard/savedjobs</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/application/overview</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/application/overview</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/vuex</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/vuex</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/dashboard</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/dashboard</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/users</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/users</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/skills</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/skills</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/categories</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/categories</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/jobs</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/jobs</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/about</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/about</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/job/example-id</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/job/example-id</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/category/example-id</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/category/example-id</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/findJob</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/findJob</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/category</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/category</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/not_authorized</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/not_authorized</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/terms_and_conditions</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/terms_and_conditions</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
     <url>
-      <loc>https://swrbackend.azurewebsites.net/not_found</loc>
-      <lastmod>2024-08-10T11:41:24.550Z</lastmod>
+      <loc>https://swrfrontend.azurewebsites.net/not_found</loc>
+      <lastmod>2024-08-13T02:02:43.688Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
