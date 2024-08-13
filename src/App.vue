@@ -19,7 +19,6 @@
               v-if="!($store.state.userRole !=='candidate' && $store.state.userData._id === $route.params.id)"
               class="ms-4 border-light mt-4 mb-3"
             />
-            
             <router-view class="ms-4" />
             <chatBotPage />
           </div>

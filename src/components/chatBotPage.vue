@@ -1,16 +1,36 @@
 <template>
-  <div class="chatbot-page"> 
+  <div class="chatbot-page" > 
     <div id="chatbot-container" /> 
   </div>
 </template>
   
   <script>
   export default {
+    name: 'ChatBotPage',
     mounted() {
-      // Initialize the chatbot when the component is mounted
-      this.loadChatbot();
+        this.loadStart()
     },
+    
+    beforeUnmount() {
+  // Remove the flowise-chatbot element if it exists
+  const chatbotElement = document.querySelector("flowise-chatbot");
+  if (chatbotElement) {
+    chatbotElement.remove();
+  }
+},
     methods: {
+        loadStart(){
+            if (this.$store.state.profileData?.firstName ||this.$store.state.profileData?.companyId?.companyName){
+                this.loadChatbot()
+            }
+            else
+            {
+                setTimeout(() => {
+                    this.loadChatbot()
+                }, 2000);
+            }
+            
+        },
       loadChatbot() {
         const script = document.createElement("script");
         script.type = "module";
@@ -30,7 +50,7 @@
         customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
         autoWindowOpen: {
           autoOpen: true, //parameter to control automatic window opening
-          openDelay: 2, // Optional parameter for delay time in seconds
+          openDelay: 1, // Optional parameter for delay time in seconds
           autoOpenOnMobile: false, //parameter to control automatic window opening in mobile
         },
       },
