@@ -46,8 +46,8 @@
         showAgentMessages: true,
         title: 'SWR ChatBot',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-        welcomeMessage: 'Hello! This is custom welcome message',
-        errorMessage: 'This is a custom error message',
+        welcomeMessage: `Hello! ${this.$store.state.profileData.firstName ||this.$store.state.profileData.companyId.companyName} How can I help?`,
+        errorMessage: `Oops!  ${this.$store.state.profileData.firstName ||this.$store.state.profileData.companyId.companyName} Look like there's a problem`,
         backgroundColor: '#ffffff',
         backgroundImage: 'enter image path or link', // If set, this will overlap the background color of the chat window.
         height: 600,
