@@ -89,14 +89,13 @@ const routes = [
         component: () => import('../components/application/overView.vue')
     },
 
-    {
-        path: '/vuex',
+    // {
+    //     path: '/vuex',
         
-        component: () => import('../components/vuexPage.vue')
-    },
+    //     component: () => import('../components/vuexPage.vue')
+    // },
 
     // is logged in
-
     {
         path: '/dashboard',
         name: 'MainDashboard',

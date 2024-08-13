@@ -19,7 +19,9 @@
               v-if="!($store.state.userRole !=='candidate' && $store.state.userData._id === $route.params.id)"
               class="ms-4 border-light mt-4 mb-3"
             />
+            
             <router-view class="ms-4" />
+            <chatBotPage />
           </div>
         </div>
       </div>
@@ -44,6 +46,7 @@ import navBarHome from './components/navBarHome.vue';
 import navBarUser from './components/navBarUser.vue';
 import sidebarAll from './components/sideBar/sidebarAll.vue';
 import breadCrumbsPage from './components/breadCrumbsPage.vue';
+import chatBotPage from './components/chatBotPage.vue';
 
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
@@ -58,7 +61,8 @@ export default {
     navBarUser,
     navBarHome,
     breadCrumbsPage,
-    SpinnerPage
+    SpinnerPage,
+    chatBotPage
 
   },
 
