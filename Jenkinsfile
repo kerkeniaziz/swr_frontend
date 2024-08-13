@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script { 
                     
-                        powershell 'docker build -t kerkeniaziz/frontend:v1 .'
+                        powershell 'docker build -t kerkeniaziz/frontend:v2 .'
                     
                 }
             }
@@ -31,7 +31,7 @@ pipeline {
                     // Login to DockerHub
                     docker.withRegistry('', DOCKERHUB_CREDENTIALS) {
                         // Push the frontend image
-                         powershell 'docker push kerkeniaziz/frontend:v1'
+                         powershell 'docker push kerkeniaziz/frontend:v2'
                     }
                 }
             }
