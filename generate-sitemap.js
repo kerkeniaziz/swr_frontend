@@ -39,7 +39,6 @@ const routes = [
 const generateSitemap = () => {
   const sitemapContent = createSitemapContent(routes);
   fs.writeFileSync(path.resolve(__dirname, 'public', 'sitemap.xml'), sitemapContent);
-  console.log('Sitemap generated successfully');
 };
 
 const createSitemapContent = (routes) => {

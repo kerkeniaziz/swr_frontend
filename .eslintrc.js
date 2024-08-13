@@ -7,7 +7,7 @@ module.exports = {
       jsx: true 
     },
     plugins: ['vue'],
-    extends: ['eslint:recommended' , 'plugin:vue/vue3-recommended'],
+    // extends: ['eslint:recommended' , 'plugin:vue/vue3-recommended'],
     rules: {
         'vue/jsx-uses-vars': 'off',
         'vue/valid-template-root': 'off',

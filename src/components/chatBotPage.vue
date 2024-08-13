@@ -1,9 +1,8 @@
 <template>
-    <div class="chatbot-page">
-      <div id="chatbot-container"></div>
-      <img src="../assets/img/1.png" alt="">
-    </div>
-  </template>
+  <div class="chatbot-page"> 
+    <div id="chatbot-container" /> 
+  </div>
+</template>
   
   <script>
   export default {
