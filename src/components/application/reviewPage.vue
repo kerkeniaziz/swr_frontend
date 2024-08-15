@@ -129,6 +129,24 @@
               </div>
             </div>
 
+            <div class="card widget-card border-light shadow mx-3 mb-5">
+              <div class="card-body p-4">
+                <h5 class="card-title widget-card-title mb-2 text-center fw-bold">
+                  Candidate Resume
+                </h5>
+                <hr class=" w-100 border-2 border-dark mx-auto mb-5">
+                <div class="row gy-4 ">
+        <div v-if="application.candidateId?.CV?.endsWith('.pdf')">
+      <pdfViewer :pdfName="application.candidateId?.CV"/>
+    </div>
+    <div v-else-if="application.candidateId?.CV?.endsWith('.docx')">
+      <docxViewer :docName="application.candidateId?.CV"/>
+    </div>
+
+                </div>
+              </div>
+            </div>
+
             <!-- Card 2 - Bootstrap Brain Component -->
             <div class="card widget-card border-light shadow mx-3 mb-5">
               <div class="card-body p-4">
@@ -201,6 +219,8 @@
   <script>
 
    import axios from 'axios';
+   import pdfViewer from '../pdfViewer.vue';
+   import docxViewer from '../docxViewer.vue';
   
   export default {
       name : 'ReviewPage',
@@ -208,6 +228,10 @@
         return {
           application:{}
         };
+      },
+      components: {
+        pdfViewer,
+        docxViewer
       },
       mounted() {
       this.loadApplication()

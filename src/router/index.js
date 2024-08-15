@@ -94,6 +94,16 @@ const routes = [
         
         component: () => import('../components/vuexPage.vue')
     },
+    {
+        path: '/pdf/:pdfName',
+        
+        component: () => import('../components/pdfViewer.vue')
+    },
+    {
+        path: '/doc/:docName',
+        
+        component: () => import('../components/docxViewer.vue')
+    },
 
     // is logged in
     {

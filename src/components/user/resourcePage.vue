@@ -29,7 +29,7 @@
                     id="cvInput"
                     ref="cvInput"
                     type="file"
-                    accept=".pdf, .doc, .docx"
+                    accept=".pdf, .docx"
                     class="custom-file-input"
 
                     @change="handleCVUpload"
@@ -42,6 +42,24 @@
                     {{ fileName || 'Choose File' }}
                   </button>
                 </div>
+                <div v-if="fileName" my-auto>
+    <!-- Check if the string ends with .pdf -->
+    <div v-if="fileName?.endsWith('.pdf')">
+      <router-link :to="`/pdf/${fileName}`" target="_blank" >
+        
+        <i class="bi bi-box-arrow-up-right ps-3 "></i>
+      </router-link>
+    </div>
+    <!-- Check if the string ends with .docx -->
+    <div v-else-if="fileName?.endsWith('.docx')">
+      <router-link :to="`/doc/${fileName}`" target="_blank" >
+        
+        <i class="bi bi-box-arrow-up-right ms-3 "></i>
+      </router-link>
+    </div>
+    
+  </div>
+                
               </div>
             </div>
             <div class="col-12 ">
@@ -175,13 +193,16 @@ import axios from 'axios';
       const file = event.target.files[0];
       this.fileExist = true
       this.fileName = file ? file.name : ""; // Updates the fileName when a file is selected
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
       if (!allowedTypes.includes(file.type)) {
-        alert('Please upload a valid file (PDF or Word document).');
+        alert('Please upload a valid file (PDF or Word document .docx).');
         event.target.value = ''; // Clear the input
         this.fileExist = false
       this.fileName =  ""; 
         return;
+      }
+      else{
+        this.handleCVUploadPost()
       }
     },
     selectFile() {
@@ -191,9 +212,7 @@ import axios from 'axios';
             try {
               const response = await axios.put('user/resource',this.socialMediaLinks)
               this.$store.commit("setUser", response.data.user)
-              if (this.fileExist){
-                this.handleCVUploadPost()
-              }
+              
             }catch(error){
               console.error(error);
             }
@@ -207,13 +226,14 @@ import axios from 'axios';
     formData.append('CV', file, file.name); // Append the file to the form data
 
     try {
-      await axios.post('/user/uploadCV', formData, {
+      const response = await axios.post('/user/uploadCV', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       
       this.fileExist = false
+      this.fileName = response.data.cvUrl
     } catch (error) {
       console.error('Error uploading CV:', error);
     }

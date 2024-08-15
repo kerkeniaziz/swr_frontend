@@ -72,10 +72,32 @@
                       <div class="d-flex">
                         <p class="w-35">
                           Resume :
-                        </p> <p class="fw-bold text-primary text-truncate w-69">
-                          {{ $store.state.profileData.CV }}
+                          
                         </p>
+                         
+                          <div class="fw-bold text-primary text-truncate w-69 ">
+    <!-- Check if the string ends with .pdf -->
+    <div v-if="$store.state.profileData.CV.endsWith('.pdf')">
+      <router-link :to="`/pdf/${$store.state.profileData.CV}`" target="_blank" class="d-flex text-decoration-underline">
+        <p class="fw-bold text-primary text-truncate w-69"> 
+          {{ $store.state.profileData.CV }}
+        </p>
+        <i class="bi bi-box-arrow-up-right ps-3 "></i>
+      </router-link>
+    </div>
+    <!-- Check if the string ends with .docx -->
+    <div v-else-if="$store.state.profileData.CV.endsWith('.docx')">
+      <router-link :to="`/doc/${$store.state.profileData.CV}`" target="_blank" class="d-felx text-decoration-underline">
+        <p class="fw-bold text-primary text-truncate w-69"> 
+          {{ $store.state.profileData.CV }}
+        </p>
+        <i class="bi bi-box-arrow-up-right ms-3 "></i>
+      </router-link>
+    </div>
+    
+  </div>
                       </div>
+                      
                       <div class="d-flex">
                         <p class="w-35">
                           Experience :
