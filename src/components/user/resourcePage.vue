@@ -7,9 +7,10 @@
             My resources
           </h3>
           <hr class="my-4 w-75 border-3 border-dark mx-auto">
-          <p class="mt-5">
+          <p class="mt-5" v-if="$store.state.userRole ==='candidate'">
             <b>Add files and links to support and accelerate your applications</b>
           </p>
+          
         </div>
                 
         <form @submit.prevent="updateRessource()">
@@ -99,7 +100,7 @@
               >
             </div>
 
-            <div class="col-12 d-flex ">
+            <div class="col-12 d-flex " v-if="$store.state.userRole ==='candidate'">
               <label
                 for="behance"
                 class="form-label me-5 my-auto"
@@ -116,7 +117,7 @@
               >
             </div>
 
-            <div class="col-12 d-flex ">
+            <div class="col-12 d-flex " v-if="$store.state.userRole ==='candidate'">
               <label
                 for="stackoverflow"
                 class="form-label me-5 my-auto"
@@ -181,7 +182,6 @@ import axios from 'axios';
             },
             fileName: "",
             fileExist : false,
-               
           }
         },
         mounted(){
@@ -212,7 +212,6 @@ import axios from 'axios';
             try {
               const response = await axios.put('user/resource',this.socialMediaLinks)
               this.$store.commit("setUser", response.data.user)
-              
             }catch(error){
               console.error(error);
             }
@@ -220,7 +219,6 @@ import axios from 'axios';
           async handleCVUploadPost() {
   const fileInput = this.$refs.cvInput; // Reference the cvInput ref
   const file = fileInput.files[0]; // Get the selected file
-
   if (file) {
     const formData = new FormData();
     formData.append('CV', file, file.name); // Append the file to the form data
@@ -231,7 +229,6 @@ import axios from 'axios';
           'Content-Type': 'multipart/form-data',
         },
       });
-      
       this.fileExist = false
       this.fileName = response.data.cvUrl
     } catch (error) {
@@ -241,9 +238,7 @@ import axios from 'axios';
 }
         }
         }
-    
     </script>
-
     <style scoped>
     .custom-file-input-wrapper {
       position: relative;

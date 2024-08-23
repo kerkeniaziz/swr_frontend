@@ -46,7 +46,19 @@
                   </div>
                 </router-link>
               </div>
-              <div class="col-sm-12 col-md-3 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+              <div class="col-sm-12 col-md-2 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                <div class=" mb-3">
+                  <div class="fw-bold mb-3">
+                    Match Score
+                  </div>
+                  <div
+                    class="fw-bold"
+                  >
+                    {{application?.matchScore || "--"}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-2 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                 <div class=" mb-3">
                   <div class="fw-bold mb-3">
                     Application Status
@@ -71,7 +83,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-3 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+              <div class="col-sm-12 col-md-2 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                 <div class=" mb-3">
                   <div class="fw-bold mb-3">
                     Action
@@ -147,17 +159,22 @@
       },
   
       async fetchData() {
-        try {
-          const response = await axios.get(`application/?pageNumber=${this.page}&jobId=${this.$route.query.JobId}`);
-         this.applications= response.data.applications
+  try {
+    const response = await axios.get(`application/?pageNumber=${this.page}&jobId=${this.$route.query.JobId}`);
+    
+    // Sort the applications by matchScore in descending order
+    this.applications = response.data.applications.sort((a, b) => {
+      return (b.matchScore || 0) - (a.matchScore || 0);
+    });
 
-          this.page = response.data.page;
-          this.pages = response.data.pages;
-          this.totalCount = response.data.count;
-        } catch (error) {
-          console.error('Error fetching jobs:', error);
-        }
-      },
+    this.page = response.data.page;
+    this.pages = response.data.pages;
+    this.totalCount = response.data.count;
+  } catch (error) {
+    console.error('Error fetching jobs:', error);
+  }
+},
+
       async editApplication(application, status){
         try {
            await axios.put(`application/${application._id}`,{applicationStatus:status});

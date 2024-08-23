@@ -1,6 +1,7 @@
 <template>
   <div class="chatbot-page" > 
     <div id="chatbot-container" /> 
+    <img src="../assets/img/bot-icon.png" class="d-none">
   </div>
 </template>
   
@@ -37,7 +38,7 @@
         script.src = "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
         script.onload = () => {
           window.Chatbot.init({
-            chatflowid: "8dc593d4-ceb7-4383-8a99-8d2f3d40f980",
+            chatflowid: "1b949032-4b25-4e10-a537-2513ee650681",
             apiHost: "https://swrchatbot.azurewebsites.net",
             theme: {
       button: {
@@ -79,7 +80,7 @@
           textColor: '#303235',
           showAvatar: true,
           avatarHeight:20,
-          avatarSrc: 'http://localhost:8080/img/icon.389fc109.png' ,
+          avatarSrc: 'http://localhost:8080/img/bot-icon.48db3e8f.png' ,
         },
         userMessage: {
           backgroundColor: '#3B81F6',
