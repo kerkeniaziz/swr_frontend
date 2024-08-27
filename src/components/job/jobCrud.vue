@@ -161,14 +161,14 @@ export default {
     changePage(newPage) {
       if (newPage > 0 && newPage <= this.pages) {
         this.page = newPage;
-        this.fetchData();
+        this.fetchData(); 
       }
     },
 
     async fetchData() {
       try {
         this.loading = true;
-        const response = await axios.get(`job/?pageNumber=${this.page}`);
+        const response = await axios.get(`job/?pageNumber=${this.page}&companyId=${this.$store.state.userData._id}`);
         this.jobs = response.data.jobs.map(job => ({
           ...job,
           categoryName: job.category?.categoryName || 'Uncategorized',

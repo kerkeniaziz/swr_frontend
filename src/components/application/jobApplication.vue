@@ -54,7 +54,7 @@
                   <div
                     class="fw-bold"
                   >
-                    {{application?.matchScore || "--"}}
+                    {{ application?.matchScore || "--" }}
                   </div>
                 </div>
               </div>

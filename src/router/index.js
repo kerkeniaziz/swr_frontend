@@ -147,6 +147,11 @@ const routes = [
         component: () => import('../components/category/categoryDetail.vue'),
     },
     {
+        path: '/findcompany',
+        name: 'FindCompanyPage',
+        component: () => import('../views/findCompanyPage.vue'),
+    },
+    {
         path: '/findJob',
         name: 'FindJobPage',
         component: () => import('../views/findJobPage.vue'),

@@ -65,7 +65,7 @@
                           <div class="d-flex flex-md-row flex-column col-12">
                             <span class="text-truncate me-3 "><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
                             <span class="text-truncate me-3 "><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
-                            <span class="text-truncate me-0 "><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
+                            <span class="text-truncate me-0 "><i class="bi bi-cash-coin text-primary me-2" />{{ job.salaryRangeStart }} DT - {{ job.salaryRangeEnd }} DT</span>
                           </div>
                         </div>
                       </div>
@@ -114,7 +114,7 @@
                     <br>
                     <small class="text-truncate d-block my-1"><i class="bi bi-geo-alt-fill text-primary me-1" />{{ job.city }}, {{ job.state }}</small>
                     <small class="text-truncate d-block my-1"><i class="bi bi-clock text-primary me-1" />{{ job.jobType }}</small>
-                    <small class="text-truncate d-block my-1"><i class="bi bi-cash-coin text-primary me-1" />${{ job.salaryRangeStart }}K - ${{ job.salaryRangeEnd }}K</small>
+                    <small class="text-truncate d-block my-1"><i class="bi bi-cash-coin text-primary me-1" />{{ job.salaryRangeStart }}DT - {{ job.salaryRangeEnd }}DT</small>
                     <small class="text-truncate d-block my-1"><i class="bi bi-calendar4-week text-primary me-2" />Date Line: {{ formatDate(job?.createdAt ) }}</small>
                   </div>
                   

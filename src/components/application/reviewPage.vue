@@ -136,13 +136,12 @@
                 </h5>
                 <hr class=" w-100 border-2 border-dark mx-auto mb-5">
                 <div class="row gy-4 ">
-        <div v-if="application.candidateId?.CV?.endsWith('.pdf')">
-      <pdfViewer :pdfName="application.candidateId?.CV"/>
-    </div>
-    <div v-else-if="application.candidateId?.CV?.endsWith('.docx')">
-      <docxViewer :docName="application.candidateId?.CV"/>
-    </div>
-
+                  <div v-if="application.candidateId?.CV?.endsWith('.pdf')">
+                    <pdfViewer :pdf-name="application.candidateId?.CV" />
+                  </div>
+                  <div v-else-if="application.candidateId?.CV?.endsWith('.docx')">
+                    <docxViewer :doc-name="application.candidateId?.CV" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -224,14 +223,14 @@
   
   export default {
       name : 'ReviewPage',
+      components: {
+        pdfViewer,
+        docxViewer
+      },
       data() {
         return {
           application:{}
         };
-      },
-      components: {
-        pdfViewer,
-        docxViewer
       },
       mounted() {
       this.loadApplication()

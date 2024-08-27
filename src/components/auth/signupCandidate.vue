@@ -154,6 +154,18 @@
                       </router-link>
                     </p>
                   </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="m-0 mt-2 text-secondary text-center">
+                        An Employer? <router-link
+                          to="/signupComapny"
+                          class="link-primary text-decoration-none"
+                        >
+                          Sign Up
+                        </router-link>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
@@ -168,9 +180,6 @@
 import axios from 'axios';
 export default {
     name : "SignupCandidate",
-    components: {
-
-    },
     data() {
         return {
             firstName: "",

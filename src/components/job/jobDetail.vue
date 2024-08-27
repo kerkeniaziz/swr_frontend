@@ -45,7 +45,7 @@
               <div class="d-flex align-items-center mb-5">
                 <img
                   class="flex-shrink-0 img-fluid border rounded"
-                  :src="$store.state.imageUrl + job.jobImage "
+                  :src="job.jobImage"
                   alt="jobImage"
                   style="width: 80px; height: 80px;"
                 >
@@ -55,7 +55,7 @@
                   </h3>
                   <span class="text-truncate me-3"><i class="bi bi-geo-alt-fill text-primary me-2" />{{ job.city }}, {{ job.state }} </span>
                   <span class="text-truncate me-3"><i class="bi bi-clock text-primary me-2" />{{ job.jobType }}</span>
-                  <span class="text-truncate me-0"><i class="bi bi-cash-coin text-primary me-2" />${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</span>
+                  <span class="text-truncate me-0"><i class="bi bi-cash-coin text-primary me-2" />{{ job.salaryRangeStart }} DT - {{ job.salaryRangeEnd }} DT</span>
                 </div>
               </div>
               <div
@@ -130,7 +130,7 @@
               
               <p><i class="bi bi-caret-right-fill text-primary me-2" />Vacancy: {{ job?.vacancy }}</p>
               <p><i class="bi bi-caret-right-fill text-primary me-2" />Job Nature: {{ job.jobType }}</p>
-              <p><i class="bi bi-caret-right-fill text-primary me-2" />Salary: ${{ job.salaryRangeStart }} - ${{ job.salaryRangeEnd }}</p>
+              <p><i class="bi bi-caret-right-fill text-primary me-2" />Salary: {{ job.salaryRangeStart }} DT - {{ job.salaryRangeEnd }} DT</p>
               <p><i class="bi bi-caret-right-fill text-primary me-2" />Location: {{ job.city }}, {{ job.state }}</p>
               <p><i class="bi bi-caret-right-fill text-primary me-2" />Published On: {{ formatDate(job?.createdAt ) }}</p>
             </div>
@@ -258,7 +258,7 @@ export default {
 
         }
     },
-    mounted() {
+    beforeMount() {
       this.isCandidate = this.$store.state.userRole === "candidate";
       this.isSavedJob();
       this.fetchJobDetail();
@@ -310,7 +310,7 @@ export default {
                 this.company = response.data.company;
                 this.job = {
           ...job,
-          jobImage: response.data.job?.companyId?.profileImage,
+          jobImage: this.$store.state.imageUrl+ response.data.job?.companyId?.profileImage,
           city: response.data.job?.location?.city,
           state: response.data.job?.location?.state,
         }

@@ -28,10 +28,9 @@
                 </router-link>
                 <router-link
                   class="btn btn-secondary py-md-3 px-md-5 animated slideInRight fs-5"
-                  to="/findjob"
-                  hidden
+                  to="/findcompany"
                 >
-                  Find A Talent
+                  Find Company
                 </router-link>
               </div>
             </div>

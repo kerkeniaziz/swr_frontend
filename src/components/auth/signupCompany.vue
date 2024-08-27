@@ -1,6 +1,6 @@
 <template>
-  <div class="container my-5">
-    <div class="card border-light-subtle shadow-sm">
+  <div class="container mt-7 mb-10 rounded">
+    <div class="card border-light-subtle shadow">
       <div class="row g-0">
         <div class="col-12 col-md-6 text-bg-primary">
           <div class="d-flex align-items-center justify-content-center h-100">
@@ -35,8 +35,23 @@
                 </div>
               </div>
             </div>
-            <form action="#!">
+            <form @submit.prevent="handelSubmit">
               <div class="row gy-3 gy-md-4 overflow-hidden">
+                <div class="col-12">
+                  <label
+                    for="firstName"
+                    class="form-label"
+                  >Company Name <span class="text-danger">*</span></label>
+                  <input
+                    id="companyName"
+                    v-model="companyName"
+                    type="text"
+                    class="form-control"
+                    name="companyName"
+                    placeholder="Company Name"
+                    required
+                  >
+                </div>
                 <div class="col-12">
                   <label
                     for="email"
@@ -44,6 +59,7 @@
                   >Email <span class="text-danger">*</span></label>
                   <input
                     id="email"
+                    v-model="email"
                     type="email"
                     class="form-control"
                     name="email"
@@ -58,6 +74,7 @@
                   >Password <span class="text-danger">*</span></label>
                   <input
                     id="password"
+                    v-model="password"
                     type="password"
                     class="form-control"
                     name="password"
@@ -67,56 +84,68 @@
                 </div>
                 <div class="col-12">
                   <label
-                    for="password"
+                    for="cpassword"
                     class="form-label"
                   >Confirm Password <span class="text-danger">*</span></label>
                   <input
-                    id="password"
+                    id="cpassword"
+                    v-model="cpassword"
                     type="password"
                     class="form-control"
-                    name="password"
+                    name="cpassword"
                     value=""
                     required
                   >
                 </div>
-
+                
                 <div class="col-12">
                   <label
-                    for="firstName"
+                    for="Phone"
                     class="form-label"
-                  >Company Name <span class="text-danger">*</span></label>
+                  >Phone <span class="text-danger">*</span></label>
                   <input
-                    id="firstName"
-                    type="email"
+                    id="Phone"
+                    v-model="phone"
+                    type="text"
                     class="form-control"
-                    name="firstName"
-                    placeholder="First Name"
-                    required
+                    name="Phone"
+                    placeholder="(+216) 00 000 000"
                   >
                 </div>
                 <div class="col-12">
                   <label
-                    for="lastName"
+                    for="uniqueId"
                     class="form-label"
-                  >Web Site <span class="text-danger">*</span></label>
+                  >Unique Identifier (RC/RNE/MF) <span class="text-danger">*</span></label>
                   <input
-                    id="lastName"
-                    type="email"
+                    id="uniqueId"
+                    v-model="uniqueId"
+                    type="text"
                     class="form-control"
-                    name="lastName"
-                    placeholder="Last Name"
-                    required
+                    name="uniqueId"
+                    placeholder="Unique Identifier"
                   >
                 </div>
-                
-                <div>phone</div>
+                <div class="col-12">
+                  <label
+                    for="site"
+                    class="form-label"
+                  >Web Site </label>
+                  <input
+                    id="site"
+                    v-model="webSite"
+                    type="text"
+                    class="form-control"
+                    name="site"
+                    placeholder="example.com"
+                  >
+                </div>
 
-                <div>company logo</div>
-                
                 <div class="col-12">
                   <div class="form-check">
                     <input
                       id="iAgree"
+                      v-model="iAgree"
                       class="form-check-input"
                       type="checkbox"
                       value=""
@@ -146,15 +175,27 @@
                 </div>
               </div>
             </form>
+            
             <div class="row">
               <div class="col-12">
-                <hr class="mt-5 mb-4 border-secondary-subtle">
-                <p class="m-0 text-secondary text-center">
+                <p class="m-0 mt-5 text-secondary text-center">
                   Already have an account? <router-link
-                    to="login"
+                    to="/login"
                     class="link-primary text-decoration-none"
                   >
                     Sign in
+                  </router-link>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="m-0 mt-2 text-secondary text-center">
+                  A Job Seeker? <router-link
+                    to="/signup"
+                    class="link-primary text-decoration-none"
+                  >
+                    Sign Up
                   </router-link>
                 </p>
               </div>
@@ -167,8 +208,58 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { toast } from 'vue3-toastify';
+
 export default {
     name : "SignupCompany",
+    data() {
+        return {
+            companyName: "",
+            email: "",
+            password: "",
+            cpassword: "",
+            phone : "",
+            uniqueId: "",
+            webSite: "",
+            iAgree: false,
+            role: "company",
+        }
+    },
+    methods: {
+        async handelSubmit(){
+          if (this.password === this.cpassword){
+            try {
+            const data ={
+              companyName: this.companyName,
+              email: this.email,
+                password: this.password,
+                role: this.role,
+                phone : this.phone,
+            uniqueId: this.uniqueId,
+            webSite: this.webSite,
+            }
+             await axios.post('signupCompany', data)
+            this.$router.push('/login');
+            
+          }
+          catch (error)
+          {
+            toast(error.response.data.error, {
+        "type": "error"
+      });
+          }
+          } 
+          else{
+             toast(`Password d'ont match`, {
+        "type": "error"
+          }
+        )
+          
+        }
+    
+    }
+}
 }
 
 </script>

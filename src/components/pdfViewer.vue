@@ -1,12 +1,22 @@
 <template>
-<div class="" :class="pdfName? '':'m-8'">
-  <div v-if="this.$route.matched[0].path ==='/pdf/:pdfName'" class="text-center  mb-4">
-        <h3 class="fw-bold">Document :</h3>
-        <h5>{{ this.$route.params.pdfName  }}</h5>
-        
+  <div
+    class=""
+    :class="pdfName? '':'m-8'"
+  >
+    <div
+      v-if="$route.matched[0].path ==='/pdf/:pdfName'"
+      class="text-center  mb-4"
+    >
+      <h3 class="fw-bold">
+        Document :
+      </h3>
+      <h5>{{ $route.params.pdfName }}</h5>
     </div>
-  <vue-pdf-app style="height: 1000px;" :pdf="pdf"></vue-pdf-app>
-</div>
+    <vue-pdf-app
+      style="height: 1000px;"
+      :pdf="pdf"
+    />
+  </div>
 </template>
 
 <script>
@@ -15,15 +25,15 @@ import VuePdfApp from "vue3-pdf-app";
 import "vue3-pdf-app/dist/icons/main.css";
 
 export default {
-  name:'PdfViewer',
+  name:'PdfViewer', 
+  components: {
+    VuePdfApp
+  },
   props: {
     pdfName: {
       type:String,
       default: ''
     },
-  }, 
-  components: {
-    VuePdfApp
   },
   data(){
       return {

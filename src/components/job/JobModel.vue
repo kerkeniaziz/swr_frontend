@@ -268,7 +268,7 @@
                 :disabled="!formIsValid"
                 type="submit"
                 class="btn btn-primary submit mx-3"
-               
+               data-bs-dismiss="modal"
                 @click="emitFetchData"
               >
                 Save
@@ -414,10 +414,10 @@ import skillSelectorVue from '../skill/skillSelector.vue';
           }catch(error){
             console.error(error);
           }
-          },
+          }, 
           emitFetchData() {
       this.$emit('fetch-data', 'true'); // You can emit any value you need here
-
+       
     },
           async addJob() {
 

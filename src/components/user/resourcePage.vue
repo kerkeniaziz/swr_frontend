@@ -7,10 +7,12 @@
             My resources
           </h3>
           <hr class="my-4 w-75 border-3 border-dark mx-auto">
-          <p class="mt-5" v-if="$store.state.userRole ==='candidate'">
+          <p
+            v-if="$store.state.userRole ==='candidate'"
+            class="mt-5"
+          >
             <b>Add files and links to support and accelerate your applications</b>
           </p>
-          
         </div>
                 
         <form @submit.prevent="updateRessource()">
@@ -43,24 +45,29 @@
                     {{ fileName || 'Choose File' }}
                   </button>
                 </div>
-                <div v-if="fileName" my-auto>
-    <!-- Check if the string ends with .pdf -->
-    <div v-if="fileName?.endsWith('.pdf')">
-      <router-link :to="`/pdf/${fileName}`" target="_blank" >
-        
-        <i class="bi bi-box-arrow-up-right ps-3 "></i>
-      </router-link>
-    </div>
-    <!-- Check if the string ends with .docx -->
-    <div v-else-if="fileName?.endsWith('.docx')">
-      <router-link :to="`/doc/${fileName}`" target="_blank" >
-        
-        <i class="bi bi-box-arrow-up-right ms-3 "></i>
-      </router-link>
-    </div>
-    
-  </div>
-                
+                <div
+                  v-if="fileName"
+                  my-auto
+                >
+                  <!-- Check if the string ends with .pdf -->
+                  <div v-if="fileName?.endsWith('.pdf')">
+                    <router-link
+                      :to="`/pdf/${fileName}`"
+                      target="_blank"
+                    >
+                      <i class="bi bi-box-arrow-up-right ps-3 " />
+                    </router-link>
+                  </div>
+                  <!-- Check if the string ends with .docx -->
+                  <div v-else-if="fileName?.endsWith('.docx')">
+                    <router-link
+                      :to="`/doc/${fileName}`"
+                      target="_blank"
+                    >
+                      <i class="bi bi-box-arrow-up-right ms-3 " />
+                    </router-link>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-12 ">
@@ -100,7 +107,10 @@
               >
             </div>
 
-            <div class="col-12 d-flex " v-if="$store.state.userRole ==='candidate'">
+            <div
+              v-if="$store.state.userRole ==='candidate'"
+              class="col-12 d-flex "
+            >
               <label
                 for="behance"
                 class="form-label me-5 my-auto"
@@ -117,7 +127,10 @@
               >
             </div>
 
-            <div class="col-12 d-flex " v-if="$store.state.userRole ==='candidate'">
+            <div
+              v-if="$store.state.userRole ==='candidate'"
+              class="col-12 d-flex "
+            >
               <label
                 for="stackoverflow"
                 class="form-label me-5 my-auto"

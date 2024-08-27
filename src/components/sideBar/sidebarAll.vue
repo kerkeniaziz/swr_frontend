@@ -53,7 +53,7 @@
           <span class="sidebar-text">Categories</span>
         </router-link>
         <router-link
-          v-if="userRole ==='admin'"
+          v-if="userRole !=='candidate'"
           to="/jobs"
           class="sidebar-link"
           :class="{ 'active': isLinkActive('/jobs') }"
@@ -94,7 +94,6 @@
           <span class="sidebar-text">Notification center</span>
         </router-link>
         <router-link
-          
           :to="`/user/${$store.state.userData._id}`"
           class="sidebar-link"
           :class="{ 'active': isLinkActive(`/user/${$store.state.userData._id}`) }"

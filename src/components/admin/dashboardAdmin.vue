@@ -5,7 +5,10 @@
     <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
       <div class="container">
         <div class="row gy-3 gy-md-4">
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div
+            v-if="$store.state.userRole ==='admin'"
+            class="col-12 col-sm-6 col-xl-3"
+          >
             <div class="card widget-card border-light shadow-sm">
               <router-link to="/users">
                 <div class="card-body p-4 text-center">
@@ -24,7 +27,10 @@
             </div>
           </div>
         
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div
+            class="col-12 col-sm-6 col-xl-3"
+            :class=" $store.state.userRole ==='admin' ? 'col-xl-3':'col-xl-6'"
+          >
             <div class="card widget-card border-light shadow-sm">
               <router-link to="/jobs">
                 <div class="card-body p-4 text-center">
@@ -42,7 +48,31 @@
               </router-link>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div
+            class="col-12 col-sm-6 col-xl-3"
+            :class=" $store.state.userRole ==='company' ? 'col-xl-6':'d-none'"
+          >
+            <div class="card widget-card border-light shadow-sm">
+              <router-link to="/jobs">
+                <div class="card-body p-4 text-center">
+                  <div class="lh-1 d-flex align-items-center justify-content-center">
+                    <i class="bi bi-briefcase fs-3 p-3 text-white bg-primary rounded-circle" />
+                  </div>
+                  <br>
+                  <h3 class="card-title widget-card-title mb-3">
+                    Total Application
+                  </h3>
+                  <h4 class="card-subtitle text-body-secondary m-0">
+                    {{ totalApp }}
+                  </h4>
+                </div>
+              </router-link>
+            </div>
+          </div>
+          <div
+            v-if="$store.state.userRole ==='admin'"
+            class="col-12 col-sm-6 col-xl-3"
+          >
             <div class="card widget-card border-light shadow-sm">
               <router-link to="/skills">
                 <div class="card-body p-4 text-center">
@@ -60,7 +90,10 @@
               </router-link>
             </div>
           </div>
-          <div class="col-12 col-sm-6 col-xl-3">
+          <div
+            v-if="$store.state.userRole ==='admin'"
+            class="col-12 col-sm-6 col-xl-3"
+          >
             <div class="card widget-card border-light shadow-sm">
               <router-link to="/skills">
                 <div class="card-body p-4 text-center">
@@ -127,7 +160,8 @@ export default {
         totalUser:0,
         totalJob:0,
         totalSkill:0,
-        totalCategory:0
+        totalCategory:0,
+        totalApp:0,
       };
     },
     mounted() {
@@ -144,6 +178,7 @@ export default {
           this.totalJob = response.data.countJob;
           this.totalSkill = response.data.countJob;
           this.totalCategory = response.data.countCategory;
+          this.totalApp = response.data.totalApp;
         } catch (error) {
           console.error('Error fetching stats', error);
         }

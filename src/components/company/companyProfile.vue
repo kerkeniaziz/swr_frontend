@@ -18,18 +18,20 @@
                   class="img-fluid img-thumbnail mt-4 mb-2 z-1"
                 >
                 <router-link
-                  v-if="true"
+                  v-if="$route.params.id === $store.state.userData._id"
                   class="btn btn-outline-primary z-1"
                   to="/setting"
                 >
                   Edit profile
                 </router-link>
               </div>
+              
               <div
                 class="ms-3 "
                 style="margin-top: 180px;"
               >
                 <h5>{{ companyData.companyName }}</h5>
+                
                 <div class="d-flex">
                   <i class="bi bi-geo-alt-fill me-1" /> <p>{{ location.city }}, {{ location.state }}</p>
                 </div>
@@ -85,6 +87,7 @@
                 :jobs="jobs"
                 :showed-job="6"
                 :header-show="false"
+                :no-job="count <= 0"
               />
             </div>
           </div>
@@ -110,11 +113,12 @@ import jobListing from "../job/jobListing.vue";
             socialMediaLinks: [],
             userId:{},
             jobs:{},
-            companyDescription:''
+            companyDescription:'',
+            count:0
            
           }
       },
-       async mounted(){
+       mounted(){
         this.fetchData();
       },
       methods :{
@@ -144,15 +148,15 @@ import jobListing from "../job/jobListing.vue";
           state : job.location?.state,
           isActive : job.jobStatus === 'Working',
           profileImage : job.companyId?.profileImage,
-        }
+        } 
         ));
+        this.count = response.data.count
           } catch (error) {
             console.error(error);
           }
         }
       }
   }
-  
   </script>
   
   <style >

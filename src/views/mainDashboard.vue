@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DashboardAdmin v-if="userRole==='admin'" />
+    <DashboardAdmin v-if="userRole !=='candidate'" />
     <DashboardCandidate v-if="userRole ==='candidate'" />
   </div>
 </template>

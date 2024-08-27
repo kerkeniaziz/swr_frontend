@@ -1,7 +1,10 @@
 <template>
-  <div class="chatbot-page" > 
+  <div class="chatbot-page"> 
     <div id="chatbot-container" /> 
-    <img src="../assets/img/bot-icon.png" class="d-none">
+    <img
+      src="../assets/img/bot-icon.png"
+      class="d-none"
+    >
   </div>
 </template>
   

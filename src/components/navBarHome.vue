@@ -46,8 +46,8 @@
         </li>
         <li class="nav-item">
           <router-link
-            to="/"
-            class="nav-link d-none"
+            to="/findcompany"
+            class="nav-link "
           >
             Browse Companies
           </router-link>
@@ -63,7 +63,7 @@
         <li class="nav-item">
           <router-link
             to="/contact"
-            class="nav-link"
+            class="nav-link d-none"
           >
             Contact Us
           </router-link>

@@ -15,13 +15,13 @@
                       class="w-50"
                     >
                     <p class="me-5 mt-4">
-                      SW CONSULTING is a Tunisian company, we have been an IT service provider for more than 4 years. 
+                      <i class="fw-bold"> SW CONSULTING </i> is a Tunisian company, we have been an IT service provider for more than 4 years. 
                       We meet almost all the needs of VSEs, SMEs, as well as large groups, regardless of their sector of activity.
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-3">
+              <div class="col-6 col-md-2">
                 <div class="link-wrapper">
                   <h4 class="mb-4 fs-5 fw-bold text-light">
                     JOB SEEKER
@@ -105,7 +105,6 @@
               </div>
               <div
                 class="col-6 col-md-2"
-                hidden
               >
                 <div class="link-wrapper">
                   <h4 class="mb-4 fs-5 fw-bold text-light ">
@@ -117,20 +116,20 @@
                         to="/jobs"
                         class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                        Post an ad
+                        Post A Job
                       </router-link>
                     </li>
                     <li class="mb-4">
                       <router-link
-                        to="/users"
+                        to="/signupComapny"
                         class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                        find CV
+                        SignUp for Comapny
                       </router-link>
                     </li>
                     <li class="mb-4">
                       <router-link
-                        to="/about"
+                        to="/login"
                         class="link-opacity-75 link-underline-opacity-0 link-opacity-100-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
                         Login
@@ -149,12 +148,12 @@
                 <div class="link-wrapper">
                   <ul class="m-0 list-unstyled d-flex justify-content-center justify-content-md-start gap-3">
                     <li>
-                      <a
-                        href="#!"
+                      <router-link
+                        to="terms_and_conditions"
                         class="fs-7 link-underline-opacity-0 link-opacity-75-hover link-underline-opacity-100-hover link-offset-1 link-light"
                       >
-                        Terms
-                      </a>
+                        Terms and Conditions
+                      </router-link>
                     </li>
                     <li>
                       <a

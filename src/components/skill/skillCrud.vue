@@ -34,14 +34,14 @@
               <th class="p-3">
                 {{ skill.skillName }}
               </th>
-              <th>{{ skill.category.categoryName }}</th>
+              <th>{{ skill.category?.categoryName }}</th>
               <th class="w-200">
                 <div class="mx-3 d-inline">
                   <i
                     class="bi bi-pencil-square text-primary pointerIcon h5"
                     data-bs-toggle="modal"
                     data-bs-target="#skillFormEdite"
-                    @click="editingSkill(skill.skillName , skill.category.categoryName)"
+                    @click="editingSkill(skill.skillName , skill.category?.categoryName)"
                   />
                 </div>
                 <div class="mx-2 d-inline">
@@ -121,10 +121,10 @@
                   >
                     <option
                       v-for="cat in categorys"
-                      :key="cat.categoryName"
-                      :value="cat.categoryName"
+                      :key="cat?.categoryName"
+                      :value="cat?.categoryName"
                     >
-                      {{ cat.categoryName }}
+                      {{ cat?.categoryName }}
                     </option>
                   </select>
                 </div>
