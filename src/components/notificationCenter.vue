@@ -152,6 +152,7 @@
   
   <script>
   import axios from 'axios';
+  import { toast } from "vue3-toastify";
   export default {
     name: 'NotificationCenter',
     data() {
@@ -189,6 +190,9 @@
           this.notifications = response.data.notifications;
           this.count = response.data.count; 
         } catch (e) {
+          toast(e.message, {
+        "type":  "error"
+      });
           console.error(e);
         }
       },

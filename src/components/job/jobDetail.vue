@@ -165,7 +165,7 @@
               :to="`/application/overview?JobId=${job._id}`"
               class="text-white text-decoration-none"
             >
-              Postuler maintenant
+              Apply Now
             </router-link> 
           </button>
         </div>

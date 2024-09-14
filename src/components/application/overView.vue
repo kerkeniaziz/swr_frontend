@@ -231,6 +231,7 @@
                       v-model="coverLetter"
                       class="w-100 border-ligth rounded shadow"
                       rows="5"
+                      required
                     />
                   </div>
                   <div class="col-12 d-flex flex-column">
@@ -239,6 +240,7 @@
                       v-model="motivation"
                       class="w-100 border-ligth rounded shadow"
                       rows="5"
+                      
                     />
                   </div>
                 </div>
@@ -357,6 +359,7 @@ export default {
       },
         async addApplication(){
             try {
+          
               const JobId = this.$route.query.JobId
                 const data={ 
                     coverLetter: this.coverLetter,
@@ -365,9 +368,8 @@ export default {
                     remoteSituation: this.remoteSituation,
                 }
                 await axios.post(`/application?jobId=${JobId}`,data)
-
             }catch (e) {
-                toast(e.response.data.message , {
+                toast(e.response.data.error , {
           "type": e.response.data.success ? "success" : "error"
         });
             }

@@ -176,7 +176,7 @@ export default {
           const response = await axios.get('/admin/stats')
           this.totalUser = response.data.countUser;
           this.totalJob = response.data.countJob;
-          this.totalSkill = response.data.countJob;
+          this.totalSkill = response.data.countSkill;
           this.totalCategory = response.data.countCategory;
           this.totalApp = response.data.totalApp;
         } catch (error) {
@@ -187,7 +187,6 @@ export default {
       try {
         if ( this.$store.state.jobs.length !== undefined ) {
           this.jobs = this.$store.state.jobs;
-
         }
         else{
           const response = await axios.get('job/?pageSize=0');

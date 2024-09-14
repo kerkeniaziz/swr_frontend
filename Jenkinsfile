@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    triggers {
+pollSCM('*/5 * * * *') // Vérifier toutes les 5 minutes
+}
     environment {
         DOCKERHUB_CREDENTIALS = 'dockerhub-credentials'
     }

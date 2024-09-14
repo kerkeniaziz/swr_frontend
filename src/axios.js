@@ -19,6 +19,7 @@ axios.interceptors.request.use(
     } 
     store.commit('setLoading', true);
     return config;
+    
   },
   (error) => {
     store.commit('setLoading', false);

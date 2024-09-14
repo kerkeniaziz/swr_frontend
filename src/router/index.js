@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory  } from "vue-router";
+import store from "../store/Store";
 // import Cookies from 'vue-cookies'
 
 const routes = [
@@ -179,10 +180,17 @@ const routes = [
         name: 'terms and conditions',
         component: () => import('../views/termAndCondition.vue')
     },
-]; 
+    { path: '/blocked',
+      name: 'blocked',
+      component: () => import('../components/blockedPage.vue')
 
-const router = Router();
-export default router;
+     },
+     { path: '/pending',
+        name: 'pending',
+        component: () => import('../components/PendingPage.vue')
+  
+       },
+]; 
 function Router() {
     const router = new createRouter({
         history: createWebHistory(),
@@ -190,3 +198,26 @@ function Router() {
     });
     return router;
 }
+
+const router = Router();
+router.beforeEach((to, from,next) => {
+    const user = store.state.userData; // Assuming user data is stored in Vuex
+    
+    if (user && user.accountStatus === 'blocked') {
+       if (to.name !== 'blocked') {
+         next({ name: 'blocked' });
+       } else {
+         next(); // If already on the blocked page, continue
+       }
+    } else if (user && user.accountStatus === 'pending') {
+        if (to.name !== 'pending') {
+          next({ name: 'pending' });
+        } else {
+          next(); // If already on the blocked page, continue
+        }
+     } else {
+      next(); // User is not blocked, allow normal navigation
+    }
+  });
+
+export default router;

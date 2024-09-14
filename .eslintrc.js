@@ -11,7 +11,7 @@ module.exports = {
     rules: {
         // 'vue/jsx-uses-vars': 'off',
         // 'vue/valid-template-root': 'off',
-           'no-console': ['error', { allow: ['warn', 'error'] }],
+         //  'no-console': ['error', { allow: ['warn', 'error'] }],
            'vue/no-v-html': 'off',
            'vue/v-on-event-hyphenation': 'off',
       // "max-len": ["error", { "code": 160 }],

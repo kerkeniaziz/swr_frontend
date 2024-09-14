@@ -246,8 +246,7 @@ export default {
     },
       async fetchJobs() {
       try {
-        const response = await axios.get("/application/total")
-        this.jobApplied = response.data.total
+        this.jobApplied = this.$store.state.profileData.jobApplied.length;
         const response1 = await axios.get("/job/savedjobs?pageSize=1")
         this.savedJobs = response1.data.count
         if ( this.$store.state.jobs.length !== undefined ) {

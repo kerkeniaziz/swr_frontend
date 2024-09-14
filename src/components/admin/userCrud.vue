@@ -91,6 +91,7 @@
               <th> 
                 <div class="form-check form-switch d-flex align-items-center justify-content-center">
                   <input 
+                  v-if="user.role != 'admin'"
                     :id="'switch-' + user.id" 
                     v-model="user.isActive" 
                     class="form-check-input" 
@@ -102,7 +103,7 @@
                     class="form-check-label"
                     :for="'switch-' + user.id"
                   >
-                    {{ user.isActive ? 'Active' : 'Pending' }}
+                    {{ user.accountStatus }}
                   </label>
                 </div>
               </th>
@@ -457,7 +458,7 @@ export default{
           imagePreviewAdmin: "http://localhost:8000/image/default.png" ,
           formData:null,
           isActive: false,
-
+          accountStatus:'',
           loading: false,
     page: 1,
     pages: 0,
@@ -487,7 +488,8 @@ export default{
           ...user,
           isActive: user.accountStatus === 'active'
         }
-      ));
+      )); 
+      console.log(this.users)
       this.page = response.data.page;
       this.pages = response.data.pages;
       this.totalCount = response.data.count;
@@ -497,12 +499,24 @@ export default{
       this.loading = false;
     },
     async toggleStatus(user) {
+      let newStatus = ''
       try {
-        const newStatus = user.isActive ? 'active' : 'pending';
+        if (user.accountStatus === 'active')
+      {
+        newStatus = 'blocked'
+      } else if (user.accountStatus ==='pending')
+      {
+        newStatus = 'active'
+      }
+      else{
+        newStatus = 'pending'}
          await axios.put(`user/${user._id}`, {
           accountStatus: newStatus
         });
-       
+        user.accountStatus = newStatus
+        user.isActive= newStatus === 'active'
+        // this.fetchUsers();
+        // window.location.reload();
       } catch (error) {
         console.error('Error updating status:', error);
       }

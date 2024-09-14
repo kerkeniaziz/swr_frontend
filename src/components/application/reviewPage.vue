@@ -38,7 +38,7 @@
                           <h5 class="card-title widget-card-title mb-2 fw-bold text-center flex-grow-1">
                             Candidate Profile
                           </h5>
-                          <router-link :to="`/user?userId=${application.userId?._id}`">
+                          <router-link :to="`/user/${application.userId?._id}`">
                             <i class="bi bi-box-arrow-up-right text-black" />
                           </router-link>
                         </div>
