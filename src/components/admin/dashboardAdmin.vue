@@ -28,7 +28,7 @@
           </div>
         
           <div
-            class="col-12 col-sm-6 col-xl-3"
+            class="col-12 col-sm-6 col-xl-3 "
             :class=" $store.state.userRole ==='admin' ? 'col-xl-3':'col-xl-6'"
           >
             <div class="card widget-card border-light shadow-sm">
@@ -42,7 +42,7 @@
                     Total Job
                   </h3>
                   <h4 class="card-subtitle text-body-secondary m-0">
-                    {{ totalJob }}
+                    {{ $store.state.userRole ==='admin' ?  totalJob : companyJobs }}
                   </h4>
                 </div>
               </router-link>
@@ -162,6 +162,7 @@ export default {
         totalSkill:0,
         totalCategory:0,
         totalApp:0,
+        companyJobs:0,
       };
     },
     mounted() {
@@ -176,6 +177,7 @@ export default {
           const response = await axios.get('/admin/stats')
           this.totalUser = response.data.countUser;
           this.totalJob = response.data.countJob;
+          this.companyJobs = response.data.companyJobs;
           this.totalSkill = response.data.countSkill;
           this.totalCategory = response.data.countCategory;
           this.totalApp = response.data.totalApp;

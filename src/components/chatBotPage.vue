@@ -41,7 +41,7 @@
         script.src = "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
         script.onload = () => {
           window.Chatbot.init({
-            chatflowid: "1b949032-4b25-4e10-a537-2513ee650681",
+            chatflowid: "70f688cf-6120-4a77-944d-9b5efda7d14c",
             apiHost: "https://swrchatbot.azurewebsites.net",
             theme: {
       button: {
@@ -83,7 +83,7 @@
           textColor: '#303235',
           showAvatar: true,
           avatarHeight:20,
-          avatarSrc: 'http://localhost:8080/img/bot-icon.48db3e8f.png' ,
+          avatarSrc: 'https://www.shutterstock.com/image-vector/chat-bot-icon-virtual-smart-600nw-2478849771.jpg' ,
         },
         userMessage: {
           backgroundColor: '#3B81F6',

@@ -171,7 +171,7 @@
                       {{ application?.coverLetter }}
                     </p>
                   </div>
-                  <div class="col-12 d-flex">
+                  <div class="col-12 d-none">
                     <span class="mb-2 fw-bold my-auto col-2">motivation Letter :</span>
                     <p class="bg-light p-3 rounded shadow-sm w-100 ms-4">
                       {{ application?.motivation }}

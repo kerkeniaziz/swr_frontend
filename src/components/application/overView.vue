@@ -234,7 +234,7 @@
                       required
                     />
                   </div>
-                  <div class="col-12 d-flex flex-column">
+                  <div class="col-12 d-none flex-column">
                     <span class="mb-2 fw-bold">motivation Letter :</span>
                     <textarea
                       v-model="motivation"

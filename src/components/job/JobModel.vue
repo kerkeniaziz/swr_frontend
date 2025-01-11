@@ -283,7 +283,7 @@
 
 <script>
   import axios from 'axios';
-
+  import { toast } from "vue3-toastify";
 import skillSelectorVue from '../skill/skillSelector.vue';
 //   import Swal from 'sweetalert2';
   
@@ -413,6 +413,9 @@ import skillSelectorVue from '../skill/skillSelector.vue';
             this.skills = response.data.skills.map(skill => skill.skillName);
           }catch(error){
             console.error(error);
+            toast(error.response.data.error, {
+        "type": "error"
+      });
           }
           }, 
           emitFetchData() {
