@@ -24,18 +24,20 @@
 },
     methods: {
         loadStart(){
-            if (this.$store.state.profileData?.firstName ||this.$store.state.profileData?.companyId?.companyName){
-                this.loadChatbot()
-            }
-            else
-            {
+          let name = ''
+           if(this.$store.state.profileData?.firstName != undefined)
+            name = this.$store.state.profileData?.firstName
+          else if(this.$store.state.profileData?.companyName != undefined)
+          name = this.$store.state.profileData?.companyName
+        else if(this.$store.state.profileData?.companyId?.companyName != undefined)
+        name = this.$store.state.profileData?.companyId?.companyName
+            
                 setTimeout(() => {
-                    this.loadChatbot()
-                }, 2000);
-            }
+                    this.loadChatbot(name)
+                }, 500);
             
         },
-      loadChatbot() {
+      loadChatbot(name) {
         const script = document.createElement("script");
         script.type = "module";
         script.src = "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
@@ -70,8 +72,8 @@
         showAgentMessages: true,
         title: 'SWR ChatBot',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-        welcomeMessage: `Hello! ${this.$store.state.profileData?.firstName ||this.$store.state.profileData?.companyId?.companyName} how can I help?`,
-        errorMessage: `Oops!  ${this.$store.state.profileData?.firstName ||this.$store.state.profileData?.companyId?.companyName} look like there's a problem`,
+        welcomeMessage: `Hello! **${name}**, how can I help?`,
+        errorMessage: `Oops! **${name}**, look like there's a problem`,
         backgroundColor: '#ffffff',
         backgroundImage: 'enter image path or link', // If set, this will overlap the background color of the chat window.
         height: 600,
