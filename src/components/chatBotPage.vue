@@ -53,7 +53,7 @@
         size: 48, // small | medium | large | number
         dragAndDrop: true,
         iconColor: 'white',
-        customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+        customIconSrc: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-messages-icon.png',
         autoWindowOpen: {
           autoOpen: false, //parameter to control automatic window opening
           openDelay: 1, // Optional parameter for delay time in seconds
@@ -71,7 +71,7 @@
         showTitle: true,
         showAgentMessages: true,
         title: 'SWR ChatBot',
-        titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+        titleAvatarSrc: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-messages-icon.png',
         welcomeMessage: `Hello! **${name}**, how can I help?`,
         errorMessage: `Oops! **${name}**, look like there's a problem`,
         backgroundColor: '#ffffff',
