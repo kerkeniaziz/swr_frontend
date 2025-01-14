@@ -72,8 +72,8 @@
         showAgentMessages: true,
         title: 'SWR ChatBot',
         titleAvatarSrc: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-messages-icon.png',
-        welcomeMessage: `Hello! **${name}**, how can I help?`,
-        errorMessage: `Oops! **${name}**, look like there's a problem`,
+        welcomeMessage: `Hello! ${name}, how can I help?`,
+        errorMessage: `Oops! ${name}, look like there's a problem`,
         backgroundColor: '#ffffff',
         backgroundImage: 'enter image path or link', // If set, this will overlap the background color of the chat window.
         height: 600,
