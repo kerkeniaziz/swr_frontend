@@ -230,7 +230,7 @@
                   <div class="ps-3">
                     <div class="text-secondary mt-1 fs-7 ">
                       <p class="text-truncate my-auto">
-                        welcome {{ ProfileData?.firstName || ProfileData.companyId?.companyName }}
+                        welcome {{ ProfileData?.firstName || ProfileData.companyId?.companyName || ProfileData?.companyName }}
                       </p>
                     </div>
                   </div>
