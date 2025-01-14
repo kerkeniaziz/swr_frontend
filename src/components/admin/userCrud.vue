@@ -91,7 +91,7 @@
               <th> 
                 <div class="form-check form-switch d-flex align-items-center justify-content-center">
                   <input 
-                  v-if="user.role != 'admin'"
+                    v-if="user.role != 'admin'"
                     :id="'switch-' + user.id" 
                     v-model="user.isActive" 
                     class="form-check-input" 

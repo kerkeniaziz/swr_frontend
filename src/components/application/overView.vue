@@ -240,7 +240,6 @@
                       v-model="motivation"
                       class="w-100 border-ligth rounded shadow"
                       rows="5"
-                      
                     />
                   </div>
                 </div>

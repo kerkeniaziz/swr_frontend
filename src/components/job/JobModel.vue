@@ -268,7 +268,7 @@
                 :disabled="!formIsValid"
                 type="submit"
                 class="btn btn-primary submit mx-3"
-               data-bs-dismiss="modal"
+                data-bs-dismiss="modal"
                 @click="emitFetchData"
               >
                 Save

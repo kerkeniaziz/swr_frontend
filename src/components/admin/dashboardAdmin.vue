@@ -42,7 +42,7 @@
                     Total Job
                   </h3>
                   <h4 class="card-subtitle text-body-secondary m-0">
-                    {{ $store.state.userRole ==='admin' ?  totalJob : companyJobs }}
+                    {{ $store.state.userRole ==='admin' ? totalJob : companyJobs }}
                   </h4>
                 </div>
               </router-link>

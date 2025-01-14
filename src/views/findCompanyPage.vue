@@ -71,7 +71,7 @@
                           <br>
                           <small class="text-truncate d-block my-1"><i class="bi bi-laptop-fill text-primary me-1" />{{ company?.industry || 'none' }}</small>
                           <small class="text-truncate d-block my-1"><i class="bi bi-building-fill text-primary me-1" />{{ company?.companySize || 'none' }}</small>
-                          <small class="text-truncate d-block my-1"><i class="bi bi-geo-alt-fill text-primary me-1" />{{ company?.location?.city  }}, {{ company?.location?.state }}</small>
+                          <small class="text-truncate d-block my-1"><i class="bi bi-geo-alt-fill text-primary me-1" />{{ company?.location?.city }},{{ company?.location?.state }}</small>
                         </div>
                     
                         <router-link
