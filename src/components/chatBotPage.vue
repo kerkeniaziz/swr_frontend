@@ -67,6 +67,7 @@
         tooltipTextColor: 'white',
         tooltipFontSize: 16,
       },
+      
       chatWindow: {
         showTitle: true,
         showAgentMessages: true,
