@@ -67,12 +67,12 @@
         tooltipTextColor: 'white',
         tooltipFontSize: 16,
       },
-      
+
       chatWindow: {
         showTitle: true,
         showAgentMessages: true,
         title: 'SWR ChatBot',
-        titleAvatarSrc: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-messages-icon.png',
+        titleAvatarSrc: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-messages-icon1.png',
         welcomeMessage: `Hello! ${name}, how can I help?`,
         errorMessage: `Oops! ${name}, look like there's a problem`,
         backgroundColor: '#ffffff',
