@@ -1,0 +1,1325 @@
+{
+  "nodes": [
+    {
+      "id": "cheerioWebScraper_0",
+      "position": {
+        "x": 540.9604954790766,
+        "y": 302.53576119260583
+      },
+      "type": "customNode",
+      "data": {
+        "id": "cheerioWebScraper_0",
+        "label": "Cheerio Web Scraper",
+        "version": 2,
+        "name": "cheerioWebScraper",
+        "type": "Document",
+        "baseClasses": [
+          "Document"
+        ],
+        "category": "Document Loaders",
+        "description": "Load data from webpages",
+        "inputParams": [
+          {
+            "label": "URL",
+            "name": "url",
+            "type": "string",
+            "id": "cheerioWebScraper_0-input-url-string"
+          },
+          {
+            "label": "Get Relative Links Method",
+            "name": "relativeLinksMethod",
+            "type": "options",
+            "description": "Select a method to retrieve relative links",
+            "options": [
+              {
+                "label": "Web Crawl",
+                "name": "webCrawl",
+                "description": "Crawl relative links from HTML URL"
+              },
+              {
+                "label": "Scrape XML Sitemap",
+                "name": "scrapeXMLSitemap",
+                "description": "Scrape relative links from XML sitemap URL"
+              }
+            ],
+            "default": "webCrawl",
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-relativeLinksMethod-options"
+          },
+          {
+            "label": "Get Relative Links Limit",
+            "name": "limit",
+            "type": "number",
+            "optional": true,
+            "default": "10",
+            "additionalParams": true,
+            "description": "Only used when \"Get Relative Links Method\" is selected. Set 0 to retrieve all relative links, default limit is 10.",
+            "warning": "Retrieving all links might take long time, and all links will be upserted again if the flow's state changed (eg: different URL, chunk size, etc)",
+            "id": "cheerioWebScraper_0-input-limit-number"
+          },
+          {
+            "label": "Selector (CSS)",
+            "name": "selector",
+            "type": "string",
+            "description": "Specify a CSS selector to select the content to be extracted",
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-selector-string"
+          },
+          {
+            "label": "Additional Metadata",
+            "name": "metadata",
+            "type": "json",
+            "description": "Additional metadata to be added to the extracted documents",
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-metadata-json"
+          },
+          {
+            "label": "Omit Metadata Keys",
+            "name": "omitMetadataKeys",
+            "type": "string",
+            "rows": 4,
+            "description": "Each document loader comes with a default set of metadata keys that are extracted from the document. You can use this field to omit some of the default metadata keys. The value should be a list of keys, seperated by comma. Use * to omit all metadata keys execept the ones you specify in the Additional Metadata field",
+            "placeholder": "key1, key2, key3.nestedKey1",
+            "optional": true,
+            "additionalParams": true,
+            "id": "cheerioWebScraper_0-input-omitMetadataKeys-string"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Text Splitter",
+            "name": "textSplitter",
+            "type": "TextSplitter",
+            "optional": true,
+            "id": "cheerioWebScraper_0-input-textSplitter-TextSplitter"
+          }
+        ],
+        "inputs": {
+          "url": "https://swrfrontend.azurewebsites.net/sitemap.xml",
+          "textSplitter": "{{htmlToMarkdownTextSplitter_0.data.instance}}",
+          "relativeLinksMethod": "scrapeXMLSitemap",
+          "limit": "200",
+          "selector": "",
+          "metadata": "",
+          "omitMetadataKeys": "",
+          "selectedLinks": [
+            "https://swrfrontend.azurewebsites.net/",
+            "https://swrfrontend.azurewebsites.net/login",
+            "https://swrfrontend.azurewebsites.net/signup",
+            "https://swrfrontend.azurewebsites.net/signupComapny",
+            "https://swrfrontend.azurewebsites.net/forgotpassword",
+            "https://swrfrontend.azurewebsites.net/resetPassword/example-resetCode",
+            "https://swrfrontend.azurewebsites.net/jobs/application",
+            "https://swrfrontend.azurewebsites.net/setting",
+            "https://swrfrontend.azurewebsites.net/jobs/application/review",
+            "https://swrfrontend.azurewebsites.net/user/example-id",
+            "https://swrfrontend.azurewebsites.net/contact",
+            "https://swrfrontend.azurewebsites.net/dashboard/jobapplied",
+            "https://swrfrontend.azurewebsites.net/notification-center",
+            "https://swrfrontend.azurewebsites.net/dashboard/notification",
+            "https://swrfrontend.azurewebsites.net/dashboard/savedjobs",
+            "https://swrfrontend.azurewebsites.net/application/overview",
+            "https://swrfrontend.azurewebsites.net/vuex",
+            "https://swrfrontend.azurewebsites.net/dashboard",
+            "https://swrfrontend.azurewebsites.net/users",
+            "https://swrfrontend.azurewebsites.net/skills",
+            "https://swrfrontend.azurewebsites.net/categories",
+            "https://swrfrontend.azurewebsites.net/jobs",
+            "https://swrfrontend.azurewebsites.net/about",
+            "https://swrfrontend.azurewebsites.net/job/example-id",
+            "https://swrfrontend.azurewebsites.net/category/example-id",
+            "https://swrfrontend.azurewebsites.net/findJob",
+            "https://swrfrontend.azurewebsites.net/category",
+            "https://swrfrontend.azurewebsites.net/not_authorized",
+            "https://swrfrontend.azurewebsites.net/terms_and_conditions",
+            "https://swrfrontend.azurewebsites.net/not_found"
+          ]
+        },
+        "outputAnchors": [
+          {
+            "name": "output",
+            "label": "Output",
+            "type": "options",
+            "description": "Array of document objects containing metadata and pageContent",
+            "options": [
+              {
+                "id": "cheerioWebScraper_0-output-document-Document|json",
+                "name": "document",
+                "label": "Document",
+                "description": "Array of document objects containing metadata and pageContent",
+                "type": "Document | json"
+              },
+              {
+                "id": "cheerioWebScraper_0-output-text-string|json",
+                "name": "text",
+                "label": "Text",
+                "description": "Concatenated string from pageContent of documents",
+                "type": "string | json"
+              }
+            ],
+            "default": "document"
+          }
+        ],
+        "outputs": {
+          "output": "document"
+        },
+        "selected": false
+      },
+      "width": 300,
+      "height": 451,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 540.9604954790766,
+        "y": 302.53576119260583
+      },
+      "dragging": false
+    },
+    {
+      "id": "inMemoryCache_0",
+      "position": {
+        "x": 1307.219830801962,
+        "y": -394.91076865902374
+      },
+      "type": "customNode",
+      "data": {
+        "id": "inMemoryCache_0",
+        "label": "InMemory Cache",
+        "version": 1,
+        "name": "inMemoryCache",
+        "type": "InMemoryCache",
+        "baseClasses": [
+          "InMemoryCache",
+          "BaseCache"
+        ],
+        "category": "Cache",
+        "description": "Cache LLM response in memory, will be cleared once app restarted",
+        "inputParams": [],
+        "inputAnchors": [],
+        "inputs": {},
+        "outputAnchors": [
+          {
+            "id": "inMemoryCache_0-output-inMemoryCache-InMemoryCache|BaseCache",
+            "name": "inMemoryCache",
+            "label": "InMemoryCache",
+            "description": "Cache LLM response in memory, will be cleared once app restarted",
+            "type": "InMemoryCache | BaseCache"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 143,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1307.219830801962,
+        "y": -394.91076865902374
+      },
+      "dragging": false
+    },
+    {
+      "id": "mongoDBAtlas_0",
+      "position": {
+        "x": 1698.5557903561887,
+        "y": 321.0455251631615
+      },
+      "type": "customNode",
+      "data": {
+        "id": "mongoDBAtlas_0",
+        "label": "MongoDB Atlas",
+        "version": 1,
+        "name": "mongoDBAtlas",
+        "type": "MongoDB Atlas",
+        "baseClasses": [
+          "MongoDB Atlas",
+          "VectorStoreRetriever",
+          "BaseRetriever"
+        ],
+        "category": "Vector Stores",
+        "description": "Upsert embedded data and perform similarity or mmr search upon query using MongoDB Atlas, a managed cloud mongodb database",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "mongoDBUrlApi"
+            ],
+            "id": "mongoDBAtlas_0-input-credential-credential"
+          },
+          {
+            "label": "Database",
+            "name": "databaseName",
+            "placeholder": "<DB_NAME>",
+            "type": "string",
+            "id": "mongoDBAtlas_0-input-databaseName-string"
+          },
+          {
+            "label": "Collection Name",
+            "name": "collectionName",
+            "placeholder": "<COLLECTION_NAME>",
+            "type": "string",
+            "id": "mongoDBAtlas_0-input-collectionName-string"
+          },
+          {
+            "label": "Index Name",
+            "name": "indexName",
+            "placeholder": "<VECTOR_INDEX_NAME>",
+            "type": "string",
+            "id": "mongoDBAtlas_0-input-indexName-string"
+          },
+          {
+            "label": "Content Field",
+            "name": "textKey",
+            "description": "Name of the field (column) that contains the actual content",
+            "type": "string",
+            "default": "text",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-textKey-string"
+          },
+          {
+            "label": "Embedded Field",
+            "name": "embeddingKey",
+            "description": "Name of the field (column) that contains the Embedding",
+            "type": "string",
+            "default": "embedding",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-embeddingKey-string"
+          },
+          {
+            "label": "Top K",
+            "name": "topK",
+            "description": "Number of top results to fetch. Default to 4",
+            "placeholder": "4",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-topK-number"
+          },
+          {
+            "label": "Search Type",
+            "name": "searchType",
+            "type": "options",
+            "default": "similarity",
+            "options": [
+              {
+                "label": "Similarity",
+                "name": "similarity"
+              },
+              {
+                "label": "Max Marginal Relevance",
+                "name": "mmr"
+              }
+            ],
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-searchType-options"
+          },
+          {
+            "label": "Fetch K (for MMR Search)",
+            "name": "fetchK",
+            "description": "Number of initial documents to fetch for MMR reranking. Default to 20. Used only when the search type is MMR",
+            "placeholder": "20",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-fetchK-number"
+          },
+          {
+            "label": "Lambda (for MMR Search)",
+            "name": "lambda",
+            "description": "Number between 0 and 1 that determines the degree of diversity among the results, where 0 corresponds to maximum diversity and 1 to minimum diversity. Used only when the search type is MMR",
+            "placeholder": "0.5",
+            "type": "number",
+            "additionalParams": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-lambda-number"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Document",
+            "name": "document",
+            "type": "Document",
+            "list": true,
+            "optional": true,
+            "id": "mongoDBAtlas_0-input-document-Document"
+          },
+          {
+            "label": "Embeddings",
+            "name": "embeddings",
+            "type": "Embeddings",
+            "id": "mongoDBAtlas_0-input-embeddings-Embeddings"
+          }
+        ],
+        "inputs": {
+          "document": [
+            "{{cheerioWebScraper_0.data.instance}}",
+            "{{cheerioWebScraper_0.data.instance}}",
+            "{{fileLoader_0.data.instance}}"
+          ],
+          "embeddings": "{{ollamaEmbedding_0.data.instance}}",
+          "databaseName": "chatbot",
+          "collectionName": "Retriever",
+          "indexName": "id",
+          "textKey": "text",
+          "embeddingKey": "embedding",
+          "topK": "",
+          "searchType": "similarity",
+          "fetchK": "",
+          "lambda": ""
+        },
+        "outputAnchors": [
+          {
+            "name": "output",
+            "label": "Output",
+            "type": "options",
+            "description": "",
+            "options": [
+              {
+                "id": "mongoDBAtlas_0-output-retriever-MongoDB Atlas|VectorStoreRetriever|BaseRetriever",
+                "name": "retriever",
+                "label": "MongoDB Retriever",
+                "description": "",
+                "type": "MongoDB Atlas | VectorStoreRetriever | BaseRetriever"
+              },
+              {
+                "id": "mongoDBAtlas_0-output-vectorStore-MongoDB Atlas|VectorStore",
+                "name": "vectorStore",
+                "label": "MongoDB Vector Store",
+                "description": "",
+                "type": "MongoDB Atlas | VectorStore"
+              }
+            ],
+            "default": "retriever"
+          }
+        ],
+        "outputs": {
+          "output": "retriever"
+        },
+        "selected": false
+      },
+      "width": 300,
+      "height": 751,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 1698.5557903561887,
+        "y": 321.0455251631615
+      }
+    },
+    {
+      "id": "ollamaEmbedding_0",
+      "position": {
+        "x": 1124.0457942212252,
+        "y": 748.8140164261505
+      },
+      "type": "customNode",
+      "data": {
+        "id": "ollamaEmbedding_0",
+        "label": "Ollama Embeddings",
+        "version": 1,
+        "name": "ollamaEmbedding",
+        "type": "OllamaEmbeddings",
+        "baseClasses": [
+          "OllamaEmbeddings",
+          "Embeddings"
+        ],
+        "category": "Embeddings",
+        "description": "Generate embeddings for a given text using open source model on Ollama",
+        "inputParams": [
+          {
+            "label": "Base URL",
+            "name": "baseUrl",
+            "type": "string",
+            "default": "http://localhost:11434",
+            "id": "ollamaEmbedding_0-input-baseUrl-string"
+          },
+          {
+            "label": "Model Name",
+            "name": "modelName",
+            "type": "string",
+            "placeholder": "llama2",
+            "id": "ollamaEmbedding_0-input-modelName-string"
+          },
+          {
+            "label": "Number of GPU",
+            "name": "numGpu",
+            "type": "number",
+            "description": "The number of layers to send to the GPU(s). On macOS it defaults to 1 to enable metal support, 0 to disable. Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "ollamaEmbedding_0-input-numGpu-number"
+          },
+          {
+            "label": "Number of Thread",
+            "name": "numThread",
+            "type": "number",
+            "description": "Sets the number of threads to use during computation. By default, Ollama will detect this for optimal performance. It is recommended to set this value to the number of physical CPU cores your system has (as opposed to the logical number of cores). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "ollamaEmbedding_0-input-numThread-number"
+          },
+          {
+            "label": "Use MMap",
+            "name": "useMMap",
+            "type": "boolean",
+            "default": true,
+            "optional": true,
+            "additionalParams": true,
+            "id": "ollamaEmbedding_0-input-useMMap-boolean"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "baseUrl": "https://possible-profound-man.ngrok-free.app",
+          "modelName": "llama3",
+          "numGpu": "",
+          "numThread": "",
+          "useMMap": true
+        },
+        "outputAnchors": [
+          {
+            "id": "ollamaEmbedding_0-output-ollamaEmbedding-OllamaEmbeddings|Embeddings",
+            "name": "ollamaEmbedding",
+            "label": "OllamaEmbeddings",
+            "description": "Generate embeddings for a given text using open source model on Ollama",
+            "type": "OllamaEmbeddings | Embeddings"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 429,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1124.0457942212252,
+        "y": 748.8140164261505
+      },
+      "dragging": false
+    },
+    {
+      "id": "conversationalRetrievalQAChain_0",
+      "position": {
+        "x": 2177.9361487817373,
+        "y": -226.108897664709
+      },
+      "type": "customNode",
+      "data": {
+        "id": "conversationalRetrievalQAChain_0",
+        "label": "Conversational Retrieval QA Chain",
+        "version": 3,
+        "name": "conversationalRetrievalQAChain",
+        "type": "ConversationalRetrievalQAChain",
+        "baseClasses": [
+          "ConversationalRetrievalQAChain",
+          "BaseChain",
+          "Runnable"
+        ],
+        "category": "Chains",
+        "description": "Document QA - built on RetrievalQAChain to provide a chat history component",
+        "inputParams": [
+          {
+            "label": "Return Source Documents",
+            "name": "returnSourceDocuments",
+            "type": "boolean",
+            "optional": true,
+            "id": "conversationalRetrievalQAChain_0-input-returnSourceDocuments-boolean"
+          },
+          {
+            "label": "Rephrase Prompt",
+            "name": "rephrasePrompt",
+            "type": "string",
+            "description": "Using previous chat history, rephrase question into a standalone question",
+            "warning": "Prompt must include input variables: {chat_history} and {question}",
+            "rows": 4,
+            "additionalParams": true,
+            "optional": true,
+            "default": "Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.\n\nChat History:\n{chat_history}\nFollow Up Input: {question}\nStandalone Question:",
+            "id": "conversationalRetrievalQAChain_0-input-rephrasePrompt-string"
+          },
+          {
+            "label": "Response Prompt",
+            "name": "responsePrompt",
+            "type": "string",
+            "description": "Taking the rephrased question, search for answer from the provided context",
+            "warning": "Prompt must include input variable: {context}",
+            "rows": 4,
+            "additionalParams": true,
+            "optional": true,
+            "default": "I want you to act as a document that I am having a conversation with. Your name is \"AI Assistant\". Using the provided context, answer the user's question to the best of your ability using the resources provided.\nIf there is nothing in the context relevant to the question at hand, just say \"Hmm, I'm not sure\" and stop after that. Refuse to answer any question not about the info. Never break character.\n------------\n{context}\n------------\nREMEMBER: If there is no relevant information within the context, just say \"Hmm, I'm not sure\". Don't try to make up an answer. Never break character.",
+            "id": "conversationalRetrievalQAChain_0-input-responsePrompt-string"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Chat Model",
+            "name": "model",
+            "type": "BaseChatModel",
+            "id": "conversationalRetrievalQAChain_0-input-model-BaseChatModel"
+          },
+          {
+            "label": "Vector Store Retriever",
+            "name": "vectorStoreRetriever",
+            "type": "BaseRetriever",
+            "id": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever"
+          },
+          {
+            "label": "Memory",
+            "name": "memory",
+            "type": "BaseMemory",
+            "optional": true,
+            "description": "If left empty, a default BufferMemory will be used",
+            "id": "conversationalRetrievalQAChain_0-input-memory-BaseMemory"
+          },
+          {
+            "label": "Input Moderation",
+            "description": "Detect text that could generate harmful output and prevent it from being sent to the language model",
+            "name": "inputModeration",
+            "type": "Moderation",
+            "optional": true,
+            "list": true,
+            "id": "conversationalRetrievalQAChain_0-input-inputModeration-Moderation"
+          }
+        ],
+        "inputs": {
+          "model": "{{chatOllama_1.data.instance}}",
+          "vectorStoreRetriever": "{{mongoDBAtlas_0.data.instance}}",
+          "memory": "{{MongoDBAtlasChatMemory_0.data.instance}}",
+          "returnSourceDocuments": true,
+          "rephrasePrompt": "Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.\n\nChat History:\n{chat_history}\nFollow Up Input: {question}\nStandalone Question:",
+          "responsePrompt": "Instruction for SWR AI Assistant\nI want you to act as an expert assistant specifically for my website. Your name is \"SWR AI Assistant\", and your primary role is to assist users with questions and issues related to the website, using the provided context, sitemap data, and embedded documents. Always focus on providing clear, concise, and helpful responses that guide users through the features and functionalities of the site.\n\nKey Guidelines\nWebsite Reference\nRefer to the website URL, https://swrfrontend.azurewebsites.net, exclusively as \"SWR.\"\nDo not generalize this naming or apply it to any other links.\nSitemap Links\nBelow are the sitemap links you should use when responding to queries. Only reference these links, and if a link is not listed here, respond with:\n\n\"This link or page is not currently available in the database.\"\nhttps://swrfrontend.azurewebsites.net/\nHome Page: The main landing page of the website.\n\nhttps://swrfrontend.azurewebsites.net/login\nLogin Page: Allows users to log in to their accounts.\n\nhttps://swrfrontend.azurewebsites.net/signup\nUser Signup Page: Enables individual users to create a new account.\n\nhttps://swrfrontend.azurewebsites.net/signupComapny\nCompany Signup Page: A page where companies can register to create their accounts.\n\nhttps://swrfrontend.azurewebsites.net/forgotpassword\nForgot Password Page: Allows users to request a password reset.\n\nhttps://swrfrontend.azurewebsites.net/resetPassword/example-resetCode\nPassword Reset Page: A page where users can reset their password using a specific reset code.\n\nhttps://swrfrontend.azurewebsites.net/jobs/application\nJob Applications for Admin/Company: A page for the company or admin to view applications submitted for jobs.\n\nhttps://swrfrontend.azurewebsites.net/jobs/application/review\nCandidate Application Review: Allows candidates to view their application before submitting it or review applications they have already sent.\n\nhttps://swrfrontend.azurewebsites.net/user/example-id\nUser Profile Page: Displays the profile of a user. The example-id represents the user’s unique ID. Accessible by the user themselves, companies, or the admin.\n\nhttps://swrfrontend.azurewebsites.net/contact\nContact Page: A page where users can reach out for support or inquiries.\n\nhttps://swrfrontend.azurewebsites.net/dashboard/jobapplied\nApplied Jobs Dashboard: A dashboard for users to view the jobs they have applied for.\n\nhttps://swrfrontend.azurewebsites.net/notification-center\nAdmin Notification Center: A page for the admin to send notifications to users.\n\nhttps://swrfrontend.azurewebsites.net/dashboard/notification\nUser Notification Dashboard: A dashboard where users can view their received notifications.\n\nhttps://swrfrontend.azurewebsites.net/dashboard/savedjobs\nSaved Jobs Dashboard: A dashboard for users to view the jobs they have saved.\n\nhttps://swrfrontend.azurewebsites.net/application/overview\nApplication Overview Page: A summary page providing an overview of job applications.\n\nhttps://swrfrontend.azurewebsites.net/vuex\nVuex Page: Likely a developer-related or test page for Vuex integration.\n\nhttps://swrfrontend.azurewebsites.net/dashboard\nUser Dashboard: The main dashboard for users to access various features.\n\nhttps://swrfrontend.azurewebsites.net/users\nUsers Management Page (Admin): A page for the admin to manage user accounts.\n\nhttps://swrfrontend.azurewebsites.net/skills\nSkills Management (Admin): A page for the admin to manage skills in the system.\n\nhttps://swrfrontend.azurewebsites.net/categories\nCategory Management (Admin): A page for the admin to manage categories in the system.\n\nhttps://swrfrontend.azurewebsites.net/jobs\nJob Management (Admin/Company): A page for the admin or a company to manage jobs, including adding or deleting them. Accessible only to admins or companies.\n\nhttps://swrfrontend.azurewebsites.net/about\nAbout Page: A page providing details about the website or organization.\n\nhttps://swrfrontend.azurewebsites.net/job/example-id\nJob Details Page: Displays the details of a specific job. The example-id represents the job’s unique ID.\n\nhttps://swrfrontend.azurewebsites.net/category/example-id\nCategory Jobs Page: Displays jobs within a specific category. The example-id represents the unique ID of the category.\n\nhttps://swrfrontend.azurewebsites.net/findJob\nJob Search Page: A page where users can search for job offers and use advanced search filters.\n\nhttps://swrfrontend.azurewebsites.net/category\nCategories Overview Page: Provides an overview of all job categories.\n\nhttps://swrfrontend.azurewebsites.net/not_authorized\nNot Authorized Page: A page shown when users try to access unauthorized resources.\n\nhttps://swrfrontend.azurewebsites.net/terms_and_conditions\nTerms and Conditions Page: Displays the terms and conditions of using the website.\n\nhttps://swrfrontend.azurewebsites.net/not_found\n404 Not Found Page: A page shown when the requested resource is not found.\nKey Priorities\n1. Website-Specific Assistance\nFocus strictly on the website SWR.\nUse the sitemap and embedded documents to inform your responses.\nAvoid discussing the structure or details of the sitemap or documents themselves. Use them only to provide accurate, relevant answers about SWR.\n2. Clarity, Conciseness, and Links\nRespond in a clear, concise, and user-friendly manner.\nAlways try to respond shortly while including links directly from the sitemap wherever available.\nIf a link is missing from the sitemap, respond with:\n\"This link or page is not currently available in the database.\"\n\n3. Handling Off-Topic or Missing Content\nIf a question is unrelated to the website, respond with:\n\"I can assist with questions related to SWR. How can I help you with that?\"\n\nDo not suggest or speculate about non-sitemap links or content.\n4. Character Consistency\nAlways remain in character as \"SWR AI Assistant.\"\nAvoid addressing topics unrelated to SWR or its features.\nNever speculate or fabricate information about SWR or its functionalities.\n5. Context Integration\nUse the {context} placeholder to dynamically pull accurate details about SWR based on the sitemap and embedded documents.\nTailor responses to the user's queries while adhering strictly to the website's available data.\nImportant Notes\nStick strictly to the provided sitemap and context.\nRefer to https://swrfrontend.azurewebsites.net as \"SWR\" exclusively.\nDo not suggest links or features not explicitly included in the sitemap or database.\nRespond succinctly and accurately, ensuring helpfulness and relevance at all times.\nAlways prioritize guiding users with the information and links available in the sitemap.",
+          "inputModeration": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "conversationalRetrievalQAChain_0-output-conversationalRetrievalQAChain-ConversationalRetrievalQAChain|BaseChain|Runnable",
+            "name": "conversationalRetrievalQAChain",
+            "label": "ConversationalRetrievalQAChain",
+            "description": "Document QA - built on RetrievalQAChain to provide a chat history component",
+            "type": "ConversationalRetrievalQAChain | BaseChain | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 530,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 2177.9361487817373,
+        "y": -226.108897664709
+      }
+    },
+    {
+      "id": "MongoDBAtlasChatMemory_0",
+      "position": {
+        "x": 2101.0201889161453,
+        "y": 551.0193438350782
+      },
+      "type": "customNode",
+      "data": {
+        "id": "MongoDBAtlasChatMemory_0",
+        "label": "MongoDB Atlas Chat Memory",
+        "version": 1,
+        "name": "MongoDBAtlasChatMemory",
+        "type": "MongoDBAtlasChatMemory",
+        "baseClasses": [
+          "MongoDBAtlasChatMemory",
+          "BaseChatMemory",
+          "BaseMemory"
+        ],
+        "category": "Memory",
+        "description": "Stores the conversation in MongoDB Atlas",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "mongoDBUrlApi"
+            ],
+            "id": "MongoDBAtlasChatMemory_0-input-credential-credential"
+          },
+          {
+            "label": "Database",
+            "name": "databaseName",
+            "placeholder": "<DB_NAME>",
+            "type": "string",
+            "id": "MongoDBAtlasChatMemory_0-input-databaseName-string"
+          },
+          {
+            "label": "Collection Name",
+            "name": "collectionName",
+            "placeholder": "<COLLECTION_NAME>",
+            "type": "string",
+            "id": "MongoDBAtlasChatMemory_0-input-collectionName-string"
+          },
+          {
+            "label": "Session Id",
+            "name": "sessionId",
+            "type": "string",
+            "description": "If not specified, a random id will be used. Learn <a target=\"_blank\" href=\"https://docs.flowiseai.com/memory/long-term-memory#ui-and-embedded-chat\">more</a>",
+            "default": "",
+            "additionalParams": true,
+            "optional": true,
+            "id": "MongoDBAtlasChatMemory_0-input-sessionId-string"
+          },
+          {
+            "label": "Memory Key",
+            "name": "memoryKey",
+            "type": "string",
+            "default": "chat_history",
+            "additionalParams": true,
+            "id": "MongoDBAtlasChatMemory_0-input-memoryKey-string"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "databaseName": "chatbot",
+          "collectionName": "chatmemory",
+          "sessionId": "",
+          "memoryKey": "chat_history"
+        },
+        "outputAnchors": [
+          {
+            "id": "MongoDBAtlasChatMemory_0-output-MongoDBAtlasChatMemory-MongoDBAtlasChatMemory|BaseChatMemory|BaseMemory",
+            "name": "MongoDBAtlasChatMemory",
+            "label": "MongoDBAtlasChatMemory",
+            "description": "Stores the conversation in MongoDB Atlas",
+            "type": "MongoDBAtlasChatMemory | BaseChatMemory | BaseMemory"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 524,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 2101.0201889161453,
+        "y": 551.0193438350782
+      }
+    },
+    {
+      "id": "characterTextSplitter_0",
+      "position": {
+        "x": 599.7544532748718,
+        "y": -350.1446343127805
+      },
+      "type": "customNode",
+      "data": {
+        "id": "characterTextSplitter_0",
+        "label": "Character Text Splitter",
+        "version": 1,
+        "name": "characterTextSplitter",
+        "type": "CharacterTextSplitter",
+        "baseClasses": [
+          "CharacterTextSplitter",
+          "TextSplitter",
+          "BaseDocumentTransformer",
+          "Runnable"
+        ],
+        "category": "Text Splitters",
+        "description": "splits only on one type of character (defaults to \"\\n\\n\").",
+        "inputParams": [
+          {
+            "label": "Chunk Size",
+            "name": "chunkSize",
+            "type": "number",
+            "description": "Number of characters in each chunk. Default is 1000.",
+            "default": 1000,
+            "optional": true,
+            "id": "characterTextSplitter_0-input-chunkSize-number"
+          },
+          {
+            "label": "Chunk Overlap",
+            "name": "chunkOverlap",
+            "type": "number",
+            "description": "Number of characters to overlap between chunks. Default is 200.",
+            "default": 200,
+            "optional": true,
+            "id": "characterTextSplitter_0-input-chunkOverlap-number"
+          },
+          {
+            "label": "Custom Separator",
+            "name": "separator",
+            "type": "string",
+            "placeholder": "\" \"",
+            "description": "Separator to determine when to split the text, will override the default separator",
+            "optional": true,
+            "id": "characterTextSplitter_0-input-separator-string"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "chunkSize": "300",
+          "chunkOverlap": "150",
+          "separator": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "characterTextSplitter_0-output-characterTextSplitter-CharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+            "name": "characterTextSplitter",
+            "label": "CharacterTextSplitter",
+            "description": "splits only on one type of character (defaults to \"\\n\\n\").",
+            "type": "CharacterTextSplitter | TextSplitter | BaseDocumentTransformer | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 475,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 599.7544532748718,
+        "y": -350.1446343127805
+      },
+      "dragging": false
+    },
+    {
+      "id": "htmlToMarkdownTextSplitter_0",
+      "position": {
+        "x": 55.07298350405418,
+        "y": 307.3538038594188
+      },
+      "type": "customNode",
+      "data": {
+        "id": "htmlToMarkdownTextSplitter_0",
+        "label": "HtmlToMarkdown Text Splitter",
+        "version": 1,
+        "name": "htmlToMarkdownTextSplitter",
+        "type": "HtmlToMarkdownTextSplitter",
+        "baseClasses": [
+          "HtmlToMarkdownTextSplitter",
+          "MarkdownTextSplitter",
+          "RecursiveCharacterTextSplitter",
+          "TextSplitter",
+          "BaseDocumentTransformer",
+          "Runnable"
+        ],
+        "category": "Text Splitters",
+        "description": "Converts Html to Markdown and then split your content into documents based on the Markdown headers",
+        "inputParams": [
+          {
+            "label": "Chunk Size",
+            "name": "chunkSize",
+            "type": "number",
+            "description": "Number of characters in each chunk. Default is 1000.",
+            "default": 1000,
+            "optional": true,
+            "id": "htmlToMarkdownTextSplitter_0-input-chunkSize-number"
+          },
+          {
+            "label": "Chunk Overlap",
+            "name": "chunkOverlap",
+            "type": "number",
+            "description": "Number of characters to overlap between chunks. Default is 200.",
+            "default": 200,
+            "optional": true,
+            "id": "htmlToMarkdownTextSplitter_0-input-chunkOverlap-number"
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {
+          "chunkSize": "100",
+          "chunkOverlap": "40"
+        },
+        "outputAnchors": [
+          {
+            "id": "htmlToMarkdownTextSplitter_0-output-htmlToMarkdownTextSplitter-HtmlToMarkdownTextSplitter|MarkdownTextSplitter|RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+            "name": "htmlToMarkdownTextSplitter",
+            "label": "HtmlToMarkdownTextSplitter",
+            "description": "Converts Html to Markdown and then split your content into documents based on the Markdown headers",
+            "type": "HtmlToMarkdownTextSplitter | MarkdownTextSplitter | RecursiveCharacterTextSplitter | TextSplitter | BaseDocumentTransformer | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 376,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 55.07298350405418,
+        "y": 307.3538038594188
+      },
+      "dragging": false
+    },
+    {
+      "id": "chatOllama_1",
+      "position": {
+        "x": 1695.4067688261666,
+        "y": -394.0039217677292
+      },
+      "type": "customNode",
+      "data": {
+        "id": "chatOllama_1",
+        "label": "ChatOllama",
+        "version": 5,
+        "name": "chatOllama",
+        "type": "ChatOllama",
+        "baseClasses": [
+          "ChatOllama",
+          "ChatOllama",
+          "BaseChatModel",
+          "BaseLanguageModel",
+          "Runnable"
+        ],
+        "category": "Chat Models",
+        "description": "Chat completion using open-source LLM on Ollama",
+        "inputParams": [
+          {
+            "label": "Base URL",
+            "name": "baseUrl",
+            "type": "string",
+            "default": "http://localhost:11434",
+            "id": "chatOllama_1-input-baseUrl-string"
+          },
+          {
+            "label": "Model Name",
+            "name": "modelName",
+            "type": "string",
+            "placeholder": "llama2",
+            "id": "chatOllama_1-input-modelName-string"
+          },
+          {
+            "label": "Temperature",
+            "name": "temperature",
+            "type": "number",
+            "description": "The temperature of the model. Increasing the temperature will make the model answer more creatively. (Default: 0.8). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 0.1,
+            "default": 0.9,
+            "optional": true,
+            "id": "chatOllama_1-input-temperature-number"
+          },
+          {
+            "label": "Allow Image Uploads",
+            "name": "allowImageUploads",
+            "type": "boolean",
+            "description": "Allow image input. Refer to the <a href=\"https://docs.flowiseai.com/using-flowise/uploads#image\" target=\"_blank\">docs</a> for more details.",
+            "default": false,
+            "optional": true,
+            "id": "chatOllama_1-input-allowImageUploads-boolean"
+          },
+          {
+            "label": "Streaming",
+            "name": "streaming",
+            "type": "boolean",
+            "default": true,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-streaming-boolean"
+          },
+          {
+            "label": "JSON Mode",
+            "name": "jsonMode",
+            "type": "boolean",
+            "description": "Coerces model outputs to only return JSON. Specify in the system prompt to return JSON. Ex: Format all responses as JSON object",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-jsonMode-boolean"
+          },
+          {
+            "label": "Keep Alive",
+            "name": "keepAlive",
+            "type": "string",
+            "description": "How long to keep connection alive. A duration string (such as \"10m\" or \"24h\")",
+            "default": "5m",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-keepAlive-string"
+          },
+          {
+            "label": "Top P",
+            "name": "topP",
+            "type": "number",
+            "description": "Works together with top-k. A higher value (e.g., 0.95) will lead to more diverse text, while a lower value (e.g., 0.5) will generate more focused and conservative text. (Default: 0.9). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-topP-number"
+          },
+          {
+            "label": "Top K",
+            "name": "topK",
+            "type": "number",
+            "description": "Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers, while a lower value (e.g. 10) will be more conservative. (Default: 40). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-topK-number"
+          },
+          {
+            "label": "Mirostat",
+            "name": "mirostat",
+            "type": "number",
+            "description": "Enable Mirostat sampling for controlling perplexity. (default: 0, 0 = disabled, 1 = Mirostat, 2 = Mirostat 2.0). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-mirostat-number"
+          },
+          {
+            "label": "Mirostat ETA",
+            "name": "mirostatEta",
+            "type": "number",
+            "description": "Influences how quickly the algorithm responds to feedback from the generated text. A lower learning rate will result in slower adjustments, while a higher learning rate will make the algorithm more responsive. (Default: 0.1) Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-mirostatEta-number"
+          },
+          {
+            "label": "Mirostat TAU",
+            "name": "mirostatTau",
+            "type": "number",
+            "description": "Controls the balance between coherence and diversity of the output. A lower value will result in more focused and coherent text. (Default: 5.0) Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-mirostatTau-number"
+          },
+          {
+            "label": "Context Window Size",
+            "name": "numCtx",
+            "type": "number",
+            "description": "Sets the size of the context window used to generate the next token. (Default: 2048) Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-numCtx-number"
+          },
+          {
+            "label": "Number of GPU",
+            "name": "numGpu",
+            "type": "number",
+            "description": "The number of layers to send to the GPU(s). On macOS it defaults to 1 to enable metal support, 0 to disable. Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-numGpu-number"
+          },
+          {
+            "label": "Number of Thread",
+            "name": "numThread",
+            "type": "number",
+            "description": "Sets the number of threads to use during computation. By default, Ollama will detect this for optimal performance. It is recommended to set this value to the number of physical CPU cores your system has (as opposed to the logical number of cores). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-numThread-number"
+          },
+          {
+            "label": "Repeat Last N",
+            "name": "repeatLastN",
+            "type": "number",
+            "description": "Sets how far back for the model to look back to prevent repetition. (Default: 64, 0 = disabled, -1 = num_ctx). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-repeatLastN-number"
+          },
+          {
+            "label": "Repeat Penalty",
+            "name": "repeatPenalty",
+            "type": "number",
+            "description": "Sets how strongly to penalize repetitions. A higher value (e.g., 1.5) will penalize repetitions more strongly, while a lower value (e.g., 0.9) will be more lenient. (Default: 1.1). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-repeatPenalty-number"
+          },
+          {
+            "label": "Stop Sequence",
+            "name": "stop",
+            "type": "string",
+            "rows": 4,
+            "placeholder": "AI assistant:",
+            "description": "Sets the stop sequences to use. Use comma to seperate different sequences. Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-stop-string"
+          },
+          {
+            "label": "Tail Free Sampling",
+            "name": "tfsZ",
+            "type": "number",
+            "description": "Tail free sampling is used to reduce the impact of less probable tokens from the output. A higher value (e.g., 2.0) will reduce the impact more, while a value of 1.0 disables this setting. (Default: 1). Refer to <a target=\"_blank\" href=\"https://github.com/jmorganca/ollama/blob/main/docs/modelfile.md#valid-parameters-and-values\">docs</a> for more details",
+            "step": 0.1,
+            "optional": true,
+            "additionalParams": true,
+            "id": "chatOllama_1-input-tfsZ-number"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Cache",
+            "name": "cache",
+            "type": "BaseCache",
+            "optional": true,
+            "id": "chatOllama_1-input-cache-BaseCache"
+          }
+        ],
+        "inputs": {
+          "cache": "{{inMemoryCache_0.data.instance}}",
+          "baseUrl": "https://possible-profound-man.ngrok-free.app",
+          "modelName": "llama3",
+          "temperature": "0.3",
+          "allowImageUploads": "",
+          "streaming": true,
+          "jsonMode": "",
+          "keepAlive": "5m",
+          "topP": "",
+          "topK": "",
+          "mirostat": "",
+          "mirostatEta": "",
+          "mirostatTau": "",
+          "numCtx": "",
+          "numGpu": "",
+          "numThread": "",
+          "repeatLastN": "",
+          "repeatPenalty": "",
+          "stop": "",
+          "tfsZ": ""
+        },
+        "outputAnchors": [
+          {
+            "id": "chatOllama_1-output-chatOllama-ChatOllama|ChatOllama|BaseChatModel|BaseLanguageModel|Runnable",
+            "name": "chatOllama",
+            "label": "ChatOllama",
+            "description": "Chat completion using open-source LLM on Ollama",
+            "type": "ChatOllama | ChatOllama | BaseChatModel | BaseLanguageModel | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 675,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1695.4067688261666,
+        "y": -394.0039217677292
+      },
+      "dragging": false
+    },
+    {
+      "id": "fileLoader_0",
+      "position": {
+        "x": 1012.4862281333003,
+        "y": -138.95482102752723
+      },
+      "type": "customNode",
+      "data": {
+        "id": "fileLoader_0",
+        "label": "File Loader",
+        "version": 2,
+        "name": "fileLoader",
+        "type": "Document",
+        "baseClasses": [
+          "Document"
+        ],
+        "category": "Document Loaders",
+        "description": "A generic file loader that can load txt, json, csv, docx, pdf, and other files",
+        "inputParams": [
+          {
+            "label": "File",
+            "name": "file",
+            "type": "file",
+            "fileType": "*",
+            "id": "fileLoader_0-input-file-file"
+          },
+          {
+            "label": "Pdf Usage",
+            "name": "pdfUsage",
+            "type": "options",
+            "description": "Only when loading PDF files",
+            "options": [
+              {
+                "label": "One document per page",
+                "name": "perPage"
+              },
+              {
+                "label": "One document per file",
+                "name": "perFile"
+              }
+            ],
+            "default": "perPage",
+            "optional": true,
+            "additionalParams": true,
+            "id": "fileLoader_0-input-pdfUsage-options"
+          },
+          {
+            "label": "JSONL Pointer Extraction",
+            "name": "pointerName",
+            "type": "string",
+            "description": "Only when loading JSONL files",
+            "placeholder": "<pointerName>",
+            "optional": true,
+            "additionalParams": true,
+            "id": "fileLoader_0-input-pointerName-string"
+          },
+          {
+            "label": "Additional Metadata",
+            "name": "metadata",
+            "type": "json",
+            "description": "Additional metadata to be added to the extracted documents",
+            "optional": true,
+            "additionalParams": true,
+            "id": "fileLoader_0-input-metadata-json"
+          },
+          {
+            "label": "Omit Metadata Keys",
+            "name": "omitMetadataKeys",
+            "type": "string",
+            "rows": 4,
+            "description": "Each document loader comes with a default set of metadata keys that are extracted from the document. You can use this field to omit some of the default metadata keys. The value should be a list of keys, seperated by comma. Use * to omit all metadata keys execept the ones you specify in the Additional Metadata field",
+            "placeholder": "key1, key2, key3.nestedKey1",
+            "optional": true,
+            "additionalParams": true,
+            "id": "fileLoader_0-input-omitMetadataKeys-string"
+          }
+        ],
+        "inputAnchors": [
+          {
+            "label": "Text Splitter",
+            "name": "textSplitter",
+            "type": "TextSplitter",
+            "optional": true,
+            "id": "fileLoader_0-input-textSplitter-TextSplitter"
+          }
+        ],
+        "inputs": {
+          "textSplitter": "{{characterTextSplitter_0.data.instance}}",
+          "pdfUsage": "perPage",
+          "pointerName": "",
+          "metadata": "",
+          "omitMetadataKeys": ""
+        },
+        "outputAnchors": [
+          {
+            "name": "output",
+            "label": "Output",
+            "type": "options",
+            "description": "Array of document objects containing metadata and pageContent",
+            "options": [
+              {
+                "id": "fileLoader_0-output-document-Document|json",
+                "name": "document",
+                "label": "Document",
+                "description": "Array of document objects containing metadata and pageContent",
+                "type": "Document | json"
+              },
+              {
+                "id": "fileLoader_0-output-text-string|json",
+                "name": "text",
+                "label": "Text",
+                "description": "Concatenated string from pageContent of documents",
+                "type": "string | json"
+              }
+            ],
+            "default": "document"
+          }
+        ],
+        "outputs": {
+          "output": "document"
+        },
+        "selected": false
+      },
+      "width": 300,
+      "height": 438,
+      "selected": false,
+      "dragging": false,
+      "positionAbsolute": {
+        "x": 1012.4862281333003,
+        "y": -138.95482102752723
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "chatOllama_1",
+      "sourceHandle": "chatOllama_1-output-chatOllama-ChatOllama|ChatOllama|BaseChatModel|BaseLanguageModel|Runnable",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-model-BaseChatModel",
+      "type": "buttonedge",
+      "id": "chatOllama_1-chatOllama_1-output-chatOllama-ChatOllama|ChatOllama|BaseChatModel|BaseLanguageModel|Runnable-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-model-BaseChatModel"
+    },
+    {
+      "source": "inMemoryCache_0",
+      "sourceHandle": "inMemoryCache_0-output-inMemoryCache-InMemoryCache|BaseCache",
+      "target": "chatOllama_1",
+      "targetHandle": "chatOllama_1-input-cache-BaseCache",
+      "type": "buttonedge",
+      "id": "inMemoryCache_0-inMemoryCache_0-output-inMemoryCache-InMemoryCache|BaseCache-chatOllama_1-chatOllama_1-input-cache-BaseCache"
+    },
+    {
+      "source": "MongoDBAtlasChatMemory_0",
+      "sourceHandle": "MongoDBAtlasChatMemory_0-output-MongoDBAtlasChatMemory-MongoDBAtlasChatMemory|BaseChatMemory|BaseMemory",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-memory-BaseMemory",
+      "type": "buttonedge",
+      "id": "MongoDBAtlasChatMemory_0-MongoDBAtlasChatMemory_0-output-MongoDBAtlasChatMemory-MongoDBAtlasChatMemory|BaseChatMemory|BaseMemory-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-memory-BaseMemory"
+    },
+    {
+      "source": "mongoDBAtlas_0",
+      "sourceHandle": "mongoDBAtlas_0-output-retriever-MongoDB Atlas|VectorStoreRetriever|BaseRetriever",
+      "target": "conversationalRetrievalQAChain_0",
+      "targetHandle": "conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever",
+      "type": "buttonedge",
+      "id": "mongoDBAtlas_0-mongoDBAtlas_0-output-retriever-MongoDB Atlas|VectorStoreRetriever|BaseRetriever-conversationalRetrievalQAChain_0-conversationalRetrievalQAChain_0-input-vectorStoreRetriever-BaseRetriever"
+    },
+    {
+      "source": "ollamaEmbedding_0",
+      "sourceHandle": "ollamaEmbedding_0-output-ollamaEmbedding-OllamaEmbeddings|Embeddings",
+      "target": "mongoDBAtlas_0",
+      "targetHandle": "mongoDBAtlas_0-input-embeddings-Embeddings",
+      "type": "buttonedge",
+      "id": "ollamaEmbedding_0-ollamaEmbedding_0-output-ollamaEmbedding-OllamaEmbeddings|Embeddings-mongoDBAtlas_0-mongoDBAtlas_0-input-embeddings-Embeddings"
+    },
+    {
+      "source": "cheerioWebScraper_0",
+      "sourceHandle": "cheerioWebScraper_0-output-document-Document|json",
+      "target": "mongoDBAtlas_0",
+      "targetHandle": "mongoDBAtlas_0-input-document-Document",
+      "type": "buttonedge",
+      "id": "cheerioWebScraper_0-cheerioWebScraper_0-output-document-Document|json-mongoDBAtlas_0-mongoDBAtlas_0-input-document-Document"
+    },
+    {
+      "source": "characterTextSplitter_0",
+      "sourceHandle": "characterTextSplitter_0-output-characterTextSplitter-CharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+      "target": "fileLoader_0",
+      "targetHandle": "fileLoader_0-input-textSplitter-TextSplitter",
+      "type": "buttonedge",
+      "id": "characterTextSplitter_0-characterTextSplitter_0-output-characterTextSplitter-CharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable-fileLoader_0-fileLoader_0-input-textSplitter-TextSplitter"
+    },
+    {
+      "source": "fileLoader_0",
+      "sourceHandle": "fileLoader_0-output-document-Document|json",
+      "target": "mongoDBAtlas_0",
+      "targetHandle": "mongoDBAtlas_0-input-document-Document",
+      "type": "buttonedge",
+      "id": "fileLoader_0-fileLoader_0-output-document-Document|json-mongoDBAtlas_0-mongoDBAtlas_0-input-document-Document"
+    },
+    {
+      "source": "htmlToMarkdownTextSplitter_0",
+      "sourceHandle": "htmlToMarkdownTextSplitter_0-output-htmlToMarkdownTextSplitter-HtmlToMarkdownTextSplitter|MarkdownTextSplitter|RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable",
+      "target": "cheerioWebScraper_0",
+      "targetHandle": "cheerioWebScraper_0-input-textSplitter-TextSplitter",
+      "type": "buttonedge",
+      "id": "htmlToMarkdownTextSplitter_0-htmlToMarkdownTextSplitter_0-output-htmlToMarkdownTextSplitter-HtmlToMarkdownTextSplitter|MarkdownTextSplitter|RecursiveCharacterTextSplitter|TextSplitter|BaseDocumentTransformer|Runnable-cheerioWebScraper_0-cheerioWebScraper_0-input-textSplitter-TextSplitter"
+    }
+  ]
+}

@@ -12,7 +12,9 @@
   export default {
     name: 'ChatBotPage',
     mounted() {
-        this.loadStart()
+      setTimeout(() => {
+        this.loadStart();
+    }, 1000); // 3000 milliseconds = 3 seconds
     },
     
     beforeUnmount() {
@@ -32,10 +34,8 @@
         else if(this.$store.state.profileData?.companyId?.companyName != undefined)
         name = this.$store.state.profileData?.companyId?.companyName
             
-                setTimeout(() => {
                     this.loadChatbot(name)
-                }, 4000);
-            
+                      
         },
       loadChatbot(name) {
         const script = document.createElement("script");
@@ -55,8 +55,8 @@
         iconColor: 'white',
         customIconSrc: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-messages-icon.png',
         autoWindowOpen: {
-          autoOpen: false, //parameter to control automatic window opening
-          openDelay: 1, // Optional parameter for delay time in seconds
+          autoOpen: true, //parameter to control automatic window opening
+          openDelay: 5, // Optional parameter for delay time in seconds
           autoOpenOnMobile: false, //parameter to control automatic window opening in mobile
         },
       },
@@ -67,6 +67,10 @@
         tooltipTextColor: 'white',
         tooltipFontSize: 16,
       },
+      customCSS: `.justify-start{
+      max-width: 100% !important;
+      word-wrap: break-word;
+      }`, 
       chatWindow: {
         showTitle: true,
         showAgentMessages: true,
@@ -80,9 +84,12 @@
         width: 400,
         fontSize: 16,
         starterPromptFontSize: 15,
+        starterPrompts: ['Can you tell me about yourself?','Can you help me with my job search?', 'How can I apply for a job?'], // It overrides the starter prompts set by the chat flow passed
+        
         botMessage: {
           backgroundColor: '#f7f8ff',
           textColor: '#303235',
+          width: 75 ,
           showAvatar: true,
           avatarHeight:20,
           avatarSrc: 'https://www.shutterstock.com/image-vector/chat-bot-icon-virtual-smart-600nw-2478849771.jpg' ,
@@ -90,6 +97,7 @@
         userMessage: {
           backgroundColor: '#3B81F6',
           textColor: '#ffffff',
+          maxWidth: '75%',
           showAvatar: true,
           avatarSrc: `${this.$store.state.profileImage}`,
         },
@@ -108,6 +116,7 @@
         },
         feedback: {
           color: '#303235',
+          
         },
         footer: {
           textColor: '#303235',
@@ -131,9 +140,15 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    max-width: 10% !important;
   }
   flowise-chatbot:shadow-root span.w-full{
     display: none !important;
   }
+  /* Limit the width of the chatbot messages to prevent overflow */
+  .host-container {
+  max-width: 20px !important; 
+  overflow-wrap: break-word !important;  /* Ensure long words or URLs wrap to the next line */
+}
   </style>
   
