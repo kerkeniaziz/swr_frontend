@@ -62,6 +62,7 @@
                   data-bs-target="#account-tab-pane"
                   type="button"
                   role="tab"
+                  v-if="this.$store.state.userRole !=='admin'"
                   aria-controls="account-tab-pane"
                   aria-selected="false"
                 >

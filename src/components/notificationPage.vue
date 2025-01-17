@@ -28,44 +28,45 @@
                 :class="notification.status === 'notviewed' ? 'bi-eye-slash' : 'bi-eye-fill text-success'"
               />
             </div>
-            <!-- Modal -->
-            <div
-              id="notificationModal"
-              class="modal fade"
-              tabindex="-1"
-              aria-labelledby="notificationModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5
-                      id="notificationModalLabel"
-                      class="modal-title"
-                    >
-                      {{ notification?.title }}
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close text-white"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    />
-                  </div>
-                  <div class="modal-body">
-                    <div v-html="notification?.message" />
-                    <!-- Add more details if needed -->
-                  </div>
+          </div>
+
+          <!-- Single Modal -->
+          <div
+            id="notificationModal"
+            class="modal fade"
+            tabindex="-1"
+            aria-labelledby="notificationModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5
+                    id="notificationModalLabel"
+                    class="modal-title"
+                  >
+                    {{ selectedNotification?.title }}
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close text-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  />
+                </div>
+                <div class="modal-body">
+                  <div v-html="selectedNotification?.message" />
                 </div>
               </div>
             </div>
           </div>
+
           <div
-            v-if="count===0"
+            v-if="count === 0"
             class="mt-5 text-center"
           >
             <span>
-              <i class="bi bi-envelope-fill me-4 fs-4 " />
+              <i class="bi bi-envelope-fill me-4 fs-4" />
               <span class="fs-4 text-truncate">No Notification</span>
             </span>
           </div>
@@ -74,48 +75,48 @@
     </div>
   </section>
 </template>
-  
-  <script>
-  import axios from 'axios';
-  export default {
-    name: 'NotificationPage',
-    data() {
-      return {
-        notifications: [],
-        selectedNotification: null,
-        count: 0
-      };
+
+<script>
+import axios from 'axios';
+export default {
+  name: 'NotificationPage',
+  data() {
+    return {
+      notifications: [],
+      selectedNotification: null,
+      count: 0
+    };
+  },
+  mounted() {
+    this.fetchNotification();
+  },
+  methods: {
+    async fetchNotification() {
+      try {
+        const response = await axios.get('/notification?pageSize=0');
+        this.notifications = response.data.notifications;
+        this.count = response.data.count;
+      } catch (e) {
+        console.error(e);
+      }
     },
-    mounted() {
-      this.fetchNotification();
-    },
-    methods: {
-      async fetchNotification() {
-        try {
-          const response = await axios.get('/notification?pageSize=0');
-          this.notifications = response.data.notifications;
-          this.count = response.data.count; 
-        } catch (e) {
-          console.error(e);
-        }
-      },
-      async viewNotification(notification){
-        try {
-            if(notification.status !=='viewed'){
-           await axios.put(`/notification/${notification._id}`, {
+    async viewNotification(notification) {
+      try {
+        this.selectedNotification = notification; // Set the selected notification
+        if (notification.status !== 'viewed') {
+          await axios.put(`/notification/${notification._id}`, {
             status: 'viewed'
           });
           notification.status = 'viewed'; // Update local status
         }
-        } catch (e) {
-          console.error(e);
-        }
+      } catch (e) {
+        console.error(e);
       }
     }
-  };
-  </script>
-  
-  <style>
-  /* Add any additional styles here */
-  </style>
-  
+  }
+};
+</script>
+
+<style>
+/* Add any additional styles here */
+</style>

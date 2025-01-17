@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-3">
+  <div class="container p-3" v-if="this.$store.state.isLogedIn">
     <div class="row ">
       <button
         class="btn btn-primary add mx-3 "

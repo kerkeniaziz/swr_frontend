@@ -39,17 +39,34 @@
             </div>
             <div class="p-4 text-black bg-body-tertiary">
               <div class="d-flex justify-content-end text-center py-1 text-body">
-                <div>
-                  <p class="mb-1 h5">
-                    {{ companyData?.companySize || 'none' }}
+                <div class="me-5" v-if="this.$store.state.userRole ==='admin'" >
+                  <p class="mb-1  h5">
+                    {{ companyData?.uniqueId || '--' }}
                   </p>
                   <p class="small text-muted mb-0">
-                    Company Size
+                    Identifier
                   </p>
                 </div>
+                <div class="me-5" v-if="this.$store.state.userRole ==='admin'" >
+                  <p class="mb-1 h5">
+                    {{ userId?.phone || '--' }}
+                  </p>
+                  <p class="small text-muted mb-0">
+                    Phone 
+                  </p>
+                </div>
+                <div>
+                  <p class="mb-1 h5">
+                    {{ companyData?.companySize || '--' }}
+                  </p>
+                  <p class="small text-muted mb-0">
+                    Company Size 
+                  </p>
+                </div>
+               
                 <div class="px-3 mx-3">
                   <p class="mb-1 h5">
-                    {{ companyData?.industry || 'none' }}
+                    {{ companyData?.industry || '--' }}
                   </p>
                   <p class="small text-muted mb-0">
                     Industry
@@ -57,7 +74,7 @@
                 </div>
                 <div>
                   <p class="mb-1 h5">
-                    {{ companyData?.culture || 'none' }}
+                    {{ companyData?.culture || '--' }}
                   </p>
                   <p class="small text-muted mb-0">
                     Culture

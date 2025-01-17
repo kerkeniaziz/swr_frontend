@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 ">
+  <div class="col-12" v-if="this.$store.state.userRole !=='admin'" >
     <div class="card widget-card border-light shadow-sm">
       <div class="card-body p-4">
         <div class="mb-4">

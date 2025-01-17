@@ -125,7 +125,7 @@
         >
           <span class="position-relative pt-1">
             <i class="bi bi-bell" />
-            <span class="p-1 bg-danger border border-light rounded-circle position-absolute top-0 start-100 translate-middle">
+            <span class="p-1 bg-danger border border-light rounded-circle position-absolute top-0 start-100 translate-middle" v-if="notviewed">
               <span class="visually-hidden">New Notifications</span>
             </span>
           </span>
@@ -318,19 +318,21 @@ export default {
           ProfileData: {},
           search:"",
           notifications:{},
-          count:0
+          count:0,
+          notviewed:false
         }
     },
         mounted() {
           this.ProfileData = this.$store.state.profileData;
-      this.fetchNotification(); 
+          this.fetchNotification(); 
     },
     methods: {
       async fetchNotification() {
         try {
-          const response = await axios.get('/notification?pageSize=3');
+          const response = await axios.get('/notification?pageSize=5');
           this.notifications = response.data.notifications;
           this.count = response.data.count;
+          this.notviewed = response.data.notviewed
         } catch (e) {
           console.error(e);
         }

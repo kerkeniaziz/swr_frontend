@@ -40,17 +40,41 @@ const routes = [
     {
         path: '/jobs/application',
         name: 'JobApplication',
-        component: () => import('../components/application/jobApplication.vue')
+        component: () => import('../components/application/jobApplication.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/setting',
         name: 'SettingProfile',
-        component: () => import('../components/user/settingProfile.vue')
+        component: () => import('../components/user/settingProfile.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/jobs/application/review',
         name: 'ReviewPage',
-        component: () => import('../components/application/reviewPage.vue')
+        component: () => import('../components/application/reviewPage.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
 
     {
@@ -67,43 +91,120 @@ const routes = [
     {
         path: '/dashboard/jobapplied',
         name: 'JobApplied',
-        component: () => import('../components/job/jobApplied.vue')
+        component: () => import('../components/job/jobApplied.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/notification-center',
         name: 'NotificationCenter',
-        component: () => import('../components/notificationCenter.vue')
+        component: () => import('../components/notificationCenter.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn && store.state.userRole === 'admin') {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/dashboard/notification',
         name: 'NotificationPage',
-        component: () => import('../components/notificationPage.vue')
+        component: () => import('../components/notificationPage.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/dashboard/savedjobs',
         name: 'SavedJobs',
-        component: () => import('../components/job/savedJob.vue')
+        component: () => import('../components/job/savedJob.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/application/overview',
         name: 'OverView',
-        component: () => import('../components/application/overView.vue')
+        component: () => import('../components/application/overView.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
+    {
+      path: '/application/overview',
+      name: 'OverView',
+      component: () => import('../components/application/overView.vue'),
+      beforeEnter: (to, from, next) => {
+        // Check if the user is logged in (replace with your store check)
+        if (store.state.isLogedIn) {
+          next(); // Redirect to dashboard if not logged in
+        } else {
+          router.push('/'); // Proceed to the setting profile page if logged in
+        }
+      }
+  },
 
     {
         path: '/vuex',
         
-        component: () => import('../components/vuexPage.vue')
+        component: () => import('../components/vuexPage.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn ) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/pdf/:pdfName',
         
-        component: () => import('../components/pdfViewer.vue')
+        component: () => import('../components/pdfViewer.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/doc/:docName',
         
-        component: () => import('../components/docxViewer.vue')
+        component: () => import('../components/docxViewer.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
 
     // is logged in
@@ -111,26 +212,66 @@ const routes = [
         path: '/dashboard',
         name: 'MainDashboard',
         component: () => import('../views/mainDashboard.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn) {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/users',
         name: 'UserCrud',
         component: () => import('../components/admin/userCrud.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn && store.state.userRole === 'admin') {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/skills',
         name: 'SkillCrud',
         component: () => import('../components/skill/skillCrud.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn && store.state.userRole === 'admin') {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/categories',
         name: 'CategoryCrud',
         component: () => import('../components/category/categoryCrud.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn && store.state.userRole === 'admin') {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/jobs',
         name: 'JobCrud',
         component: () => import('../components/job/jobCrud.vue'),
+        beforeEnter: (to, from, next) => {
+          // Check if the user is logged in (replace with your store check)
+          if (store.state.isLogedIn && store.state.userRole !== 'candidate') {
+            next(); // Redirect to dashboard if not logged in
+          } else {
+            router.push('/'); // Proceed to the setting profile page if logged in
+          }
+        }
     },
     {
         path: '/about',
@@ -161,7 +302,7 @@ const routes = [
         path: '/category',
         redirect: '/categories'  // Redirect /category to /categories
       },
-
+      
     //no access to this route
     {
         path: '/not_authorized',

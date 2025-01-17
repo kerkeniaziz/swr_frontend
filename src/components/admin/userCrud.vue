@@ -626,9 +626,9 @@ export default{
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                 await axios.delete(`admin/${id}`);
-                await axios.delete(`user/${id}`);
-               
+                if(await axios.delete(`admin/${id}`))
+                {await axios.delete(`user/${id}`);}
+
                 this.fetchUsers()
                 
                 Swal.fire({
@@ -640,7 +640,8 @@ export default{
                 console.error("Error deleting user:", error);
                 Swal.fire({
                     title: "Error!",
-                    text: "There was an error deleting the admin account.",
+                    text: `There was an error deleting the admin account. 
+                    Cannot delete the last admin.`,
                     icon: "error"
                 });
             }

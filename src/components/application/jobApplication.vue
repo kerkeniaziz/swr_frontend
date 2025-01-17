@@ -30,7 +30,7 @@
                   <div class="d-flex align-items-start">
                     <img
                       class="flex-shrink-0 img-fluid border rounded"
-                      :src="$store.state.imageUrl + application.userId.profileImage"
+                      :src="$store.state.imageUrl + application.userId?.profileImage"
                       alt="profile image"
                       style="width: 80px; height: 80px;"
                     >
@@ -145,6 +145,7 @@
         page: 1,
         pages: 1,
         totalCount: 0,
+        response : {}
       };
     },
     mounted() {
@@ -160,16 +161,25 @@
   
       async fetchData() {
   try {
-    const response = await axios.get(`application/?pageNumber=${this.page}&jobId=${this.$route.query.JobId}`);
-    
+    if (this.$route.query.JobId)
+  {
+    console.log(this.$route.query)
+     this.response = await axios.get(`application/?pageNumber=${this.page}&jobId=${this.$route.query.JobId}`);
+  }
+  else
+  {
+    console.log(this.$route.query)
+   this.response = await axios.get(`applicationC/?pageNumber=${this.page}`);
+}
+
     // Sort the applications by matchScore in descending order
-    this.applications = response.data.applications.sort((a, b) => {
+    this.applications = this.response.data.applications.sort((a, b) => {
       return (b.matchScore || 0) - (a.matchScore || 0);
     });
 
-    this.page = response.data.page;
-    this.pages = response.data.pages;
-    this.totalCount = response.data.count;
+    this.page = this.response.data.page;
+    this.pages = this.response.data.pages;
+    this.totalCount = this.response.data.count;
   } catch (error) {
     console.error('Error fetching jobs:', error);
   }

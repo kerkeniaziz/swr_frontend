@@ -6,11 +6,11 @@
     />
     <div
       v-if="$store.state.isLogedIn"
-      class="d-flex"
+      class="d-flex "
     >
       <div class="main">
         <navBarUser />
-        <div class="d-flex">
+        <div class="d-flex min-vh-100">
           <div class="flex-shrink-0 p-3 bg-light">
             <sidebarAll class="sticky" />
           </div>

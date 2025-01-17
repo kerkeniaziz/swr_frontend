@@ -11,12 +11,12 @@
         </h1>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb text-uppercase">
-            <li class="breadcrumb-item">
+            <li class="breadcrumb-item text-white text-decoration-underline">
               <router-link to="/">
                 Home
               </router-link>
             </li>
-            <li class="breadcrumb-item">
+            <li class="breadcrumb-item text-white text-decoration-underline">
               <router-link to="/findjob">
                 Find Job
               </router-link>
