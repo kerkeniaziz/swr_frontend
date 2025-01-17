@@ -34,7 +34,7 @@
             
                 setTimeout(() => {
                     this.loadChatbot(name)
-                }, 2000);
+                }, 8000);
             
         },
       loadChatbot(name) {
