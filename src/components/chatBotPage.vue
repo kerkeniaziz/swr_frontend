@@ -43,7 +43,7 @@
         script.src = "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
         script.onload = () => {
           window.Chatbot.init({
-            chatflowid: "92778fec-2da9-4ef1-9f24-fe0c32c7fa8d",
+            chatflowid: "22c92709-96e4-42d1-9614-85c610b972df",
             apiHost: "https://swrchatbot.azurewebsites.net",
             theme: {
       button: {
