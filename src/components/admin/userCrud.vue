@@ -81,7 +81,7 @@
             >
               <th>
                 <img
-                  :src="'http://localhost:8000/image/' + user.profileImage"
+                  :src="'https://swrbackend.azurewebsites.net/image/' + user.profileImage ||'http://localhost:8000/image/' + user.profileImage"
                   class="img-fluid rounded-circle max-width-100"
                   alt="profile img"
                 >
