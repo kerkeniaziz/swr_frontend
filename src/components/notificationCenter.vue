@@ -30,6 +30,9 @@
                   <option value="admin">
                     Admins
                   </option>
+                  <option value="company">
+                    Company
+                  </option>
                   <option value="candidate">
                     Candidates
                   </option>
